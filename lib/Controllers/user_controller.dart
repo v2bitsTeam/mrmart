@@ -40,8 +40,8 @@ class UserController extends GetxController {
     }
   }
 
-  Future<bool> createUser(
-    image,
+  Future<Map<String, dynamic>> createUser(
+    File image,
     String name,
     String email,
     String mobile,
@@ -63,10 +63,7 @@ class UserController extends GetxController {
       pincode,
     );
 
-    if (response['status']) {
-      return true;
-    }
-    return false;
+    return response;
   }
 
   Future<bool> updateUser(

@@ -49,7 +49,8 @@ class ProfileScreen extends StatelessWidget {
               CircleAvatar(
                 radius: 40,
                 backgroundImage:
-                    userController.user.value.profileImage.length > 0
+                    userController.user.value.profileImage != null &&
+                            userController.user.value.profileImage.length > 0
                         ? NetworkImage(AppConstant.MediaUrl +
                             userController.user.value.profileImage)
                         : AssetImage('assets/images/profile/user.jpg'),

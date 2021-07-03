@@ -564,9 +564,9 @@ class _AuthenticationState extends State<Authentication>
       return;
     }
 
-    var profileImage = image != null ? image : "";
+    var profileImage = image;
 
-    var fetchStatus = await userController.createUser(
+    var response = await userController.createUser(
       profileImage,
       provider.name.text,
       provider.email.text,
@@ -577,10 +577,8 @@ class _AuthenticationState extends State<Authentication>
       provider.state.text,
       provider.pinCode.text,
     );
-
-    if (!fetchStatus) {
-      errorMessage(context,
-          message: "Something went wrong. Please, try again.");
+    if (!response['status']) {
+      errorMessage(context, message: response['message']);
       return;
     }
 

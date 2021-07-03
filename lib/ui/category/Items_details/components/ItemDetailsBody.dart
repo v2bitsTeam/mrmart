@@ -64,9 +64,13 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        product.name,
-                        style: Theme.of(context).textTheme.headline1,
+                      Container(
+                        width: Get.width * 0.50,
+                        child: Text(
+                          product.name,
+                          softWrap: true,
+                          style: Theme.of(context).textTheme.headline1,
+                        ),
                       ),
                       Row(
                         children: [

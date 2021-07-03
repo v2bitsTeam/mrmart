@@ -28,7 +28,7 @@ class HTTPServices {
   }
 
   static Future<Map<String, dynamic>> createUser(
-    dynamic image,
+    File image,
     String name,
     String email,
     String mobile,

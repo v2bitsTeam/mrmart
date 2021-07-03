@@ -65,6 +65,11 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
             ),
           ),
         ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Get.back(),
+          highlightColor: Colors.transparent,
+        ),
         actions: [
           Padding(
             padding: EdgeInsets.only(

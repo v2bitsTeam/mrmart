@@ -120,12 +120,16 @@ class _TrendingItemsState extends State<TrendingItems> {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          product.name,
-                          style: TextStyle(
-                              color: kTextColor,
-                              fontWeight: FontWeight.normal,
-                              fontSize: Dimension.Text_Size_Small),
+                        Container(
+                          width: 140.0,
+                          child: Text(
+                            product.name,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                                color: kTextColor,
+                                fontWeight: FontWeight.normal,
+                                fontSize: Dimension.Text_Size_Small),
+                          ),
                         ),
                       ],
                     ),
