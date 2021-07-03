@@ -30,6 +30,7 @@ class HTTPServices {
   static Future<Map<String, dynamic>> createUser(
     dynamic image,
     String name,
+    String email,
     String mobile,
     String password,
     String location,
@@ -37,29 +38,27 @@ class HTTPServices {
     String state,
     String pincode,
   ) async {
-    String url = "register.php";
-    MultipartFile multipartFile;
+    String url = "register_new.php";
 
     var dio = new Dio();
+    dio.interceptors.add(LogInterceptor());
     dio.options.connectTimeout = 5000;
     dio.options.receiveTimeout = 5000;
-    FormData formData = new FormData();
 
-    formData.fields.add(MapEntry("name", name));
-    formData.fields.add(MapEntry("mobile", mobile));
-    formData.fields.add(MapEntry("password", password));
-    formData.fields.add(MapEntry("location", location));
-    formData.fields.add(MapEntry("city", city));
-    formData.fields.add(MapEntry("state", state));
-    formData.fields.add(MapEntry("pincode", pincode));
-
-    if (image.length != 0) {
-      multipartFile = await MultipartFile.fromFile(image.path,
-          filename: basename(image.path));
-      formData.files.add(MapEntry("profile_image", multipartFile));
-    } else {
-      formData.fields.add(MapEntry("profile_image", ""));
-    }
+    FormData formData = FormData.fromMap({
+      "name": name,
+      "email": email,
+      "mobile": mobile,
+      "password": password,
+      "location": location,
+      "city": city,
+      "state": state,
+      "pincode": pincode,
+      'profile_image': image != null
+          ? await MultipartFile.fromFile(image.path,
+              filename: '$mobile${extension(image.path)}')
+          : "",
+    });
 
     var response = await dio.post(AppConstant.BaseUrl + url,
         data: formData,
@@ -80,9 +79,10 @@ class HTTPServices {
 
   static Future<Map<String, dynamic>> updateUser(
     String userId,
-    String userName,
+    String userMobile,
     File image,
     String name,
+    String email,
     String location,
     String city,
     String state,
@@ -92,32 +92,15 @@ class HTTPServices {
   ) async {
     String url = "update_profile.php";
 
-    print(userId);
-    print(name);
-    print(location);
-    print(city);
-    print(state);
-    print(pincode);
-    print(imageEdited);
-    print(oldImage);
-
     var dio = new Dio();
     dio.interceptors.add(LogInterceptor());
     dio.options.connectTimeout = 5000;
     dio.options.receiveTimeout = 5000;
-    var profileImage;
-
-    if (image != null) {
-      profileImage = await MultipartFile.fromFile(image.path,
-          filename: '$userName${extension(image.path)}');
-      print('$userName${extension(image.path)}');
-    } else {
-      profileImage = "";
-    }
 
     FormData formData = FormData.fromMap({
       "uid": userId,
       "name": name,
+      "email": email,
       "location": location,
       "city": city,
       "state": state,
@@ -126,7 +109,7 @@ class HTTPServices {
       "oldimage": oldImage,
       'profile_image': image != null
           ? await MultipartFile.fromFile(image.path,
-              filename: '$userName${extension(image.path)}')
+              filename: '$userMobile${extension(image.path)}')
           : "",
     });
 
@@ -141,9 +124,24 @@ class HTTPServices {
         },
       ),
     );
-    print(response);
+
     if (response.statusCode == 200) {
       return response.data;
+    }
+    return null;
+  }
+
+  static Future<Map<String, dynamic>> forgotPasswordSendEmail(
+      String mobile) async {
+    String url = "forgotpassword.php";
+    Map<String, String> body = {
+      "mobile": mobile,
+    };
+
+    var response = await client.post(AppConstant.BaseUrl + url, body: body);
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
     }
     return null;
   }
@@ -158,16 +156,6 @@ class HTTPServices {
       "newpassword": newPassword,
     };
 
-    var response = await client.post(AppConstant.BaseUrl + url, body: body);
-
-    if (response.statusCode == 200) {
-      return json.decode(response.body);
-    }
-    return null;
-  }
-
-  static Future<Map<String, dynamic>> editUser(Map<String, String> body) async {
-    String url = "update_profile.php";
     var response = await client.post(AppConstant.BaseUrl + url, body: body);
 
     if (response.statusCode == 200) {

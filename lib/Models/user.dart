@@ -34,6 +34,7 @@ class UserDetails {
     this.id,
     this.uid,
     this.name,
+    this.email,
     this.mobile,
     this.password,
     this.registeredShopId,
@@ -51,6 +52,7 @@ class UserDetails {
   String id;
   String uid;
   String name;
+  String email;
   String mobile;
   String password;
   String registeredShopId;
@@ -68,6 +70,7 @@ class UserDetails {
         id: json["id"],
         uid: json["uid"],
         name: json["name"],
+        email: json["email"],
         mobile: json["mobile"],
         password: json["password"],
         registeredShopId: json["registered_shop_id"],
@@ -90,6 +93,7 @@ class UserDetails {
         "id": id,
         "uid": uid,
         "name": name,
+        "email": email,
         "mobile": mobile,
         "password": password,
         "registered_shop_id": registeredShopId,

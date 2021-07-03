@@ -43,6 +43,7 @@ class UserController extends GetxController {
   Future<bool> createUser(
     image,
     String name,
+    String email,
     String mobile,
     String password,
     String location,
@@ -53,6 +54,7 @@ class UserController extends GetxController {
     var response = await HTTPServices.createUser(
       image,
       name,
+      email,
       mobile,
       password,
       location,
@@ -61,7 +63,6 @@ class UserController extends GetxController {
       pincode,
     );
 
-    print(response);
     if (response['status']) {
       return true;
     }
@@ -70,9 +71,10 @@ class UserController extends GetxController {
 
   Future<bool> updateUser(
     String userId,
-    String userName,
+    String userMobile,
     File image,
     String name,
+    String email,
     String location,
     String city,
     String state,
@@ -82,9 +84,10 @@ class UserController extends GetxController {
   ) async {
     var response = await HTTPServices.updateUser(
       userId,
-      userName,
+      userMobile,
       image,
       name,
+      email,
       location,
       city,
       state,
@@ -99,18 +102,17 @@ class UserController extends GetxController {
     return false;
   }
 
-  Future<bool> editUserDetails(Map<String, String> body) async {
-    var response = await HTTPServices.editUser(body);
-    if (response['status']) {
-      return true;
-    }
-    return false;
+  Future<Map<String, dynamic>> sendEmailForForgotPassword(String mobile) async {
+    var response = await HTTPServices.forgotPasswordSendEmail(mobile);
+
+    return response;
   }
 
   Future<bool> changeUserPassword(
       String newPassword, String oldPassword, String userId) async {
     var response =
         await HTTPServices.updatePassword(newPassword, oldPassword, userId);
+
     if (response['status']) {
       return true;
     }

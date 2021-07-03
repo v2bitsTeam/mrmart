@@ -148,8 +148,9 @@ class _TrendingItemsState extends State<TrendingItems> {
                                       fontWeight: FontWeight.normal,
                                       fontSize: Dimension.Text_Size_Small_Extra,
                                       decoration: TextDecoration.lineThrough),
-                                  text:
-                                      '${AppConstant.currencySymbol}${product.price}')
+                                  text: int.parse(product.discount) > 0
+                                      ? '${AppConstant.currencySymbol}${product.price}'
+                                      : '')
                             ])),
                         Container(
                           child: isInCart

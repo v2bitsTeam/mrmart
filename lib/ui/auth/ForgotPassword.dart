@@ -1,21 +1,18 @@
 import 'dart:ui';
+import 'package:MrMart/Controllers/user_controller.dart';
+import 'package:MrMart/Widgets/ShowMessage.dart';
+import 'package:MrMart/ui_components/default_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
 import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Packege/Loading_Button/Loading_Button.dart';
 import 'package:MrMart/Providers/ForgotPasswordProvider.dart';
 import 'package:MrMart/app_components/ThemesColor.dart';
 import 'package:MrMart/Widgets/BackButton.dart';
 import 'package:MrMart/Widgets/DefaultTextField.dart';
-import 'package:http/http.dart';
 import 'package:pinput/pin_put/pin_put.dart';
-
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../main.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -26,10 +23,12 @@ class ForgotPassword extends StatefulWidget {
 class _ForgotPasswordState extends State<ForgotPassword>
     with TickerProviderStateMixin {
   ForgotPasswordProvider provider;
+  TextEditingController mobileController;
+  final UserController userController = Get.find();
 
   @override
   void initState() {
-    // TODO: implement initState
+    mobileController = TextEditingController();
     super.initState();
   }
 
@@ -158,45 +157,58 @@ class _ForgotPasswordState extends State<ForgotPassword>
     );
   }
 
+  void sendEmail() async {
+    if (GetUtils.isBlank(mobileController.text)) {
+      errorMessage(context, message: "Mobile number is required");
+      return;
+    } else if (mobileController.text.length != 10 ||
+        !GetUtils.isNumericOnly(mobileController.text)) {
+      errorMessage(context, message: "Invalid mobile number");
+      return;
+    }
+    mobileController.text = "";
+    var response =
+        await userController.sendEmailForForgotPassword(mobileController.text);
+
+    if (response['status']) {
+      successMessage(context,
+          message: "Mail sent. Please, check your registered email.");
+      return;
+    }
+    errorMessage(context, message: response['message']);
+  }
+
   Widget showContent() {
     return Container(
       width: Get.width * 0.90,
-      height: Get.height * 0.20,
+      height: Get.height * 0.40,
       margin: EdgeInsets.only(top: Get.height * 0.30, left: Get.width * 0.05),
+      padding: const EdgeInsets.all(10.0),
       alignment: Alignment.center,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           Text(
-            "Please, contact us at ",
+            "Enter your mobile number and we would send an email with further instrutions to your registered email address if the account exists.",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
                   color: Themes.SUB_TEXT,
                   fontSize: Dimension.Size_18,
                 ),
           ),
-          ElevatedButton.icon(
-            icon: Icon(Icons.mail),
-            label: Text("info@mrmart.co.in"),
-            onPressed: () async {
-              final url = 'mailto:info@mrmart.co.in';
-
-              if (await canLaunch(url)) {
-                await launch(url);
-              } else {
-                throw 'Could not launch $url';
-              }
-            },
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: DefaultTextField(
+              controller: mobileController,
+              label: "Mobile No.",
+              isRequired: true,
+            ),
           ),
-          Text(
-            " and we would help you out.",
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: Themes.SUB_TEXT,
-                  fontSize: Dimension.Size_18,
-                ),
+          DefaultButton(
+            text: "Send Email",
+            press: sendEmail,
           ),
         ],
       ),

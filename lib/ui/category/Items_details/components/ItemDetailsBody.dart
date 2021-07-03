@@ -74,14 +74,18 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                             '${AppConstant.currencySymbol} ${Helper.calculateDiscountedPrice(double.parse(product.price), int.parse(product.discount))} ',
                             style: Theme.of(context).textTheme.headline1,
                           ),
-                          Text(
-                            '${AppConstant.currencySymbol}${product.price}',
-                            style:
-                                Theme.of(context).textTheme.subtitle1.copyWith(
-                                      fontSize: 14,
-                                      decoration: TextDecoration.lineThrough,
-                                    ),
-                          ),
+                          int.parse(product.discount) > 0
+                              ? Text(
+                                  '${AppConstant.currencySymbol}${product.price}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .subtitle1
+                                      .copyWith(
+                                        fontSize: 14,
+                                        decoration: TextDecoration.lineThrough,
+                                      ),
+                                )
+                              : Container(),
                         ],
                       ),
                     ],
@@ -104,18 +108,23 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                   SizedBox(
                     height: 6.0,
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Discount: ${product.discount}%',
-                        style: Theme.of(context).textTheme.subtitle1.copyWith(
-                              fontSize: 14,
+                  int.parse(product.discount) > 0
+                      ? Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Discount: ${product.discount}%',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .subtitle1
+                                  .copyWith(
+                                    fontSize: 14,
+                                  ),
                             ),
-                      ),
-                    ],
-                  ),
+                          ],
+                        )
+                      : Container(),
                   SizedBox(
                     height: 10.0,
                   ),

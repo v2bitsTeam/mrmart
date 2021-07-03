@@ -462,8 +462,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                           decoration:
                                                               TextDecoration
                                                                   .lineThrough),
-                                                  text:
-                                                      '${AppConstant.currencySymbol}${productsController.trendingProducts[index].price}')
+                                                  text: int.parse(productsController
+                                                              .trendingProducts[
+                                                                  index]
+                                                              .discount) >
+                                                          0
+                                                      ? '${AppConstant.currencySymbol}${productsController.trendingProducts[index].price}'
+                                                      : '')
                                             ],
                                           ),
                                         ),
@@ -615,7 +620,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               alignment: Alignment.center,
                               height: Get.height * 0.12,
                             )
-                          : Image.asset('assets/images/empty.png'),
+                          : Image.asset(
+                              'assets/images/empty.png',
+                              height: Get.height * 0.12,
+                            ),
                       Divider(
                         height: 2,
                         color: Themes.Grey.withOpacity(0.1),

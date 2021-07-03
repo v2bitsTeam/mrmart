@@ -23,6 +23,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   UserController userController = Get.find();
   TextEditingController nameController;
+  TextEditingController emailController;
   TextEditingController mobileController;
   TextEditingController locationController;
   TextEditingController cityController;
@@ -40,6 +41,8 @@ class _BodyState extends State<Body> {
     super.initState();
     nameController =
         TextEditingController(text: userController.user.value.name);
+    emailController =
+        TextEditingController(text: userController.user.value.email);
     mobileController =
         TextEditingController(text: userController.user.value.mobile);
     locationController =
@@ -55,6 +58,7 @@ class _BodyState extends State<Body> {
   @override
   void dispose() {
     nameController.dispose();
+    emailController.dispose();
     mobileController.dispose();
     locationController.dispose();
     cityController.dispose();
@@ -181,6 +185,16 @@ class _BodyState extends State<Body> {
                   DefaultTextFieldProfileEdit(
                       controller: nameController,
                       label: 'Name',
+                      enable: canEdit,
+                      backgroundColor:
+                          canEdit ? Colors.grey[100] : Colors.grey[50],
+                      fontColor: canEdit ? null : Colors.grey[600]),
+                  SizedBox(
+                    height: 4.0,
+                  ),
+                  DefaultTextFieldProfileEdit(
+                      controller: emailController,
+                      label: 'Email',
                       enable: canEdit,
                       backgroundColor:
                           canEdit ? Colors.grey[100] : Colors.grey[50],
@@ -328,6 +342,7 @@ class _BodyState extends State<Body> {
     UserDetails user = userController.user.value;
     if (image == null &&
         nameController.text == user.name &&
+        emailController.text == user.email &&
         locationController.text == user.location &&
         cityController.text == user.city &&
         stateController.text == user.state &&
@@ -342,6 +357,10 @@ class _BodyState extends State<Body> {
     if (!GetUtils.removeAllWhitespace(nameController.text.trim())
         .isAlphabetOnly) {
       errorMessage(context, message: "Invalid name");
+      return;
+    }
+    if (!GetUtils.isEmail(emailController.text)) {
+      errorMessage(context, message: "Invalid Email");
       return;
     }
     if (GetUtils.isNullOrBlank(locationController.text)) {
@@ -380,6 +399,9 @@ class _BodyState extends State<Body> {
 
     String name =
         nameController.text.length > 0 ? nameController.text.trim() : user.name;
+    String email = emailController.text.length > 0
+        ? emailController.text.trim()
+        : user.email;
     String location = locationController.text.length > 0
         ? locationController.text.trim()
         : user.location;
@@ -394,9 +416,10 @@ class _BodyState extends State<Body> {
 
     var updateStatus = await userController.updateUser(
       user.uid,
-      user.name,
+      user.mobile,
       profileImage,
       name,
+      email,
       location,
       city,
       state,

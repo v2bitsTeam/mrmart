@@ -8,6 +8,7 @@ class AuthenticationProvider with ChangeNotifier {
   bool Loading = true;
   bool userSignedUp = false;
   TextEditingController name = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController mobile = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController conPassword = TextEditingController();

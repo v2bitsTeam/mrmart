@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'dart:io';
 import 'package:MrMart/Controllers/user_controller.dart';
 import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -206,6 +205,11 @@ class _AuthenticationState extends State<Authentication>
                 DefaultTextField(
                   controller: provider.name,
                   label: language.Name,
+                  isRequired: true,
+                ),
+                DefaultTextField(
+                  controller: provider.email,
+                  label: "Email",
                   isRequired: true,
                 ),
                 DefaultTextField(
@@ -497,6 +501,10 @@ class _AuthenticationState extends State<Authentication>
       errorMessage(context, message: "Invalid name");
       return;
     }
+    if (!GetUtils.isEmail(provider.email.text)) {
+      errorMessage(context, message: "Invalid Email");
+      return;
+    }
     if (GetUtils.isNullOrBlank(provider.mobile.text)) {
       errorMessage(context, message: "Mobile number is required");
       return;
@@ -561,6 +569,7 @@ class _AuthenticationState extends State<Authentication>
     var fetchStatus = await userController.createUser(
       profileImage,
       provider.name.text,
+      provider.email.text,
       provider.mobile.text,
       provider.password.text,
       provider.address.text,
@@ -585,6 +594,7 @@ class _AuthenticationState extends State<Authentication>
     image = null;
     imageSourceIsCamera = null;
     provider.name.text = "";
+    provider.email.text = "";
     provider.mobile.text = "";
     provider.password.text = "";
     provider.conPassword.text = "";

@@ -797,6 +797,7 @@ class _BodyState extends State<Body> {
           'prefill': {
             'name': userController.user.value.name,
             'contact': userController.user.value.mobile,
+            'email': userController.user.value.email,
           },
           'theme': {
             'color': "#ff5722",
