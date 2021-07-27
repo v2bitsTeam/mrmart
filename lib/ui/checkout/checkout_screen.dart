@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'components/body.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  //static String routeName = "/Checkout";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

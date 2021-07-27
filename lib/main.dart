@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
-import 'package:MrMart/app_components/AppTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
-import 'package:MrMart/Widgets/ListScrollBehavior.dart';
+import 'package:mr_mart/Widgets/ListScrollBehavior.dart';
+import 'package:mr_mart/app_components/AppTheme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Language/Language.dart';
@@ -36,7 +36,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
   @override
@@ -49,12 +48,12 @@ class _MyAppState extends State<MyApp> with AutomaticKeepAliveClientMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return GetMaterialApp(
       initialRoute: SPLASH_SCREEN,
       defaultTransition: Transition.leftToRightWithFade,
-      //defaultTransition: Transition.native,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme(),
+      theme: appTheme(),
       builder: (context, child) {
         return ScrollConfiguration(
           behavior: ListScrollBehavior(),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import '../main.dart';
 
-Widget DefaultTextFieldProfileEdit({
+Widget defaultTextFieldProfileEdit({
   @required TextEditingController controller,
   FocusNode focusNode,
   String label,
@@ -26,14 +26,15 @@ Widget DefaultTextFieldProfileEdit({
     onTap: onTap,
     child: TextFormField(
       style: TextStyle(
-          color: fontColor != null ? fontColor : Themes.Text_Color,
-          fontSize: Dimension.Text_Size,
-          fontWeight: Dimension.textNormal),
+        color: fontColor != null ? fontColor : Themes.textColor,
+        fontSize: Dimension.textSize,
+        fontWeight: Dimension.textNormal,
+      ),
       controller: controller,
       focusNode: focusNode,
       autocorrect: false,
       keyboardType: textInputType,
-      cursorColor: Themes.Primary,
+      cursorColor: Themes.primary,
       maxLines: maxLine,
       enabled: enable,
       obscureText: obscureText,
@@ -43,47 +44,47 @@ Widget DefaultTextFieldProfileEdit({
         if (value.isEmpty) {
           if (focusNode != null) focusNode.requestFocus();
           return label != null
-              ? '$label${language.Required}'
-              : language.Required.replaceAll(
-                  language.Required.split(' ')[1], '');
+              ? '$label${language.required}'
+              : language.required
+                  .replaceAll(language.required.split(' ')[1], '');
         } else {
           return null;
         }
       },
       decoration: InputDecoration(
-          filled: true,
-          /*contentPadding: EdgeInsets.only(
-              left: 10,
-              right: 10,
-              top: label != null ? Dimension.Padding : 5,
-              bottom: label != null ? Dimension.Padding : 5),*/
-          fillColor: backgroundColor ?? Themes.White,
-          enabledBorder: borderEnable ? textFieldBorder() : InputBorder.none,
-          focusedBorder: borderEnable ? textFieldBorder() : InputBorder.none,
-          errorBorder:
-              borderEnable ? textFieldBorder(isError: true) : InputBorder.none,
-          border: borderEnable ? textFieldBorder() : InputBorder.none,
-          labelText: label != null ? '$label${isRequired ? '*' : ''}' : null,
-          labelStyle: TextStyle(
-              color: Themes.Text_Color,
-              fontSize: Dimension.Text_Size,
-              fontWeight: Dimension.textNormal),
-          prefixIcon: prefixIcon != null
-              ? prefixIcon.runtimeType == IconData
-                  ? Icon(
-                      prefixIcon,
-                      color: Themes.Primary,
-                    )
-                  : prefixIcon
-              : null,
-          errorStyle: TextStyle(
-              fontSize: Dimension.Text_Size_Small_Extra, color: Themes.Red),
-          suffixIcon: suffixIcon != null ? suffixIcon : null,
-          hintText: hint,
-          hintStyle: TextStyle(
-              color: Themes.Grey,
-              fontSize: Dimension.Text_Size,
-              fontWeight: Dimension.textNormal)),
+        filled: true,
+        fillColor: backgroundColor ?? Themes.white,
+        enabledBorder: borderEnable ? textFieldBorder() : InputBorder.none,
+        focusedBorder: borderEnable ? textFieldBorder() : InputBorder.none,
+        errorBorder:
+            borderEnable ? textFieldBorder(isError: true) : InputBorder.none,
+        border: borderEnable ? textFieldBorder() : InputBorder.none,
+        labelText: label != null ? '$label${isRequired ? '*' : ''}' : null,
+        labelStyle: TextStyle(
+          color: Themes.textColor,
+          fontSize: Dimension.textSize,
+          fontWeight: Dimension.textNormal,
+        ),
+        prefixIcon: prefixIcon != null
+            ? prefixIcon.runtimeType == IconData
+                ? Icon(
+                    prefixIcon,
+                    color: Themes.primary,
+                  )
+                : prefixIcon
+            : null,
+        errorStyle: TextStyle(
+          fontSize: Dimension.textSizeSmallExtra,
+          color: Themes.red,
+        ),
+        suffixIcon: suffixIcon != null ? suffixIcon : null,
+        hintText: hint,
+        hintStyle: TextStyle(
+          color: Themes.grey,
+          fontSize: Dimension.textSize,
+          fontWeight: Dimension.textNormal,
+        ),
+      ),
     ),
   );
 }
@@ -91,6 +92,8 @@ Widget DefaultTextFieldProfileEdit({
 textFieldBorder({bool isError = false}) {
   return UnderlineInputBorder(
     borderSide: BorderSide(
-        width: 1, color: isError ? Themes.Red : Themes.TexftFieldBorderProfile),
+      width: 1,
+      color: isError ? Themes.red : Themes.textFieldBorderProfile,
+    ),
   );
 }

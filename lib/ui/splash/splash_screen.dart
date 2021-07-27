@@ -1,15 +1,15 @@
 import 'dart:async';
-import 'package:MrMart/Controllers/pincodes_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
+import 'package:mr_mart/Controllers/pincodes_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/services.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/Widgets/DefaultAppbar.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/Widgets/DefaultAppbar.dart';
 import '../../main.dart';
-import 'package:MrMart/app_components/size_configue.dart';
+import 'package:mr_mart/app_components/size_configue.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -63,9 +63,9 @@ class _SplashScreenState extends State<SplashScreen>
     paddingTop = MediaQuery.of(context).padding.top;
     paddingBottom = MediaQuery.of(context).padding.bottom;
     appbarHeight =
-        DefaultAppbar(context: context, title: 'Demo').preferredSize.height;
+        defaultAppbar(context: context, title: 'Demo').preferredSize.height;
     return Scaffold(
-      backgroundColor: Themes.White,
+      backgroundColor: Themes.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -75,22 +75,24 @@ class _SplashScreenState extends State<SplashScreen>
             scale: _animation,
             child: Image.asset(
               'assets/images/logo.png',
-              color: Themes.Primary2,
+              color: Themes.primary2,
               width: Get.height * 0.2,
               fit: BoxFit.fill,
             ),
           ),
           Center(
             child: Text(
-              AppConstant.AppName,
+              AppConstant.appName,
               style: Theme.of(context).textTheme.headline1.copyWith(
-                  fontSize: Dimension.Size_36, color: Themes.Primary2),
+                    fontSize: Dimension.size36,
+                    color: Themes.primary2,
+                  ),
             ),
           ),
           Container(
             width: Get.width * 0.5,
             child: LinearProgressIndicator(
-              backgroundColor: Themes.Primary2,
+              backgroundColor: Themes.primary2,
             ),
           )
         ],

@@ -1,9 +1,9 @@
-import 'package:MrMart/AppHelper/Helper.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/AppHelper/Helper.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'dart:ui';
@@ -24,7 +24,6 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      //padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -34,7 +33,7 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
             child: Center(
               child: product.image != null || product.image != ""
                   ? Image.network(
-                      AppConstant.MediaUrl + product.image,
+                      AppConstant.mediaUrl + product.image,
                       fit: BoxFit.cover,
                     )
                   : Image.asset('assets/images/empty.png'),
@@ -52,7 +51,7 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
+                  offset: Offset(0, 1.0),
                 )
               ],
             ),
@@ -148,7 +147,7 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
+                  offset: Offset(0, 1.0),
                 )
               ],
             ),

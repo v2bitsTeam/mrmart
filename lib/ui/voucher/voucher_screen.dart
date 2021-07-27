@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/voucher/components/body.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/voucher/tabs/TabCollectVoucherScreen.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/StyleScheme.dart';
-import 'package:MrMart/ui/profile/my_voucher_all/my_voucher_all_screen.dart';
-import 'package:MrMart/ui/profile/my_voucher_all/components/body.dart';
-import 'package:MrMart/ui/voucher/tabs/TabMyVoucherScreen.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/ui/voucher/tabs/TabCollectVoucherScreen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/app_components/StyleScheme.dart';
+import 'package:mr_mart/ui/voucher/tabs/TabMyVoucherScreen.dart';
+import 'package:mr_mart/ui/checkout/cart_summary/cart_summary_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
 
 class VoucherScreen extends StatelessWidget {
   @override
@@ -95,12 +90,10 @@ class VoucherScreen extends StatelessWidget {
             children: <Widget>[
               TabCollectVoucherScreen(),
               TabMyVoucherScreen(),
-              //MyVoucherAllScreen(),
             ],
           ),
         ),
       ),
     );
-    // TODO: implement build
   }
 }

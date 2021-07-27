@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Body extends StatefulWidget {
@@ -119,29 +118,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},
@@ -184,18 +169,20 @@ class _BodyState extends State<Body> {
                             children: [
                               Column(
                                 children: [
-                                  Text('Giant Food Stores.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                  Text(
+                                    'Giant Food Stores.',
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('7.10am',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1),
+                                  Text(
+                                    '7.10am',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
                                 ],
                               ),
                             ],
@@ -225,29 +212,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},
@@ -319,18 +292,20 @@ class _BodyState extends State<Body> {
                             children: [
                               Column(
                                 children: [
-                                  Text('Giant Food Stores.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                  Text(
+                                    'Giant Food Stores.',
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('6.45am',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1),
+                                  Text(
+                                    '6.45am',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
                                 ],
                               ),
                             ],
@@ -360,29 +335,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},
@@ -425,18 +386,20 @@ class _BodyState extends State<Body> {
                             children: [
                               Column(
                                 children: [
-                                  Text('Giant Food Stores.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                  Text(
+                                    'Giant Food Stores.',
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('12.00am',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1),
+                                  Text(
+                                    '12.00am',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
                                 ],
                               ),
                             ],
@@ -466,29 +429,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},
@@ -560,18 +509,20 @@ class _BodyState extends State<Body> {
                             children: [
                               Column(
                                 children: [
-                                  Text('Giant Food Stores.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                  Text(
+                                    'Giant Food Stores.',
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('11.00pm',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1),
+                                  Text(
+                                    '11.00pm',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
                                 ],
                               ),
                             ],
@@ -601,29 +552,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},
@@ -666,18 +603,20 @@ class _BodyState extends State<Body> {
                             children: [
                               Column(
                                 children: [
-                                  Text('Giant Food Stores.',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline1),
+                                  Text(
+                                    'Giant Food Stores.',
+                                    style:
+                                        Theme.of(context).textTheme.headline1,
+                                  ),
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('3.56pm',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle1),
+                                  Text(
+                                    '3.56pm',
+                                    style:
+                                        Theme.of(context).textTheme.subtitle1,
+                                  ),
                                 ],
                               ),
                             ],
@@ -707,29 +646,15 @@ class _BodyState extends State<Body> {
             actions: <Widget>[
               Card(
                 child: IconSlideAction(
-                  //caption: 'Archive',
                   color: Colors.blue,
                   icon: Icons.archive,
                   onTap: () {},
                 ),
               ),
-              /*IconSlideAction(
-                caption: 'Share',
-                color: Colors.indigo,
-                icon: Icons.share,
-                onTap: () {},
-              ),*/
             ],
             secondaryActions: <Widget>[
-              /*IconSlideAction(
-                caption: 'More',
-                color: Colors.black45,
-                icon: Icons.more_horiz,
-                onTap: () {},
-              ),*/
               Card(
                 child: IconSlideAction(
-                  //caption: 'Delete',
                   color: kClearAll,
                   icon: Icons.delete_forever,
                   onTap: () {},

@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'dart:ui';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
+import 'package:mr_mart/Widgets/GridAnimation.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/Language/Language.dart';
+import 'package:mr_mart/Language/Language.dart';
 
 Language language = Language();
 
@@ -103,22 +103,15 @@ class _FilterBodyState extends State<FilterBody> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           InkWell(
-            onTap: () {
-              /*Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            FavoriteItemsWithHeaderScreen()),
-                  );*/
-            },
+            onTap: () {},
             child: Container(
               width: Get.width * 0.44,
               height: 88,
               alignment: Alignment.center,
-              //padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                  color: kActiveOrderTrackBG1,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5)),
+                color: kActiveOrderTrackBG1,
+                borderRadius: BorderRadius.circular(Dimension.size5),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,7 +125,6 @@ class _FilterBodyState extends State<FilterBody> {
                     children: [
                       SvgPicture.asset(
                         'assets/icons/normal_delivery.svg',
-                        //height: Get.height * 0.10,
                       ),
                     ],
                   ),
@@ -157,22 +149,15 @@ class _FilterBodyState extends State<FilterBody> {
             ),
           ),
           InkWell(
-            onTap: () {
-              /*Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            FavoriteItemsWithHeaderScreen()),
-                  );*/
-            },
+            onTap: () {},
             child: Container(
               width: Get.width * 0.44,
               height: 88,
               alignment: Alignment.center,
-              //padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                  color: kItemBackgroundColor2,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5)),
+                color: kItemBackgroundColor2,
+                borderRadius: BorderRadius.circular(Dimension.size5),
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -218,10 +203,11 @@ class _FilterBodyState extends State<FilterBody> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: Themes.White,
+        color: Themes.white,
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(Dimension.Size_5),
-            bottomRight: Radius.circular(Dimension.Size_5)),
+          bottomLeft: Radius.circular(Dimension.size5),
+          bottomRight: Radius.circular(Dimension.size5),
+        ),
         boxShadow: Themes.defaultShadow2,
       ),
       child: Row(
@@ -230,10 +216,10 @@ class _FilterBodyState extends State<FilterBody> {
             flex: 4,
             child: Container(
               height: 80,
-              padding: EdgeInsets.all(Dimension.Size_10),
+              padding: EdgeInsets.all(Dimension.size10),
               decoration: BoxDecoration(
-                color: Themes.Card_Back_Blue_Lite,
-                borderRadius: BorderRadius.circular(Dimension.Size_3),
+                color: Themes.cardBackBlueLite,
+                borderRadius: BorderRadius.circular(Dimension.size3),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -254,11 +240,11 @@ class _FilterBodyState extends State<FilterBody> {
                           Expanded(
                             flex: 1,
                             child: Text(
-                              language.Delivery_to,
+                              language.deliveryTo,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline1
-                                  .copyWith(color: Themes.Primary),
+                                  .copyWith(color: Themes.primary),
                             ),
                           ),
                           Expanded(
@@ -284,16 +270,17 @@ class _FilterBodyState extends State<FilterBody> {
                               },
                               items: dropdownNameList
                                   .map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(
-                                    value,
-                                    style:
-                                        Theme.of(context).textTheme.subtitle1,
-                                  ),
-                                );
-                              }).toList(),
+                                (String value) {
+                                  return DropdownMenuItem<String>(
+                                    value: value,
+                                    child: Text(
+                                      value,
+                                      style:
+                                          Theme.of(context).textTheme.subtitle1,
+                                    ),
+                                  );
+                                },
+                              ).toList(),
                             ),
                           ),
                         ],
@@ -312,21 +299,22 @@ class _FilterBodyState extends State<FilterBody> {
             child: Container(
               height: 80,
               decoration: BoxDecoration(
-                  color: kPrimaryColor2,
-                  borderRadius: BorderRadius.circular(Dimension.Size_3)),
+                color: kPrimaryColor2,
+                borderRadius: BorderRadius.circular(Dimension.size3),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
                     'assets/icons/filter_white.svg',
-                    height: Dimension.Size_30,
+                    height: Dimension.size30,
                   ),
                   SizedBox(
-                    height: Dimension.Size_5,
+                    height: Dimension.size5,
                   ),
                   Text(
-                    language.Filter,
+                    language.filter,
                     style: Theme.of(context)
                         .textTheme
                         .bodyText2
@@ -345,15 +333,20 @@ class _FilterBodyState extends State<FilterBody> {
 
   Widget allCategory() {
     return Container(
-      height: Dimension.Size_70,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      height: Dimension.size70,
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.zero,
         children: category
             .asMap()
-            .map((index, e) => MapEntry(index, singleCategory(e, index)))
+            .map(
+              (index, e) => MapEntry(
+                index,
+                singleCategory(e, index),
+              ),
+            )
             .values
             .toList(),
       ),
@@ -365,31 +358,32 @@ class _FilterBodyState extends State<FilterBody> {
     return Column(
       children: [
         Container(
-          height: Dimension.Size_50,
+          height: Dimension.size50,
           margin: EdgeInsets.only(
-              left: Dimension.Size_10,
-              right: category.length - 1 == index ? Dimension.Size_10 : 0),
+              left: Dimension.size10,
+              right: category.length - 1 == index ? Dimension.size10 : 0),
           alignment: Alignment.center,
-          padding: EdgeInsets.only(
-              left: Dimension.Size_30, right: Dimension.Size_30),
+          padding:
+              EdgeInsets.only(left: Dimension.size30, right: Dimension.size30),
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(Dimension.Size_24),
+            borderRadius: BorderRadius.circular(Dimension.size24),
             boxShadow: [
               BoxShadow(
                 color: color.withOpacity(0.5),
-                blurRadius: Dimension.Size_10,
+                blurRadius: Dimension.size10,
                 offset:
-                    Offset(0, Dimension.Size_5), // changes position of shadow
+                    Offset(0, Dimension.size5), // changes position of shadow
               ),
             ],
           ),
           child: Text(
             e,
             style: TextStyle(
-                fontSize: Dimension.Text_Size,
-                fontWeight: Dimension.textMedium,
-                color: Themes.White),
+              fontSize: Dimension.textSize,
+              fontWeight: Dimension.textMedium,
+              color: Themes.white,
+            ),
           ),
         ),
       ],
@@ -401,24 +395,25 @@ Widget minimumOrderItem() {
   double width = Get.width * 0.25;
   return Container(
     height: Get.height * 0.16,
-    margin: EdgeInsets.only(top: Dimension.Size_5),
+    margin: EdgeInsets.only(top: Dimension.size5),
     child: ListView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
       itemCount: 4,
       itemBuilder: (context, index) {
-        return GridAnimation(
+        return gridAnimation(
           column: 3,
           index: index,
           child: Container(
             width: width,
             clipBehavior: Clip.antiAlias,
             margin: EdgeInsets.only(
-                left: Dimension.Size_10,
-                right: 3 == index ? Dimension.Size_10 : 0),
+              left: Dimension.size10,
+              right: 3 == index ? Dimension.size10 : 0,
+            ),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimension.Size_8),
+              borderRadius: BorderRadius.circular(Dimension.size8),
               boxShadow: Themes.defaultShadow,
             ),
             child: Stack(
@@ -444,158 +439,3 @@ Widget minimumOrderItem() {
     ),
   );
 }
-
-/*
-Container(
-padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-child: Row(
-crossAxisAlignment: CrossAxisAlignment.start,
-mainAxisAlignment: MainAxisAlignment.start,
-children: [
-InkWell(
-onTap: () {
-*/
-/*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              FavoriteItemsWithHeaderScreen()),
-                    );*/ /*
-
-},
-child: Container(
-width: 88,
-height: 88,
-alignment: Alignment.center,
-//padding: EdgeInsets.all(16),
-decoration: BoxDecoration(
-color: kItemBackgroundColor2,
-borderRadius: BorderRadius.circular(Dimension.Size_5)),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-SizedBox(
-height: 5,
-),
-Row(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-Text(
-'\$100',
-style: Theme.of(context)
-.textTheme
-    .subtitle1
-    .copyWith(
-color: kSubTextColor,
-height: 1,
-fontWeight: Dimension.textMedium),
-),
-],
-),
-],
-),
-),
-),
-SizedBox(
-width: 15,
-),
-InkWell(
-onTap: () {
-*/
-/*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              FavoriteItemsWithHeaderScreen()),
-                    );*/ /*
-
-},
-child: Container(
-width: 88,
-height: 88,
-alignment: Alignment.center,
-//padding: EdgeInsets.all(16),
-decoration: BoxDecoration(
-color: kItemBackgroundColor2,
-borderRadius: BorderRadius.circular(Dimension.Size_5)),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-SizedBox(
-height: 5,
-),
-Row(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-Text(
-'\$500',
-style: Theme.of(context)
-.textTheme
-    .subtitle1
-    .copyWith(
-color: kSubTextColor,
-height: 1,
-fontWeight: Dimension.textMedium),
-),
-],
-),
-],
-),
-),
-),
-SizedBox(
-width: 15,
-),
-InkWell(
-onTap: () {
-*/
-/*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              FavoriteItemsWithHeaderScreen()),
-                    );*/ /*
-
-},
-child: Container(
-width: 88,
-height: 88,
-alignment: Alignment.center,
-//padding: EdgeInsets.all(16),
-decoration: BoxDecoration(
-color: kActiveOrderTrackBG1,
-borderRadius: BorderRadius.circular(Dimension.Size_5)),
-child: Column(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-SizedBox(
-height: 5,
-),
-Row(
-mainAxisAlignment: MainAxisAlignment.center,
-crossAxisAlignment: CrossAxisAlignment.center,
-children: [
-Text(
-'\$2000',
-style: Theme.of(context)
-.textTheme
-    .subtitle1
-    .copyWith(
-color: kPrimaryColor2,
-height: 1,
-fontWeight: Dimension.textMedium),
-),
-],
-),
-],
-),
-),
-),
-],
-),
-),*/

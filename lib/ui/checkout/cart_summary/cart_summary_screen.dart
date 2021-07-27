@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'components/body.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 class CartSummaryScreen extends StatelessWidget {
   @override

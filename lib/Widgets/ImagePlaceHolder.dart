@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
-Widget ImagePlaceHolder({@required double height, bool isError = false}) {
+Widget imagePlaceHolder({@required double height, bool isError = false}) {
   return Container(
-    color: Themes.White,
+    color: Themes.white,
     child: isError
         ? Image.asset(
             'assets/images/empty.png',

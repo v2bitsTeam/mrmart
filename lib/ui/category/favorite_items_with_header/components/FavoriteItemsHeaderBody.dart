@@ -1,17 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:shape_of_view/shape_of_view.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 
 class FavoriteItemHeaderBody extends StatefulWidget {
   @override
@@ -28,7 +23,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
           Positioned.fill(
             child: ListView(
               padding: EdgeInsets.only(top: 0, left: 16, right: 16),
-              //padding: EdgeInsets.all(kDefaultPadding),
               children: [
                 favoriteItems(),
               ],
@@ -40,8 +34,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
   }
 
   Widget favoriteItems() {
-    //double width = Get.width * 0.4;
-
     int counter = 1;
 
     void incrementCounter() {
@@ -78,7 +70,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/trending0.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -103,13 +94,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Ripe Pomegranates',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -125,15 +116,17 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                                 text: TextSpan(
                                     text: '${AppConstant.currencySymbol}120/ ',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmall,
+                                    ),
                                     children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
                                 ])),
                           ],
@@ -147,7 +140,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -157,7 +150,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -179,10 +172,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -196,35 +191,40 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(.3),
+                              ),
+                            ),
                             child: Center(
                               child: Text(
                                 '$counter',
                                 style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -249,7 +249,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/recomended2.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -274,13 +273,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Green Apple',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -296,15 +295,17 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                                 text: TextSpan(
                                     text: '${AppConstant.currencySymbol}120/ ',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmall,
+                                    ),
                                     children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
                                 ])),
                           ],
@@ -318,7 +319,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -328,7 +329,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -350,10 +351,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -367,35 +370,40 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(.3),
+                              ),
+                            ),
                             child: Center(
                               child: Text(
                                 '$counter',
                                 style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -420,7 +428,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/recomended3.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -445,13 +452,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Green Apple Facewash',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -464,20 +471,25 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
-                                      style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      text: 'kg')
-                                ])),
+                                    style: TextStyle(
+                                      color: kSubTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmall,
+                                    ),
+                                    text: 'kg',
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -489,7 +501,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -499,7 +511,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -521,10 +533,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -535,23 +549,23 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           ),
                         ),
                         Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
-                            child: Center(
-                              child: Text(
-                                '$counter',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            )),
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                  color: Colors.grey.withOpacity(.3))),
+                          child: Center(
+                            child: Text(
+                              '$counter',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
                         Container(
                           height: 30,
                           width: 30,
@@ -561,12 +575,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               border: Border.all(
                                   color: Colors.grey.withOpacity(.3))),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -591,7 +606,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/recomended1.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -616,13 +630,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Ripe Papaye',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -635,20 +649,25 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
-                                      style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      text: 'kg')
-                                ])),
+                                    style: TextStyle(
+                                      color: kSubTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmall,
+                                    ),
+                                    text: 'kg',
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -660,7 +679,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -670,7 +689,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -692,10 +711,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -706,38 +727,44 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           ),
                         ),
                         Container(
-                            height: 30,
-                            width: 30,
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
-                            child: Center(
-                              child: Text(
-                                '$counter',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              '$counter',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
                               ),
-                            )),
+                            ),
+                          ),
+                        ),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -762,7 +789,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/recomended4.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -787,13 +813,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Microfiber Hand',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -806,20 +832,25 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
-                                      style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      text: 'kg')
-                                ])),
+                                    style: TextStyle(
+                                      color: kSubTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmall,
+                                    ),
+                                    text: 'kg',
+                                  ),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -831,7 +862,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -841,7 +872,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -863,10 +894,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -880,35 +913,40 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(.3),
+                              ),
+                            ),
                             child: Center(
                               child: Text(
                                 '$counter',
                                 style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -933,7 +971,6 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                   child: Center(
                     child: Image.asset(
                       'assets/demo/recomended5.png',
-                      //width: Get.width * 0.2,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -958,13 +995,13 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Olive Oil',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -977,20 +1014,24 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
-                                ])),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -1002,7 +1043,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/cart-fill-color.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                               ),
                             ),
                             SizedBox(
@@ -1012,7 +1053,7 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                               onTap: () {},
                               child: SvgPicture.asset(
                                 'assets/icons/delete.svg',
-                                height: Dimension.Size_16,
+                                height: Dimension.size16,
                                 color: kSubTextColor,
                               ),
                             ),
@@ -1034,10 +1075,12 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: InkWell(
                             child: Icon(
                               Icons.arrow_drop_up_sharp,
@@ -1051,35 +1094,40 @@ class _FavoriteItemHeaderBodyState extends State<FavoriteItemHeaderBody> {
                             height: 30,
                             width: 30,
                             decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(0),
-                                border: Border.all(
-                                    color: Colors.grey.withOpacity(.3))),
-                            //margin: EdgeInsets.only(left: 6, right: 6),
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(0),
+                              border: Border.all(
+                                color: Colors.grey.withOpacity(.3),
+                              ),
+                            ),
                             child: Center(
                               child: Text(
                                 '$counter',
                                 style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
+                                  fontSize: 16,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             )),
                         Container(
                           height: 30,
                           width: 30,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(3),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(3),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: GestureDetector(
-                              onTap: decrementCounter,
-                              child: Icon(
-                                Icons.arrow_drop_down_sharp,
-                                color: Colors.grey,
-                                size: 30,
-                              )),
+                            onTap: decrementCounter,
+                            child: Icon(
+                              Icons.arrow_drop_down_sharp,
+                              color: Colors.grey,
+                              size: 30,
+                            ),
+                          ),
                         ),
                       ],
                     ),

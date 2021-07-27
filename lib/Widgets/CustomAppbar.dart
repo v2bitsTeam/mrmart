@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/TopShape.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
 import '../main.dart';
 
-Widget CustomAppbar(
+Widget customAppbar(
     {@required BuildContext context,
     @required String title,
     Widget action,
@@ -18,56 +17,59 @@ Widget CustomAppbar(
         child: Column(
           children: [
             Expanded(
-                child: Container(
-              color: Themes.Primary,
-            )),
+              child: Container(
+                color: Themes.primary,
+              ),
+            ),
             Image.asset(
               'assets/images/header.png',
               width: Get.width,
               fit: BoxFit.fitWidth,
-              color: Themes.Primary,
+              color: Themes.primary,
             ),
           ],
         ),
       ),
       Positioned(
-          top: paddingTop,
-          width: Get.width,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  SizedBox(
-                    width: Dimension.Size_5,
+        top: paddingTop,
+        width: Get.width,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(
+                  width: Dimension.size5,
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.white,
                   ),
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                    ),
-                    onPressed: () {
-                      Get.back(result: returnData);
-                    },
-                  ),
-                  Expanded(
-                      child: Text(
+                  onPressed: () {
+                    Get.back(result: returnData);
+                  },
+                ),
+                Expanded(
+                  child: Text(
                     title,
                     style: Theme.of(context).textTheme.headline1.copyWith(
-                        color: Themes.White,
-                        fontSize: Dimension.Size_20,
+                        color: Themes.white,
+                        fontSize: Dimension.size20,
                         fontWeight: Dimension.textMedium),
                     textAlign: TextAlign.center,
-                  )),
-                  action != null
-                      ? action
-                      : SizedBox(
-                          width: Get.width * 0.1,
-                        )
-                ],
-              ),
-              topChild
-            ],
-          ))
+                  ),
+                ),
+                action != null
+                    ? action
+                    : SizedBox(
+                        width: Get.width * 0.1,
+                      )
+              ],
+            ),
+            topChild
+          ],
+        ),
+      ),
     ],
   );
 }

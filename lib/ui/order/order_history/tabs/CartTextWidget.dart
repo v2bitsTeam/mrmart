@@ -1,5 +1,5 @@
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -85,7 +85,6 @@ class CartTextWidget extends StatelessWidget {
                             .textTheme
                             .subtitle1
                             .copyWith(fontSize: 12),
-                        // textDirection: TextDirection.rtl,
                       ),
                     ],
                   ),
@@ -99,7 +98,6 @@ class CartTextWidget extends StatelessWidget {
                             .textTheme
                             .subtitle1
                             .copyWith(fontSize: 12),
-                        // textDirection: TextDirection.rtl,
                       ),
                     ],
                   ),

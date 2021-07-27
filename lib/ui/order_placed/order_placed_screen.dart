@@ -1,6 +1,6 @@
-import 'package:MrMart/ui/order_placed/components/body.dart';
+import 'package:mr_mart/ui/order_placed/components/body.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:get/get.dart';
 
 class OrderPlacedScreen extends StatelessWidget {

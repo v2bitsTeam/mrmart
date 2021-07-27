@@ -1,5 +1,5 @@
-import 'package:MrMart/Models/MyOrderItems.dart';
-import 'package:MrMart/Services/http_services.dart';
+import 'package:mr_mart/Models/MyOrderItems.dart';
+import 'package:mr_mart/Services/http_services.dart';
 import 'package:get/get.dart';
 
 class MyOrdersController extends GetxController {

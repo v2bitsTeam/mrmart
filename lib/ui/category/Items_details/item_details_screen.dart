@@ -1,13 +1,13 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/ui/category/Items_details/components/ItemDetailsBody.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/ui/category/Items_details/components/ItemDetailsBody.dart';
 import 'package:get/get.dart';
 
 class ItemDetailsScreen extends StatefulWidget {
@@ -149,7 +149,7 @@ class _ItemDetailsScreenState extends State<ItemDetailsScreen> {
           color: isInCart ? Colors.grey : Colors.white,
         ),
         tooltip: isInCart ? "Already in cart" : "Add to cart",
-        backgroundColor: isInCart ? Colors.grey[300] : Themes.Button_Color1,
+        backgroundColor: isInCart ? Colors.grey[300] : Themes.buttonColor1,
       ),
     );
   }

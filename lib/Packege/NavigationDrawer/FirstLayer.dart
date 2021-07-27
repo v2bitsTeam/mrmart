@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
 class FirstLayer extends StatelessWidget {
-  Widget child;
+  final Widget child;
 
   FirstLayer(this.child);
 
@@ -13,13 +13,14 @@ class FirstLayer extends StatelessWidget {
       height: Get.height,
       width: Get.width,
       decoration: BoxDecoration(
-          color: Themes.Primary,
-          image: DecorationImage(
-            image: AssetImage(
-              'assets/images/back.png',
-            ),
-            fit: BoxFit.cover,
-          )),
+        color: Themes.primary,
+        image: DecorationImage(
+          image: AssetImage(
+            'assets/images/back.png',
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
       child: child,
     );
   }

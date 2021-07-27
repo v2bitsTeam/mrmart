@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
 enum ButtonDecoration { Shadow, Flat }
 
@@ -17,19 +16,19 @@ class LoadingButton extends StatefulWidget {
   final double radius;
   final paddingEnable;
 
-  const LoadingButton(
-      {Key key,
-      this.child,
-      this.onPressed,
-      this.isLoading = false,
-      this.backgroundColor,
-      this.decoration,
-      this.loadingWidget,
-      this.defaultStyle = true,
-      this.radius,
-      this.buttonDecoration = ButtonDecoration.Shadow,
-      this.paddingEnable = true})
-      : super(key: key);
+  const LoadingButton({
+    Key key,
+    this.child,
+    this.onPressed,
+    this.isLoading = false,
+    this.backgroundColor,
+    this.decoration,
+    this.loadingWidget,
+    this.defaultStyle = true,
+    this.radius,
+    this.buttonDecoration = ButtonDecoration.Shadow,
+    this.paddingEnable = true,
+  }) : super(key: key);
 
   @override
   _LoadingButtonState createState() => _LoadingButtonState();
@@ -50,20 +49,24 @@ class _LoadingButtonState extends State<LoadingButton> {
         ? widget.decoration
         : widget.buttonDecoration == ButtonDecoration.Flat
             ? BoxDecoration(
-                color: widget.backgroundColor ?? Themes.Primary2,
-                borderRadius:
-                    BorderRadius.circular(widget.radius ?? Dimension.Size_2),
+                color: widget.backgroundColor ?? Themes.primary2,
+                borderRadius: BorderRadius.circular(
+                  widget.radius ?? Dimension.size2,
+                ),
               )
             : BoxDecoration(
-                color: widget.backgroundColor ?? Themes.Primary2,
-                borderRadius:
-                    BorderRadius.circular(widget.radius ?? Dimension.Size_2),
+                color: widget.backgroundColor ?? Themes.primary2,
+                borderRadius: BorderRadius.circular(
+                  widget.radius ?? Dimension.size2,
+                ),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.16),
-                    blurRadius: Dimension.Size_16,
+                    blurRadius: Dimension.size16,
                     offset: Offset(
-                        0, Dimension.Size_8), // changes position of shadow
+                      0,
+                      Dimension.size8,
+                    ),
                   ),
                 ],
               );
@@ -91,24 +94,28 @@ class _LoadingButtonState extends State<LoadingButton> {
       children: [
         Material(
           color: Colors.transparent,
-          child: FlatButton(
+          child: TextButton(
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.zero,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  widget.radius ?? Dimension.size8,
+                ),
+              ),
+            ),
             onPressed: widget.isLoading ? null : widget.onPressed,
-            padding: EdgeInsets.zero,
-            shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(widget.radius ?? Dimension.Size_8)),
             child: AnimatedContainer(
               padding: widget.isLoading
                   ? EdgeInsets.all(10)
                   : widget.paddingEnable
                       ? EdgeInsets.symmetric(horizontal: 10, vertical: 10)
                       : EdgeInsets.zero,
-              //padding: widget.isLoading ? EdgeInsets.only(left: 10,right: 10) : EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               duration: Duration(milliseconds: 200),
               curve: Curves.easeInOut,
               decoration: widget.isLoading
                   ? decoration.copyWith(
-                      borderRadius: BorderRadius.circular(100))
+                      borderRadius: BorderRadius.circular(100),
+                    )
                   : decoration,
               child: widget.isLoading ? loadingWidget : widget.child,
             ),

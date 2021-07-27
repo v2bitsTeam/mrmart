@@ -1,17 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'dart:ui';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:MrMart/ui_components/default_button.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Widgets/GridAnimation.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/ui/category/Items_details/item_details_screen.dart';
 
 class AddNewCardBody extends StatefulWidget {
   @override
@@ -41,24 +39,23 @@ class _AddNewCardBodyState extends State<AddNewCardBody> {
               ),
             ),
           ),
-          //TitleWithClearAllBtn(text: "Today", press: () {}),
           SizedBox(
             height: 5,
           ),
-          NewCardDetailsView(context),
+          newCardDetailsView(context),
         ],
       ),
     );
   }
 }
 
-Widget NewCardDetailsView(context) {
+Widget newCardDetailsView(context) {
   return ListView(
     shrinkWrap: true,
     padding: EdgeInsets.zero,
     children: [
       Container(
-        padding: EdgeInsets.all(Dimension.Padding),
+        padding: EdgeInsets.all(Dimension.padding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -89,14 +86,13 @@ Widget NewCardDetailsView(context) {
                 cursorColor: Colors.black,
                 inputFormatters: [],
                 decoration: InputDecoration(
-                    /*suffixIcon: Icon(
-                      Icons.check_circle,
-                      size: 25,
-                      color: Colors.black,
-                    ),*/
-                    border: InputBorder.none,
-                    hintText: "Rahul Subramaniam",
-                    hintStyle: TextStyle(color: kTextColor, fontSize: 18)),
+                  border: InputBorder.none,
+                  hintText: "Rahul Subramaniam",
+                  hintStyle: TextStyle(
+                    color: kTextColor,
+                    fontSize: 18,
+                  ),
+                ),
               ),
             ),
             SizedBox(
@@ -120,23 +116,25 @@ Widget NewCardDetailsView(context) {
             ),
             Container(
               decoration: BoxDecoration(
-                  border: Border(
-                      bottom:
-                          BorderSide(color: kSubTextColor.withOpacity(.3)))),
+                border: Border(
+                  bottom: BorderSide(
+                    color: kSubTextColor.withOpacity(.3),
+                  ),
+                ),
+              ),
               child: TextField(
                 textDirection: TextDirection.ltr,
                 style: Theme.of(context).textTheme.headline1,
                 cursorColor: Colors.black,
                 inputFormatters: [],
                 decoration: InputDecoration(
-                    /*suffixIcon: Icon(
-                      Icons.check_circle,
-                      size: 25,
-                      color: Colors.black,
-                    ),*/
-                    border: InputBorder.none,
-                    hintText: "0000 - 0000 - 0000 - 0000",
-                    hintStyle: TextStyle(color: kTextColor, fontSize: 18)),
+                  border: InputBorder.none,
+                  hintText: "0000 - 0000 - 0000 - 0000",
+                  hintStyle: TextStyle(
+                    color: kTextColor,
+                    fontSize: 18,
+                  ),
+                ),
               ),
             ),
             SizedBox(
@@ -170,19 +168,25 @@ Widget NewCardDetailsView(context) {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                                    color: kSubTextColor.withOpacity(.3)))),
+                          border: Border(
+                            bottom: BorderSide(
+                              color: kSubTextColor.withOpacity(.3),
+                            ),
+                          ),
+                        ),
                         child: TextField(
                           textDirection: TextDirection.ltr,
                           style: Theme.of(context).textTheme.headline1,
                           cursorColor: Colors.black,
                           inputFormatters: [],
                           decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "mm/yy",
-                              hintStyle:
-                                  TextStyle(color: kTextColor, fontSize: 18)),
+                            border: InputBorder.none,
+                            hintText: "mm/yy",
+                            hintStyle: TextStyle(
+                              color: kTextColor,
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -215,19 +219,25 @@ Widget NewCardDetailsView(context) {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                            border: Border(
-                                bottom: BorderSide(
-                                    color: kSubTextColor.withOpacity(.3)))),
+                          border: Border(
+                            bottom: BorderSide(
+                              color: kSubTextColor.withOpacity(.3),
+                            ),
+                          ),
+                        ),
                         child: TextField(
                           textDirection: TextDirection.ltr,
                           style: Theme.of(context).textTheme.headline1,
                           cursorColor: Colors.black,
                           inputFormatters: [],
                           decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: "***",
-                              hintStyle:
-                                  TextStyle(color: kTextColor, fontSize: 18)),
+                            border: InputBorder.none,
+                            hintText: "***",
+                            hintStyle: TextStyle(
+                              color: kTextColor,
+                              fontSize: 18,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -246,7 +256,6 @@ Widget NewCardDetailsView(context) {
         child: DefaultButton(
           text: "Save",
           press: () {
-            //Navigator.pushNamed(context, CartSummaryScreen.routeName);
             Get.toNamed(MAIN_PAGE);
           },
         ),
@@ -259,24 +268,24 @@ Widget bankCardItem() {
   double width = Get.width * 0.4;
   return Container(
     height: Get.height * 0.26,
-    margin: EdgeInsets.only(top: Dimension.Size_5),
+    margin: EdgeInsets.only(top: Dimension.size5),
     child: ListView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
       itemCount: 4,
       itemBuilder: (context, index) {
-        return GridAnimation(
+        return gridAnimation(
           column: 3,
           index: index,
           child: Container(
             width: width,
             clipBehavior: Clip.antiAlias,
             margin: EdgeInsets.only(
-                left: Dimension.Size_10,
-                right: 3 == index ? Dimension.Size_10 : 0),
+                left: Dimension.size10,
+                right: 3 == index ? Dimension.size10 : 0),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(Dimension.Size_8),
+              borderRadius: BorderRadius.circular(Dimension.size8),
               boxShadow: Themes.defaultShadow,
             ),
             child: Stack(

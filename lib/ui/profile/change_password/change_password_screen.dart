@@ -1,9 +1,9 @@
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/profile/change_password/components/body.dart';
+import 'package:mr_mart/ui/profile/change_password/components/body.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import 'package:get/get.dart';
 
 class ChangePasswordScreen extends StatelessWidget {
@@ -46,7 +46,7 @@ class ChangePasswordScreen extends StatelessWidget {
                 radius: 40,
                 backgroundImage:
                     userController.user.value.profileImage.length > 0
-                        ? NetworkImage(AppConstant.MediaUrl +
+                        ? NetworkImage(AppConstant.mediaUrl +
                             userController.user.value.profileImage)
                         : AssetImage('assets/images/profile/user.jpg'),
               ),

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/ui/category/recommemded_Items/components/RecommendedItemsBody.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/ui/category/recommemded_Items/components/RecommendedItemsBody.dart';
 
 class RecommendedItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
@@ -56,12 +52,6 @@ class RecommendedItemsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),

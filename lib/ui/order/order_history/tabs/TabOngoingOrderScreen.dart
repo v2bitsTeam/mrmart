@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'dart:ui';
 
 class TabOngoingOrderScreen extends StatefulWidget {
@@ -45,7 +45,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
         children: [
           Positioned.fill(
             child: ListView(
-              //padding: EdgeInsets.only(top: 0, left: 16, right: 16),
               padding: EdgeInsets.all(kDefaultPadding),
               children: [
                 //SizedBox(height: 100,),
@@ -67,7 +66,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
 
   Container cartTextWidget(BuildContext context) {
     return Container(
-      //padding: EdgeInsets.all(kDefaultPadding),
       decoration: BoxDecoration(
         color: kBackgroundColor,
         borderRadius: BorderRadius.circular(5),
@@ -76,7 +74,7 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             color: Colors.black.withOpacity(0.1),
             spreadRadius: 3,
             blurRadius: 1,
-            offset: Offset(1, 2), // changes position of shadow
+            offset: Offset(1, 2),
           ),
         ],
       ),
@@ -89,13 +87,11 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
         strokeWidth: 1,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
               flex: 3,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                //crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -237,13 +233,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Ripe Pomegranates',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -256,20 +252,24 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
-                                ])),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -303,10 +303,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: InkWell(
                           child: Icon(
                             Icons.arrow_drop_up_sharp,
@@ -320,11 +322,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           height: 28,
                           width: 28,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(0),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
-                          //margin: EdgeInsets.only(left: 6, right: 6),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: Center(
                             child: Text(
                               '$counter',
@@ -338,10 +341,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: GestureDetector(
                             onTap: decrementCounter,
                             child: Icon(
@@ -370,7 +375,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             width: Get.width * 0.99,
             height: Get.height * 0.12,
             child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   flex: 2,
@@ -379,7 +383,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        //width: Get.width * 0.2,
                         height: Get.height * 0.11,
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
@@ -398,7 +401,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         child: Center(
                           child: Image.asset(
                             'assets/demo/trending2.png',
-                            //width: Get.width * 0.2,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -418,13 +420,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Orange',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -437,20 +439,24 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
-                                ])),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -484,10 +490,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: InkWell(
                           child: Icon(
                             Icons.arrow_drop_up_sharp,
@@ -501,11 +509,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           height: 28,
                           width: 28,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(0),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
-                          //margin: EdgeInsets.only(left: 6, right: 6),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: Center(
                             child: Text(
                               '$counter',
@@ -519,17 +528,20 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: GestureDetector(
-                            onTap: decrementCounter,
-                            child: Icon(
-                              Icons.arrow_drop_down_sharp,
-                              color: Colors.grey,
-                              size: 25,
-                            )),
+                          onTap: decrementCounter,
+                          child: Icon(
+                            Icons.arrow_drop_down_sharp,
+                            color: Colors.grey,
+                            size: 25,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -548,62 +560,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             height: 15,
           ),
           btnOrderWidget(context),
-          /*Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      FavoriteItemsWithHeaderScreen()),
-                            );
-                          },
-                          child: Container(
-                            width: Get.width * 0.40,
-                            height: 45,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(
-                                top: Dimension.Size_3, bottom: Dimension.Size_3),
-                            decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius: BorderRadius.circular(Dimension.Size_5)),
-                            child: Text(
-                              'Add To Favourite',
-                              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                  color: Themes.White,
-                                  fontWeight: Dimension.textMedium),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => CartScreen()),
-                            );
-                          },
-                          child: Container(
-                            width: Get.width * 0.40,
-                            height: 45,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(
-                                top: Dimension.Size_3, bottom: Dimension.Size_3),
-                            decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius: BorderRadius.circular(Dimension.Size_5)),
-                            child: Text(
-                              'Add to cart',
-                              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                  color: Themes.White,
-                                  fontWeight: Dimension.textMedium),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )*/
         ],
       ),
     );
@@ -633,7 +589,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             width: Get.width * 0.99,
             height: Get.height * 0.12,
             child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   flex: 2,
@@ -642,7 +597,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        //width: Get.width * 0.2,
                         height: Get.height * 0.11,
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
@@ -653,15 +607,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                               color: Colors.black.withOpacity(0.1),
                               spreadRadius: 1,
                               blurRadius: 1,
-                              offset:
-                                  Offset(0, 1), // changes position of shadow
+                              offset: Offset(0, 1),
                             ),
                           ],
                         ),
                         child: Center(
                           child: Image.asset(
                             'assets/demo/trending1.png',
-                            //width: Get.width * 0.2,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -681,13 +633,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Olive Oil',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -700,20 +652,24 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
-                                ])),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -747,10 +703,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: InkWell(
                           child: Icon(
                             Icons.arrow_drop_up_sharp,
@@ -764,11 +722,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           height: 28,
                           width: 28,
                           decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(0),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
-                          //margin: EdgeInsets.only(left: 6, right: 6),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(0),
+                            border: Border.all(
+                              color: Colors.grey.withOpacity(.3),
+                            ),
+                          ),
                           child: Center(
                             child: Text(
                               '$counter',
@@ -782,10 +741,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: GestureDetector(
                             onTap: decrementCounter,
                             child: Icon(
@@ -814,7 +775,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             width: Get.width * 0.99,
             height: Get.height * 0.12,
             child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
                   flex: 2,
@@ -823,7 +783,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        //width: Get.width * 0.2,
                         height: Get.height * 0.11,
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
@@ -834,15 +793,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                               color: Colors.black.withOpacity(0.1),
                               spreadRadius: 1,
                               blurRadius: 1,
-                              offset:
-                                  Offset(0, 1), // changes position of shadow
+                              offset: Offset(0, 1),
                             ),
                           ],
                         ),
                         child: Center(
                           child: Image.asset(
                             'assets/demo/recomended2.png',
-                            //width: Get.width * 0.2,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -862,13 +819,13 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           children: [
                             Flexible(
                               child: Text(
-                                //'Ripe Pomegranates',
                                 'Green Apple',
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                    color: Themes.Text_Color,
-                                    fontSize: Dimension.Text_Size,
-                                    fontWeight: FontWeight.w700),
+                                  color: Themes.textColor,
+                                  fontSize: Dimension.textSize,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
                             ),
                           ],
@@ -881,20 +838,24 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             RichText(
-                                text: TextSpan(
-                                    text: '${AppConstant.currencySymbol}120/ ',
-                                    style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize: Dimension.Text_Size_Small),
-                                    children: [
+                              text: TextSpan(
+                                text: '${AppConstant.currencySymbol}120/ ',
+                                style: TextStyle(
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
+                                children: [
                                   TextSpan(
                                       style: TextStyle(
-                                          color: kSubTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
                                       text: 'kg')
-                                ])),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -928,10 +889,12 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: InkWell(
                           child: Icon(
                             Icons.arrow_drop_up_sharp,
@@ -942,38 +905,43 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
                         ),
                       ),
                       Container(
-                          height: 28,
-                          width: 28,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(0),
-                              border: Border.all(
-                                  color: Colors.grey.withOpacity(.3))),
-                          //margin: EdgeInsets.only(left: 6, right: 6),
-                          child: Center(
-                            child: Text(
-                              '$counter',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )),
+                        height: 28,
+                        width: 28,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(0),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
+                        child: Center(
+                          child: Text(
+                            '$counter',
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
                       Container(
                         height: 28,
                         width: 28,
                         decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(3),
-                            border:
-                                Border.all(color: Colors.grey.withOpacity(.3))),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(3),
+                          border: Border.all(
+                            color: Colors.grey.withOpacity(.3),
+                          ),
+                        ),
                         child: GestureDetector(
-                            onTap: decrementCounter,
-                            child: Icon(
-                              Icons.arrow_drop_down_sharp,
-                              color: Colors.grey,
-                              size: 25,
-                            )),
+                          onTap: decrementCounter,
+                          child: Icon(
+                            Icons.arrow_drop_down_sharp,
+                            color: Colors.grey,
+                            size: 25,
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -992,62 +960,6 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
             height: 15,
           ),
           btnOrderWidget(context),
-          /*Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      FavoriteItemsWithHeaderScreen()),
-                            );
-                          },
-                          child: Container(
-                            width: Get.width * 0.40,
-                            height: 45,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(
-                                top: Dimension.Size_3, bottom: Dimension.Size_3),
-                            decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius: BorderRadius.circular(Dimension.Size_5)),
-                            child: Text(
-                              'Add To Favourite',
-                              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                  color: Themes.White,
-                                  fontWeight: Dimension.textMedium),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => CartScreen()),
-                            );
-                          },
-                          child: Container(
-                            width: Get.width * 0.40,
-                            height: 45,
-                            alignment: Alignment.center,
-                            padding: EdgeInsets.only(
-                                top: Dimension.Size_3, bottom: Dimension.Size_3),
-                            decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius: BorderRadius.circular(Dimension.Size_5)),
-                            child: Text(
-                              'Add to cart',
-                              style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                  color: Themes.White,
-                                  fontWeight: Dimension.textMedium),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )*/
         ],
       ),
     );
@@ -1056,28 +968,20 @@ class _TabOngoingOrderScreenState extends State<TabOngoingOrderScreen> {
 
 Container btnOrderWidget(BuildContext context) {
   return Container(
-    //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         InkWell(
-          onTap: () {
-            /*Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            FavoriteItemsWithHeaderScreen()),
-                  );*/
-          },
+          onTap: () {},
           child: Container(
             width: Get.width * 0.40,
             height: 65,
             alignment: Alignment.center,
-            //padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-                color: kOrderTrackBG,
-                borderRadius: BorderRadius.circular(Dimension.Size_5)),
+              color: kOrderTrackBG,
+              borderRadius: BorderRadius.circular(Dimension.size5),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -1091,7 +995,6 @@ Container btnOrderWidget(BuildContext context) {
                   children: [
                     SvgPicture.asset(
                       'assets/icons/order/track_order_box_icon.svg',
-                      //height: Get.height * 0.10,
                     ),
                     SizedBox(
                       width: 10,
@@ -1110,22 +1013,15 @@ Container btnOrderWidget(BuildContext context) {
           ),
         ),
         InkWell(
-          onTap: () {
-            /*Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            FavoriteItemsWithHeaderScreen()),
-                  );*/
-          },
+          onTap: () {},
           child: Container(
             width: Get.width * 0.40,
             height: 65,
             alignment: Alignment.center,
-            //padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
-                color: kCancelOrderBG,
-                borderRadius: BorderRadius.circular(Dimension.Size_5)),
+              color: kCancelOrderBG,
+              borderRadius: BorderRadius.circular(Dimension.size5),
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -1139,7 +1035,6 @@ Container btnOrderWidget(BuildContext context) {
                   children: [
                     SvgPicture.asset(
                       'assets/icons/order/cancel_order_box_icon.svg',
-                      //height: Get.height * 0.10,
                     ),
                     SizedBox(
                       width: 10,

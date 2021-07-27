@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
-Widget DividerList({Widget child, bool showDivider = true, Color color}) {
+Widget dividerList({Widget child, bool showDivider = true, Color color}) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
@@ -13,7 +12,7 @@ Widget DividerList({Widget child, bool showDivider = true, Color color}) {
           child: Divider(
             height: 1,
             thickness: 1,
-            color: color ?? Themes.Grey.withAlpha(70),
+            color: color ?? Themes.grey.withAlpha(70),
           ))
     ],
   );

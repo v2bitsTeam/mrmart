@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Body extends StatefulWidget {
   @override

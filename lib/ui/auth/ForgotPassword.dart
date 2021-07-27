@@ -1,16 +1,16 @@
 import 'dart:ui';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Providers/ForgotPasswordProvider.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/BackButton.dart';
-import 'package:MrMart/Widgets/DefaultTextField.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Providers/ForgotPasswordProvider.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Widgets/BackButton.dart';
+import 'package:mr_mart/Widgets/DefaultTextField.dart';
 import 'package:pinput/pin_put/pin_put.dart';
 import 'package:provider/provider.dart';
 import '../../main.dart';
@@ -61,97 +61,60 @@ class _ForgotPasswordState extends State<ForgotPassword>
                   child: Column(
                     children: [
                       Expanded(
-                          child: Container(
-                        color: Themes.Primary2,
-                      )),
+                        child: Container(
+                          color: Themes.primary2,
+                        ),
+                      ),
                       Image.asset(
                         'assets/images/header.png',
                         width: Get.width,
                         fit: BoxFit.fitWidth,
-                        color: Themes.Primary2,
+                        color: Themes.primary2,
                       ),
                     ],
                   ),
                 ),
                 Positioned(
-                    top: paddingTop,
-                    width: Get.width,
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: Dimension.Size_5,
+                  top: paddingTop,
+                  width: Get.width,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        height: Dimension.size5,
+                      ),
+                      Text(
+                        language.forgotPasswordTitle[provider.pageIndex],
+                        style: Theme.of(context).textTheme.headline1.copyWith(
+                              color: Themes.white,
+                              fontSize: Dimension.size20,
+                              fontWeight: Dimension.textMedium,
+                            ),
+                        textAlign: TextAlign.center,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          left: Dimension.size32,
+                          right: Dimension.size32,
+                          top: Dimension.size20,
+                          bottom: Dimension.size20,
                         ),
-                        Text(
-                          language.Forgot_Password_Title[provider.pageIndex],
-                          style: Theme.of(context).textTheme.headline1.copyWith(
-                              color: Themes.White,
-                              fontSize: Dimension.Size_20,
-                              fontWeight: Dimension.textMedium),
+                        child: Text(
+                          "Have you forgot your account password? Don't worry, we are here to help.",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyText1
+                              .copyWith(color: Themes.white),
                           textAlign: TextAlign.center,
                         ),
-                        Container(
-                          margin: EdgeInsets.only(
-                              left: Dimension.Size_32,
-                              right: Dimension.Size_32,
-                              top: Dimension.Size_20,
-                              bottom: Dimension.Size_20),
-                          child: Text(
-                            "Have you forgot your account password? Don't worry, we are here to help.",
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                .copyWith(color: Themes.White),
-                            textAlign: TextAlign.center,
-                          ),
-                        )
-                      ],
-                    ))
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
           showContent(),
-
-          // Positioned(
-
-          //   top: Get.height * 0.25,
-          //   child:
-          //   // child: PageView(
-          //   //   controller: provider.controller,
-          //   //   // physics: NeverScrollableScrollPhysics(),
-          //   //   children: [
-          //   //     enterMobileView(),
-          //   //     verifyPinView(),
-          //   //     enterNewPasswordView()
-          //   //   ],
-          //   //   onPageChanged: provider.onPageChange,
-          //   // ),
-          // ),
-          // Positioned(
-          //   bottom: Dimension.Size_20,
-          //   width: Get.width,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       LoadingButton(
-          //         isLoading: false,
-          //         onPressed: () {
-          //           provider.changePage();
-          //         },
-          //         child: Container(
-          //             width: Get.width - (Dimension.Padding * 6),
-          //             alignment: Alignment.center,
-          //             padding: EdgeInsets.all(Dimension.Size_20)
-          //                 .copyWith(top: 0, bottom: 0),
-          //             child: Text(
-          //               language.Forgot_Password_Button[provider.pageIndex],
-          //               style: Theme.of(context).textTheme.bodyText1.copyWith(
-          //                   color: Themes.White, fontSize: Dimension.Size_20),
-          //             )),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          DefaultBackButton(context, onTap: Get.back)
+          defaultBackButton(context, onTap: Get.back)
         ],
       ),
     );
@@ -194,13 +157,13 @@ class _ForgotPasswordState extends State<ForgotPassword>
             "Enter your mobile number and we would send an email with further instrutions to your registered email address if the account exists.",
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  color: Themes.SUB_TEXT,
-                  fontSize: Dimension.Size_18,
+                  color: Themes.subText,
+                  fontSize: Dimension.size18,
                 ),
           ),
           Padding(
             padding: const EdgeInsets.all(10.0),
-            child: DefaultTextField(
+            child: defaultTextField(
               controller: mobileController,
               label: "Mobile No.",
               isRequired: true,
@@ -212,15 +175,6 @@ class _ForgotPasswordState extends State<ForgotPassword>
           ),
         ],
       ),
-
-      // Text(
-      //   "Please, contact us at info@mrmart.co.in and we would help you out.",
-      //   textAlign: TextAlign.center,
-      //   style: Theme.of(context).textTheme.bodyText1.copyWith(
-      //         color: Themes.Text_Color,
-      //         fontSize: Dimension.Size_20,
-      //       ),
-      // ),
     );
   }
 
@@ -232,19 +186,20 @@ class _ForgotPasswordState extends State<ForgotPassword>
       children: [
         Card(
           margin: EdgeInsets.only(
-              top: (Get.height * 0.2),
-              left: Dimension.Padding,
-              right: Dimension.Padding,
-              bottom: Dimension.Size_20),
-          elevation: Dimension.card_elevation,
+            top: (Get.height * 0.2),
+            left: Dimension.padding,
+            right: Dimension.padding,
+            bottom: Dimension.size20,
+          ),
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
             height: Get.height * 0.15,
             alignment: Alignment.center,
-            padding: EdgeInsets.all(Dimension.Padding),
-            child: DefaultTextField(
+            padding: EdgeInsets.all(Dimension.padding),
+            child: defaultTextField(
               controller: provider.mobile,
-              label: language.Mobile,
+              label: language.mobile,
               textInputType: TextInputType.number,
             ),
           ),
@@ -261,25 +216,29 @@ class _ForgotPasswordState extends State<ForgotPassword>
       children: [
         Card(
           margin: EdgeInsets.only(
-              top: (Get.height * 0.2),
-              left: Dimension.Padding,
-              right: Dimension.Padding,
-              bottom: Dimension.Size_20),
-          elevation: Dimension.card_elevation,
+            top: (Get.height * 0.2),
+            left: Dimension.padding,
+            right: Dimension.padding,
+            bottom: Dimension.size20,
+          ),
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.all(Dimension.Padding),
+            padding: EdgeInsets.all(Dimension.padding),
             child: Column(
               children: [
-                DefaultTextField(
-                    controller: provider.newPass, label: language.New_password),
-                DefaultTextField(
-                    controller: provider.newConPass,
-                    label: language.Confirm_New_password),
+                defaultTextField(
+                  controller: provider.newPass,
+                  label: language.newPassword,
+                ),
+                defaultTextField(
+                  controller: provider.newConPass,
+                  label: language.confirmNewpassword,
+                ),
                 SizedBox(
-                  height: Dimension.Size_10,
-                )
+                  height: Dimension.size10,
+                ),
               ],
             ),
           ),
@@ -296,11 +255,12 @@ class _ForgotPasswordState extends State<ForgotPassword>
       children: [
         Card(
           margin: EdgeInsets.only(
-              top: (Get.height * 0.2),
-              left: Dimension.Padding,
-              right: Dimension.Padding,
-              bottom: Dimension.Size_10),
-          elevation: Dimension.card_elevation,
+            top: (Get.height * 0.2),
+            left: Dimension.padding,
+            right: Dimension.padding,
+            bottom: Dimension.size10,
+          ),
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
             height: Get.height * 0.15,
@@ -308,24 +268,26 @@ class _ForgotPasswordState extends State<ForgotPassword>
             child: Container(
               height: Get.height * 0.05,
               margin: EdgeInsets.only(
-                  left: Dimension.Padding, right: Dimension.Padding),
+                left: Dimension.padding,
+                right: Dimension.padding,
+              ),
               child: PinPut(
                 fieldsCount: 4,
                 onSubmit: (String pin) {},
-                //focusNode: _pinPutFocusNode,
-                //controller: _pinPutController,
                 submittedFieldDecoration: pinPutDecoration,
                 selectedFieldDecoration: pinPutDecoration,
                 followingFieldDecoration: pinPutDecoration.copyWith(
                   border: Border(
                     bottom: BorderSide(
-                        width: 1, color: Themes.Primary.withOpacity(0.5)),
+                      width: 1,
+                      color: Themes.primary.withOpacity(0.5),
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -333,7 +295,7 @@ class _ForgotPasswordState extends State<ForgotPassword>
   BoxDecoration get pinPutDecoration {
     return BoxDecoration(
       border: Border(
-        bottom: BorderSide(width: 1, color: Themes.Primary),
+        bottom: BorderSide(width: 1, color: Themes.primary),
       ),
     );
   }

@@ -1,13 +1,13 @@
-import 'package:MrMart/Controllers/categories_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/ui/category/trendings_item/components/TrendingItems.dart';
+import 'package:mr_mart/Controllers/categories_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/ui/category/trendings_item/components/TrendingItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Language/Language.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Language/Language.dart';
 import 'dart:ui';
 
 Language language = Language();
@@ -27,6 +27,13 @@ class _CategoryBodyState extends State<CategoryBody> {
   String isActive;
 
   _CategoryBodyState(this.isActive);
+  @override
+  void initState() {
+    if (isActive != null && isActive.length > 0) {
+      productsController.fetchProductsByCatId(isActive);
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +74,8 @@ class _CategoryBodyState extends State<CategoryBody> {
 
   Widget allCategory() {
     return Container(
-      height: Dimension.Size_70,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      height: Dimension.size70,
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -84,29 +91,29 @@ class _CategoryBodyState extends State<CategoryBody> {
   }
 
   Widget singleCategory(String catName, String catId, int index) {
-    Color color = (isActive == catId) ? Themes.Button_Color1 : Themes.Grey;
+    Color color = (isActive == catId) ? Themes.buttonColor1 : Themes.grey;
 
     return Column(
       children: [
         Container(
-          height: Dimension.Size_50,
+          height: Dimension.size50,
           margin: EdgeInsets.only(
-              left: Dimension.Size_10,
+              left: Dimension.size10,
               right: categoriesController.categories.length - 1 == index
-                  ? Dimension.Size_10
+                  ? Dimension.size10
                   : 0),
           alignment: Alignment.center,
-          padding: EdgeInsets.only(
-              left: Dimension.Size_30, right: Dimension.Size_30),
+          padding:
+              EdgeInsets.only(left: Dimension.size30, right: Dimension.size30),
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(Dimension.Size_24),
+            borderRadius: BorderRadius.circular(Dimension.size24),
             boxShadow: [
               BoxShadow(
                 color: color.withOpacity(0.5),
-                blurRadius: Dimension.Size_10,
+                blurRadius: Dimension.size10,
                 offset:
-                    Offset(0, Dimension.Size_5), // changes position of shadow
+                    Offset(0, Dimension.size5), // changes position of shadow
               ),
             ],
           ),
@@ -125,7 +132,9 @@ class _CategoryBodyState extends State<CategoryBody> {
             child: Text(
               catName,
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  fontWeight: Dimension.textMedium, color: Themes.White),
+                    fontWeight: Dimension.textMedium,
+                    color: Themes.white,
+                  ),
             ),
           ),
         ),

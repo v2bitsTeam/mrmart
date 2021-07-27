@@ -1,25 +1,25 @@
 import 'dart:ui';
 import 'dart:async';
 import 'dart:io';
-import 'package:MrMart/AppHelper/Helper.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/categories_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/AppHelper/Helper.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/categories_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Providers/HomePageProvider.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Providers/HomePageProvider.dart';
+import 'package:mr_mart/Widgets/GridAnimation.dart';
 import 'package:provider/provider.dart';
-import 'package:MrMart/ui/category/trendings_item/trending_items_screen.dart';
-import 'package:MrMart/ui/category/Items_details/item_details_screen.dart';
-import 'package:MrMart/ui/filter/filter_screen.dart';
+import 'package:mr_mart/ui/category/trendings_item/trending_items_screen.dart';
+import 'package:mr_mart/ui/category/Items_details/item_details_screen.dart';
+import 'package:mr_mart/ui/filter/filter_screen.dart';
 import '../main.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,9 +38,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           builder: (context) => AlertDialog(
             title: Text('Are you sure?',
                 style: Theme.of(context).textTheme.headline1),
-            content: Text('Do you want to exit an App?'),
+            content: Text('Do you want to exit the App?'),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 onPressed: () => Navigator.of(context).pop(false),
                 child: Text('No',
                     style: Theme.of(context)
@@ -48,9 +48,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         .headline1
                         .copyWith(color: Colors.blue)),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () => exit(0),
-                /*Navigator.of(context).pop(true)*/
                 child: Text('Yes',
                     style: Theme.of(context)
                         .textTheme
@@ -99,21 +98,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         children: [
           Positioned.fill(
             child: ListView(
-              padding:
-                  EdgeInsets.only(top: invisibleHeight + Dimension.Size_50),
+              padding: EdgeInsets.only(top: invisibleHeight + Dimension.size50),
               children: [
                 slider(),
                 Obx(() => (categoriesController.categories.length > 0)
                     ? allCategory()
                     : Container()),
                 titleHeader(
-                    title: language.Trending_Products,
-                    press: TrendingItemsScreen()),
+                  title: language.trendingProducts,
+                  press: TrendingItemsScreen(),
+                ),
                 Obx(() => (productsController.products.length > 0)
                     ? trendingItem()
                     : Container()),
                 titleHeader(
-                    title: language.Recommended_Categories, press: null),
+                  title: language.recommendedCategories,
+                  press: null,
+                ),
                 Obx(() => (categoriesController.categories.length > 0)
                     ? recommendedItem()
                     : Container()),
@@ -131,10 +132,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget topMenu() {
     return Container(
       decoration: BoxDecoration(
-        color: Themes.White,
+        color: Themes.white,
         borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(Dimension.Size_5),
-            bottomRight: Radius.circular(Dimension.Size_5)),
+          bottomLeft: Radius.circular(Dimension.size5),
+          bottomRight: Radius.circular(Dimension.size5),
+        ),
         boxShadow: Themes.defaultShadow,
       ),
       child: Row(
@@ -142,12 +144,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           Expanded(
             child: Container(
               height: 80,
-              padding: EdgeInsets.all(Dimension.Size_8),
-              margin: EdgeInsets.all(Dimension.Padding)
-                  .copyWith(top: invisibleHeight + Dimension.Size_20),
+              padding: EdgeInsets.all(Dimension.size8),
+              margin: EdgeInsets.all(Dimension.padding)
+                  .copyWith(top: invisibleHeight + Dimension.size20),
               decoration: BoxDecoration(
-                  color: Themes.Card_Back_Blue_Lite,
-                  borderRadius: BorderRadius.circular(Dimension.Size_3)),
+                color: Themes.cardBackBlueLite,
+                borderRadius: BorderRadius.circular(Dimension.size3),
+              ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -155,7 +158,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     flex: 1,
                     child: SvgPicture.asset(
                       'assets/icons/navigation.svg',
-                      height: Dimension.Size_34,
+                      height: Dimension.size34,
                     ),
                   ),
                   Expanded(
@@ -169,11 +172,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           Expanded(
                             flex: 1,
                             child: Text(
-                              language.Delivery_to,
+                              language.deliveryTo,
                               style: Theme.of(context)
                                   .textTheme
                                   .headline1
-                                  .copyWith(color: Themes.Primary),
+                                  .copyWith(color: Themes.primary),
                             ),
                           ),
                         ],
@@ -193,26 +196,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             },
             child: Container(
               height: 80,
-              padding: EdgeInsets.all(Dimension.Size_8)
+              padding: EdgeInsets.all(Dimension.size8)
                   .copyWith(left: Get.width * 0.07, right: Get.width * 0.07),
-              margin: EdgeInsets.all(Dimension.Padding)
-                  .copyWith(top: invisibleHeight + Dimension.Size_20, left: 0),
+              margin: EdgeInsets.all(Dimension.padding)
+                  .copyWith(top: invisibleHeight + Dimension.size20, left: 0),
               decoration: BoxDecoration(
-                  color: Themes.Card_Back_Blue_Lite,
-                  borderRadius: BorderRadius.circular(Dimension.Size_3)),
+                color: Themes.cardBackBlueLite,
+                borderRadius: BorderRadius.circular(Dimension.size3),
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
                     'assets/icons/filter.svg',
-                    height: Dimension.Size_30,
+                    height: Dimension.size30,
                   ),
                   SizedBox(
                       // height: Dimension.Size_5,
                       ),
                   Text(
-                    language.Filter,
+                    language.filter,
                     style: Theme.of(context).textTheme.bodyText2,
                   ),
                 ],
@@ -242,12 +246,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: Container(
             width: Get.width,
             margin: EdgeInsets.only(
-                left: Dimension.Size_5,
-                right: Dimension.Size_5,
-                bottom: Dimension.Padding),
+              left: Dimension.size5,
+              right: Dimension.size5,
+              bottom: Dimension.padding,
+            ),
             decoration: BoxDecoration(
-                color: Themes.White,
-                borderRadius: BorderRadius.circular(Dimension.Size_10),
+                color: Themes.white,
+                borderRadius: BorderRadius.circular(Dimension.size10),
                 boxShadow: Themes.defaultShadow,
                 image: DecorationImage(
                     image: AssetImage('assets/images/slider/slider$i.jpg'),
@@ -260,8 +265,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget allCategory() {
     return Container(
-      height: Dimension.Size_70,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      height: Dimension.size70,
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: Obx(
         () => ListView(
           shrinkWrap: true,
@@ -284,24 +289,27 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return Column(
       children: [
         Container(
-          height: Dimension.Size_50,
+          height: Dimension.size50,
           margin: EdgeInsets.only(
-              left: Dimension.Size_10,
-              right: categoriesController.categories.length - 1 == index
-                  ? Dimension.Size_10
-                  : 0),
+            left: Dimension.size10,
+            right: categoriesController.categories.length - 1 == index
+                ? Dimension.size10
+                : 0,
+          ),
           alignment: Alignment.center,
           padding: EdgeInsets.only(
-              left: Dimension.Size_30, right: Dimension.Size_30),
+            left: Dimension.size30,
+            right: Dimension.size30,
+          ),
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(Dimension.Size_24),
+            borderRadius: BorderRadius.circular(Dimension.size24),
             boxShadow: [
               BoxShadow(
                 color: color.withOpacity(0.5),
-                blurRadius: Dimension.Size_10,
+                blurRadius: Dimension.size10,
                 offset:
-                    Offset(0, Dimension.Size_5), // changes position of shadow
+                    Offset(0, Dimension.size5), // changes position of shadow
               ),
             ],
           ),
@@ -317,7 +325,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             child: Text(
               catName,
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                  fontWeight: Dimension.textMedium, color: Themes.White),
+                    fontWeight: Dimension.textMedium,
+                    color: Themes.white,
+                  ),
             ),
           ),
         ),
@@ -327,7 +337,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   Widget titleHeader({String title, press}) {
     return Padding(
-      padding: EdgeInsets.only(left: Dimension.Padding),
+      padding: EdgeInsets.only(left: Dimension.padding),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -337,11 +347,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             style: Theme.of(context).textTheme.headline1,
           )),
           press != null
-              ? FlatButton(
+              ? TextButton(
                   onPressed: () {},
                   child: InkWell(
                     child: Text(
-                      language.See_All,
+                      language.seeAll,
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                     onTap: () {
@@ -369,7 +379,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     double width = Get.width * 0.4;
     return Container(
       height: Get.height * 0.30,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: Obx(
         () => ListView.builder(
           shrinkWrap: true,
@@ -378,7 +388,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           itemCount: productsController.trendingProducts.length,
           itemBuilder: (context, index) {
             checkIfItemIsInCart(productsController.trendingProducts[index].pid);
-            return GridAnimation(
+            return gridAnimation(
               column: 3,
               index: index,
               child: InkWell(
@@ -390,12 +400,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   width: width,
                   clipBehavior: Clip.antiAlias,
                   margin: EdgeInsets.only(
-                      left: Dimension.Size_10,
-                      bottom: Dimension.Padding,
-                      right: 2 == index ? Dimension.Size_10 : 0),
+                    left: Dimension.size10,
+                    bottom: Dimension.padding,
+                    right: 2 == index ? Dimension.size10 : 0,
+                  ),
                   decoration: BoxDecoration(
-                    color: Themes.White,
-                    borderRadius: BorderRadius.circular(Dimension.Size_8),
+                    color: Themes.white,
+                    borderRadius: BorderRadius.circular(Dimension.size8),
                     boxShadow: Themes.defaultShadow,
                   ),
                   child: Stack(
@@ -408,7 +419,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                         ?.trendingProducts[index].image.length >
                                     0)
                                 ? Image.network(
-                                    AppConstant.MediaUrl +
+                                    AppConstant.mediaUrl +
                                         productsController
                                             .trendingProducts[index].image,
                                     width: width,
@@ -418,7 +429,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                 : Image.asset('assets/images/empty.png'),
                             Divider(
                               height: 2,
-                              color: Themes.Grey.withOpacity(0.1),
+                              color: Themes.grey.withOpacity(0.1),
                               thickness: 2,
                             ),
                             Padding(
@@ -458,7 +469,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                       .textTheme
                                                       .bodyText2
                                                       .copyWith(
-                                                          color: Themes.Grey,
+                                                          color: Themes.grey,
                                                           decoration:
                                                               TextDecoration
                                                                   .lineThrough),
@@ -468,7 +479,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                               .discount) >
                                                           0
                                                       ? '${AppConstant.currencySymbol}${productsController.trendingProducts[index].price}'
-                                                      : '')
+                                                      : ''),
                                             ],
                                           ),
                                         ),
@@ -485,7 +496,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                           'Product already in cart.'),
                                                   child: SvgPicture.asset(
                                                     'assets/icons/cart-fill-color.svg',
-                                                    height: Dimension.Size_16,
+                                                    height: Dimension.size16,
                                                     color: Colors.black26,
                                                   ),
                                                 ),
@@ -497,7 +508,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                         .pid),
                                                 child: SvgPicture.asset(
                                                   'assets/icons/cart-fill-color.svg',
-                                                  height: Dimension.Size_16,
+                                                  height: Dimension.size16,
                                                 ),
                                               ),
                                       )
@@ -510,41 +521,43 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                         ),
                       ),
                       Positioned(
-                          top: 0,
-                          child: Container(
-                            width: width,
-                            padding: EdgeInsets.all(Dimension.Size_10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                int.parse(productsController
-                                            .trendingProducts[index].discount) >
-                                        0
-                                    ? Container(
-                                        decoration: BoxDecoration(
-                                            color: Themes.Primary2,
-                                            borderRadius: BorderRadius.circular(
-                                                Dimension.Size_5)),
-                                        padding:
-                                            EdgeInsets.all(Dimension.Size_3)
-                                                .copyWith(
-                                                    left: Dimension.Size_10,
-                                                    right: Dimension.Size_10),
-                                        child: Text(
-                                          '${productsController.trendingProducts[index].discount}% ${language.Off}',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyText2
-                                              .copyWith(
-                                                  color: Themes.White,
-                                                  fontSize: Dimension
-                                                      .Text_Size_Small_Extra),
-                                        ),
-                                      )
-                                    : Container(),
-                              ],
-                            ),
-                          ))
+                        top: 0,
+                        child: Container(
+                          width: width,
+                          padding: EdgeInsets.all(Dimension.size10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              int.parse(productsController
+                                          .trendingProducts[index].discount) >
+                                      0
+                                  ? Container(
+                                      decoration: BoxDecoration(
+                                          color: Themes.primary2,
+                                          borderRadius: BorderRadius.circular(
+                                              Dimension.size5)),
+                                      padding: EdgeInsets.all(Dimension.size3)
+                                          .copyWith(
+                                        left: Dimension.size10,
+                                        right: Dimension.size10,
+                                      ),
+                                      child: Text(
+                                        '${productsController.trendingProducts[index].discount}% ${language.off}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2
+                                            .copyWith(
+                                              color: Themes.white,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
+                                      ),
+                                    )
+                                  : Container(),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -583,12 +596,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         physics: NeverScrollableScrollPhysics(),
         itemCount: categoriesController.featuredCategories.length,
         padding:
-            EdgeInsets.only(left: Dimension.Size_10, right: Dimension.Size_10),
+            EdgeInsets.only(left: Dimension.size10, right: Dimension.size10),
         crossAxisCount: 6,
-        mainAxisSpacing: Dimension.Size_8,
-        crossAxisSpacing: Dimension.Size_8,
+        mainAxisSpacing: Dimension.size8,
+        crossAxisSpacing: Dimension.size8,
         itemBuilder: (context, index) {
-          return GridAnimation(
+          return gridAnimation(
               column: 3,
               index: index,
               child: InkWell(
@@ -601,8 +614,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   height: Get.height * 0.19,
                   padding: EdgeInsets.all(5),
                   decoration: BoxDecoration(
-                    color: Themes.White,
-                    borderRadius: BorderRadius.circular(Dimension.Size_5),
+                    color: Themes.white,
+                    borderRadius: BorderRadius.circular(Dimension.size5),
                     boxShadow: Themes.defaultShadow,
                   ),
                   child: Column(
@@ -613,7 +626,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   .categoryImage.length >
                               0)
                           ? Image.network(
-                              AppConstant.MediaUrl +
+                              AppConstant.mediaUrl +
                                   categoriesController
                                       .featuredCategories[index].categoryImage,
                               fit: BoxFit.contain,
@@ -626,11 +639,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                             ),
                       Divider(
                         height: 2,
-                        color: Themes.Grey.withOpacity(0.1),
+                        color: Themes.grey.withOpacity(0.1),
                         thickness: 2,
                       ),
                       Padding(
-                        padding: EdgeInsets.all(Dimension.Size_5),
+                        padding: EdgeInsets.all(Dimension.size5),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [

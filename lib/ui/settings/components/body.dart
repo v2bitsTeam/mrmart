@@ -2,17 +2,11 @@ import 'package:custom_switch/custom_switch.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:xlive_switch/xlive_switch.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -21,15 +15,11 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool status = false;
-  bool _value = true;
   String dropdownLanguageValue = 'English';
   String dropdownCurrencyValue = 'INR';
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: Padding(
@@ -275,11 +265,5 @@ class _BodyState extends State<Body> {
         ),
       ),
     );
-  }
-
-  void _changeValue(bool value) {
-    setState(() {
-      _value = value;
-    });
   }
 }

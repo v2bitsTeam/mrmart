@@ -1,18 +1,18 @@
 import 'dart:async';
-import 'package:MrMart/Controllers/my_order_controller.dart';
-import 'package:MrMart/Controllers/pincodes_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Services/http_services.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Controllers/my_order_controller.dart';
+import 'package:mr_mart/Controllers/pincodes_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Services/http_services.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui_components/default_button.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:shape_of_view/shape_of_view.dart';
@@ -96,7 +96,6 @@ class _BodyState extends State<Body> {
             ),
           ),
           Container(
-            // width: Get.width * 0.9,
             padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: ExpansionPanelList(
               children: [
@@ -119,13 +118,14 @@ class _BodyState extends State<Body> {
                               borderWidth: 0, //optional
                             ),
                             child: Container(
-                              color: Themes.BG2,
+                              color: Themes.bG2,
                               child: Padding(
                                 padding: EdgeInsets.all(10.0),
                                 child: SvgPicture.asset(
-                                    'assets/icons/voucher/collect_voucher.svg',
-                                    color: Colors.white,
-                                    semanticsLabel: ''),
+                                  'assets/icons/voucher/collect_voucher.svg',
+                                  color: Colors.white,
+                                  semanticsLabel: '',
+                                ),
                               ),
                             ),
                           ),
@@ -140,13 +140,13 @@ class _BodyState extends State<Body> {
                                   "Order Value",
                                   style: TextStyle(
                                     fontSize: 16.0,
-                                    color: Themes.SUB_TEXT,
+                                    color: Themes.subText,
                                   ),
                                 ),
                                 Text(
                                   "${AppConstant.currencySymbol} ${currencyFormatter.format(cartController.cartTotal.value)}",
                                   style: TextStyle(
-                                    color: Themes.Text_Color,
+                                    color: Themes.textColor,
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -173,14 +173,14 @@ class _BodyState extends State<Body> {
                               Text(
                                 "SubTotal:",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 18.0,
                                 ),
                               ),
                               Text(
                                 "${currencyFormatter.format(cartController.cartActualTotal.value)}",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 18.0,
                                 ),
                               ),
@@ -192,14 +192,14 @@ class _BodyState extends State<Body> {
                               Text(
                                 "Discount:",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 18.0,
                                 ),
                               ),
                               Text(
                                 "${currencyFormatter.format(cartController.discount.value)}",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 18.0,
                                 ),
                               ),
@@ -212,14 +212,14 @@ class _BodyState extends State<Body> {
                               Text(
                                 "Total:",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 18.0,
                                 ),
                               ),
                               Text(
                                 "${currencyFormatter.format(cartController.cartTotal.value)}",
                                 style: TextStyle(
-                                  color: Themes.SUB_TEXT,
+                                  color: Themes.subText,
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.w600,
                                 ),
@@ -253,13 +253,14 @@ class _BodyState extends State<Body> {
                               borderWidth: 0, //optional
                             ),
                             child: Container(
-                              color: Themes.BG1,
+                              color: Themes.bG1,
                               child: Padding(
                                 padding: EdgeInsets.all(10.0),
                                 child: SvgPicture.asset(
-                                    'assets/icons/checkout/person.svg',
-                                    color: Colors.white,
-                                    semanticsLabel: ''),
+                                  'assets/icons/checkout/person.svg',
+                                  color: Colors.white,
+                                  semanticsLabel: '',
+                                ),
                               ),
                             ),
                           ),
@@ -274,13 +275,13 @@ class _BodyState extends State<Body> {
                                   "Recepients Details",
                                   style: TextStyle(
                                     fontSize: 16.0,
-                                    color: Themes.SUB_TEXT,
+                                    color: Themes.subText,
                                   ),
                                 ),
                                 Text(
                                   "${userController.user.value.name}",
                                   style: TextStyle(
-                                    color: Themes.Text_Color,
+                                    color: Themes.textColor,
                                     fontSize: 18.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -290,7 +291,7 @@ class _BodyState extends State<Body> {
                                       ? "${locationController.text}, ${pincodesController.userPincodeData.value.address}, ${pincodesController.userPincodeData.value.pincode}."
                                       : "${userController.user.value.location}, ${pincodesController.userPincodeData.value.address}, ${pincodesController.userPincodeData.value.pincode}.",
                                   style: TextStyle(
-                                    color: Themes.Text_Color,
+                                    color: Themes.textColor,
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                   ),
@@ -299,7 +300,7 @@ class _BodyState extends State<Body> {
                                     ? Text(
                                         "${instructionsController.text}",
                                         style: TextStyle(
-                                          color: Themes.Text_Color,
+                                          color: Themes.textColor,
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -318,7 +319,7 @@ class _BodyState extends State<Body> {
                         "Change Address",
                         style: TextStyle(
                           fontSize: 16.0,
-                          color: Themes.SUB_TEXT,
+                          color: Themes.subText,
                         ),
                       ),
                       Container(
@@ -327,9 +328,10 @@ class _BodyState extends State<Body> {
                         child: Text(
                           'Address *',
                           style: TextStyle(
-                              color: Themes.Form_field_upper_Text,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                            color: Themes.formFieldUpperText,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       Padding(
@@ -338,7 +340,7 @@ class _BodyState extends State<Body> {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Themes.Form_field_border,
+                                color: Themes.formFieldBorder,
                               ),
                             ),
                           ),
@@ -370,9 +372,10 @@ class _BodyState extends State<Body> {
                         child: Text(
                           'City',
                           style: TextStyle(
-                              color: Themes.Form_field_upper_Text,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                            color: Themes.formFieldUpperText,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       Padding(
@@ -381,7 +384,7 @@ class _BodyState extends State<Body> {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Themes.Form_field_border,
+                                color: Themes.formFieldBorder,
                               ),
                             ),
                           ),
@@ -389,9 +392,10 @@ class _BodyState extends State<Body> {
                             enabled: false,
                             controller: cityController,
                             style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal),
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                            ),
                             cursorColor: Colors.black,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -413,9 +417,10 @@ class _BodyState extends State<Body> {
                         child: Text(
                           'Pincode',
                           style: TextStyle(
-                              color: Themes.Form_field_upper_Text,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                            color: Themes.formFieldUpperText,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       Padding(
@@ -424,7 +429,7 @@ class _BodyState extends State<Body> {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Themes.Form_field_border,
+                                color: Themes.formFieldBorder,
                               ),
                             ),
                           ),
@@ -432,9 +437,10 @@ class _BodyState extends State<Body> {
                             enabled: false,
                             controller: pincodeController,
                             style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal),
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                            ),
                             cursorColor: Colors.black,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -456,9 +462,10 @@ class _BodyState extends State<Body> {
                         child: Text(
                           'Delivery Instructions',
                           style: TextStyle(
-                              color: Themes.Form_field_upper_Text,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18),
+                            color: Themes.formFieldUpperText,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       Padding(
@@ -467,23 +474,25 @@ class _BodyState extends State<Body> {
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                color: Themes.Form_field_border,
+                                color: Themes.formFieldBorder,
                               ),
                             ),
                           ),
                           child: TextField(
                             controller: instructionsController,
                             style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontWeight: FontWeight.normal),
+                              color: Colors.black,
+                              fontSize: 18,
+                              fontWeight: FontWeight.normal,
+                            ),
                             cursorColor: Colors.black,
                             decoration: InputDecoration(
                               border: InputBorder.none,
                               hintText: "add any delivery instructions",
                               hintStyle: TextStyle(
-                                  color: Colors.black.withOpacity(.2),
-                                  fontSize: 16.0),
+                                color: Colors.black.withOpacity(.2),
+                                fontSize: 16.0,
+                              ),
                             ),
                           ),
                         ),
@@ -502,14 +511,15 @@ class _BodyState extends State<Body> {
                                   Expanded(
                                     child: Container(
                                       height: 45,
-                                      child: RaisedButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                          ),
+                                          elevation: 1,
+                                          primary: Themes.greyLite,
                                         ),
-                                        elevation: 1,
-                                        textColor: Colors.black,
-                                        color: Themes.Grey_lite,
                                         child: Text(
                                           "Cancel",
                                           style: TextStyle(
@@ -531,14 +541,15 @@ class _BodyState extends State<Body> {
                                   Expanded(
                                     child: Container(
                                       height: 45,
-                                      child: RaisedButton(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5.0),
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5.0),
+                                          ),
+                                          elevation: 1,
+                                          primary: Themes.primary2,
                                         ),
-                                        elevation: 1,
-                                        textColor: Colors.white,
-                                        color: Themes.Primary2,
                                         child: Text(
                                           "Save Changes",
                                           style: TextStyle(
@@ -578,7 +589,7 @@ class _BodyState extends State<Body> {
                               borderWidth: 0, //optional
                             ),
                             child: Container(
-                              color: Themes.BG3,
+                              color: Themes.bG3,
                               child: Padding(
                                 padding: EdgeInsets.all(10.0),
                                 child: SvgPicture.asset(
@@ -599,14 +610,14 @@ class _BodyState extends State<Body> {
                                   "Payment Method",
                                   style: TextStyle(
                                     fontSize: 16.0,
-                                    color: Themes.SUB_TEXT,
+                                    color: Themes.subText,
                                   ),
                                 ),
                                 paymentMethod.length == 0
                                     ? Text(
                                         "Please, choose the payment method",
                                         style: TextStyle(
-                                          color: Themes.SUB_TEXT,
+                                          color: Themes.subText,
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -616,7 +627,7 @@ class _BodyState extends State<Body> {
                                             ? "Cash on Delivery"
                                             : "Online Payment",
                                         style: TextStyle(
-                                          color: Themes.Text_Color,
+                                          color: Themes.textColor,
                                           fontSize: 18.0,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -638,19 +649,22 @@ class _BodyState extends State<Body> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           RadioListTile(
-                              title: Text(
-                                "Cash On Delivery",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
+                            title: Text(
+                              "Cash On Delivery",
+                              style: TextStyle(
+                                color: Colors.black,
                               ),
-                              value: "COD",
-                              groupValue: paymentMethod,
-                              onChanged: (value) {
-                                setState(() {
+                            ),
+                            value: "COD",
+                            groupValue: paymentMethod,
+                            onChanged: (value) {
+                              setState(
+                                () {
                                   paymentMethod = value;
-                                });
-                              }),
+                                },
+                              );
+                            },
+                          ),
                           RadioListTile(
                               title: RichText(
                                 text: TextSpan(
@@ -662,7 +676,7 @@ class _BodyState extends State<Body> {
                                             .textTheme
                                             .bodyText2
                                             .copyWith(
-                                              color: Themes.Grey,
+                                              color: Themes.grey,
                                             ),
                                         text:
                                             '(will be redirected to Razorpay for payment)')
@@ -793,7 +807,7 @@ class _BodyState extends State<Body> {
           'currency': "INR",
           'name': 'MR MART',
           'description': 'Best place to buy stuff online',
-          'image': 'http://mrmart.v2bits.com/android-chrome-512x512.png',
+          'image': 'https://mrmart.v2bits.com/android-chrome-512x512.png',
           'prefill': {
             'name': userController.user.value.name,
             'contact': userController.user.value.mobile,
@@ -878,7 +892,10 @@ class _BodyState extends State<Body> {
     }
 
     successMessage(context, message: "Order Placed Successfully.");
-    Timer(Duration(seconds: 2), () => navigateToOrderPlaced(response));
+    Timer(
+      Duration(seconds: 2),
+      () => navigateToOrderPlaced(response),
+    );
     return;
   }
 

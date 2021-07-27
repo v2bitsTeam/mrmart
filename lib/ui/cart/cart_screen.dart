@@ -1,9 +1,9 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Route/Route.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Route/Route.dart';
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/ui/cart/components/body.dart';
+import 'package:mr_mart/ui/cart/components/body.dart';
 
 class CartScreen extends StatelessWidget {
   final CartController cartController = Get.find();

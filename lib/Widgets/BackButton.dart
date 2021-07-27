@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/main.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/main.dart';
 
-Widget DefaultBackButton(BuildContext context, {Color color, Function onTap}) {
+Widget defaultBackButton(
+  BuildContext context, {
+  Color color,
+  Function onTap,
+}) {
   return Positioned(
-    left: Dimension.Size_5,
+    left: Dimension.size5,
     top: paddingTop,
     child: IconButton(
       icon: Icon(

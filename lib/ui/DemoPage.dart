@@ -1,16 +1,7 @@
-import 'dart:async';
-import 'dart:ui';
-
-import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Providers/LocationPermissionProvider.dart';
-import 'package:MrMart/Providers/SplashProvider.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/DefaultAppbar.dart';
-
+import 'package:mr_mart/Providers/LocationPermissionProvider.dart';
 import 'package:provider/provider.dart';
 
 import '../main.dart';
@@ -28,7 +19,6 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -40,7 +30,7 @@ class _DemoPageState extends State<DemoPage> with TickerProviderStateMixin {
         builder: (context, model, child) {
           provider = model;
           return BaseActivity(
-            title: language.Location_Permission,
+            title: language.locationPermission,
             body: mainView(),
           );
         },

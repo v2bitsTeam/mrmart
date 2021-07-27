@@ -1,16 +1,15 @@
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import 'flushbar.dart';
 
 class FlushbarHelper {
   /// Get a success notification flushbar.
-  static Flushbar createSuccess(
-      {@required String message,
-      String title,
-      var position=FlushbarPosition.BOTTOM,
-      Duration duration = const Duration(seconds: 3)}) {
+  static Flushbar createSuccess({
+    @required String message,
+    String title,
+    var position = FlushbarPosition.BOTTOM,
+    Duration duration = const Duration(seconds: 3),
+  }) {
     return Flushbar(
       title: title,
       message: message,
@@ -25,11 +24,12 @@ class FlushbarHelper {
   }
 
   /// Get an information notification flushbar
-  static Flushbar createInformation(
-      {@required String message,
-      String title,
-        var position=FlushbarPosition.BOTTOM,
-      Duration duration = const Duration(seconds: 3)}) {
+  static Flushbar createInformation({
+    @required String message,
+    String title,
+    var position = FlushbarPosition.BOTTOM,
+    Duration duration = const Duration(seconds: 3),
+  }) {
     return Flushbar(
       title: title,
       message: message,
@@ -45,11 +45,12 @@ class FlushbarHelper {
   }
 
   /// Get a error notification flushbar
-  static Flushbar createError(
-      {@required String message,
-      String title,
-        var position=FlushbarPosition.BOTTOM,
-      Duration duration = const Duration(seconds: 3)}) {
+  static Flushbar createError({
+    @required String message,
+    String title,
+    var position = FlushbarPosition.BOTTOM,
+    Duration duration = const Duration(seconds: 3),
+  }) {
     return Flushbar(
       title: title,
       message: message,
@@ -65,12 +66,13 @@ class FlushbarHelper {
   }
 
   /// Get a flushbar that can receive a user action through a button.
-  static Flushbar createAction(
-      {@required String message,
-      @required FlatButton button,
-      String title,
-        var position=FlushbarPosition.BOTTOM,
-      Duration duration = const Duration(seconds: 3)}) {
+  static Flushbar createAction({
+    @required String message,
+    @required TextButton button,
+    String title,
+    var position = FlushbarPosition.BOTTOM,
+    Duration duration = const Duration(seconds: 3),
+  }) {
     return Flushbar(
       title: title,
       flushbarPosition: position,
@@ -81,14 +83,15 @@ class FlushbarHelper {
   }
 
   // Get a flushbar that shows the progress of a async computation.
-  static Flushbar createLoading(
-      {@required String message,
-        var position=FlushbarPosition.BOTTOM,
-      @required LinearProgressIndicator linearProgressIndicator,
-      String title,
-      Duration duration = const Duration(seconds: 3),
-      AnimationController progressIndicatorController,
-      Color progressIndicatorBackgroundColor}) {
+  static Flushbar createLoading({
+    @required String message,
+    var position = FlushbarPosition.BOTTOM,
+    @required LinearProgressIndicator linearProgressIndicator,
+    String title,
+    Duration duration = const Duration(seconds: 3),
+    AnimationController progressIndicatorController,
+    Color progressIndicatorBackgroundColor,
+  }) {
     return Flushbar(
       title: title,
       message: message,

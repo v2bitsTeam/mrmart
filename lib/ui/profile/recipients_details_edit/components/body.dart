@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/ui_components/DefaultTextFieldProfileEditClicked.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/ui_components/DefaultTextFieldProfileEditClicked.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -48,7 +48,7 @@ class _BodyState extends State<Body> {
                         "Edit",
                         textDirection: TextDirection.rtl,
                         style: TextStyle(
-                          color: Themes.Primary2,
+                          color: Themes.primary2,
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
                           height: 1,
@@ -61,7 +61,6 @@ class _BodyState extends State<Body> {
               ),
             ),
           ),
-          //TitleWithClearAllBtn(text: "Today", press: () {}),
           SizedBox(
             height: 15,
           ),
@@ -78,21 +77,21 @@ Widget recipientsDetailsView() {
     padding: EdgeInsets.zero,
     children: [
       Card(
-        elevation: Dimension.card_elevation,
+        elevation: Dimension.cardElevation,
         clipBehavior: Clip.antiAlias,
         child: Container(
-          padding: EdgeInsets.all(Dimension.Padding),
+          padding: EdgeInsets.all(Dimension.padding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              DefaultTextFieldProfileEditClicked(
+              defaultTextFieldProfileEditClicked(
                   controller: null, label: 'Name'),
-              DefaultTextFieldProfileEditClicked(
+              defaultTextFieldProfileEditClicked(
                   controller: null, label: 'EMail'),
-              DefaultTextFieldProfileEditClicked(
+              defaultTextFieldProfileEditClicked(
                   controller: null, label: 'Phone'),
               SizedBox(
-                height: Dimension.Size_10,
+                height: Dimension.size10,
               )
             ],
           ),
@@ -105,10 +104,7 @@ Widget recipientsDetailsView() {
         padding: const EdgeInsets.all(4.0),
         child: DefaultButton(
           text: "Save Changes",
-          press: () {
-            //Navigator.pushNamed(context, CartSummaryScreen.routeName);
-            Get.toNamed(PROFILE_SCREEN);
-          },
+          press: () => Get.toNamed(PROFILE_SCREEN),
         ),
       ),
     ],

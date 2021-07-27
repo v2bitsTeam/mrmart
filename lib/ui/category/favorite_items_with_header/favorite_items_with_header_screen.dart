@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'components/FavoriteItemsHeaderBody.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui/category/favorite_items_with_header/components/FavoriteItemsHeaderBody.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/ui/category/favorite_items_with_header/components/FavoriteItemsHeaderBody.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
 
 class FavoriteItemsWithHeaderScreen extends StatelessWidget {
   @override

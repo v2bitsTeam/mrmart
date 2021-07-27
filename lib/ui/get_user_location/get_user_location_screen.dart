@@ -1,11 +1,13 @@
-import 'package:MrMart/Controllers/pincodes_controller.dart';
-import 'package:MrMart/Models/pincodes.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Widgets/DefaultTextField.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'dart:io';
+
+import 'package:mr_mart/Controllers/pincodes_controller.dart';
+import 'package:mr_mart/Models/pincodes.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Widgets/DefaultTextField.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,6 +32,36 @@ class _GetUserLocationScreenState extends State<GetUserLocationScreen> {
     }
   }
 
+  Future<bool> _onWillPop() {
+    return showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: Text('Are you sure?',
+                style: Theme.of(context).textTheme.headline1),
+            content: Text('Do you want to exit the App?'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text('No',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline1
+                        .copyWith(color: Colors.blue)),
+              ),
+              TextButton(
+                onPressed: () => exit(0),
+                child: Text('Yes',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline1
+                        .copyWith(color: Colors.red)),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,12 +84,6 @@ class _GetUserLocationScreenState extends State<GetUserLocationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),
@@ -65,101 +91,131 @@ class _GetUserLocationScreenState extends State<GetUserLocationScreen> {
           ),
         ),
       ),
-      body: Container(
-        height: Get.height,
-        color: Colors.grey[200],
-        padding:
-            EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            if (update &&
-                pincodesController.userPincodeData.value.pincode != null)
-              Container(
-                padding: EdgeInsets.only(
+      body: WillPopScope(
+        onWillPop: _onWillPop,
+        child: Container(
+          height: Get.height,
+          color: Colors.grey[200],
+          padding:
+              EdgeInsets.only(top: 4.0, left: 16.0, right: 16.0, bottom: 16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              if (update &&
+                  pincodesController.userPincodeData.value.pincode != null)
+                Container(
+                  padding: EdgeInsets.only(
                     bottom: 0.0,
-                    left: Dimension.Padding,
-                    right: Dimension.Padding),
-                child: Text(
-                  'Current Pincode is ${pincodesController.userPincodeData.value.pincode}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline2
-                      .copyWith(color: Themes.Text_Color),
+                    left: Dimension.padding,
+                    right: Dimension.padding,
+                  ),
+                  child: Text(
+                    'Current Pincode is ${pincodesController.userPincodeData.value.pincode}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2
+                        .copyWith(color: Themes.textColor),
+                  ),
+                ),
+              Expanded(
+                flex: MediaQuery.of(context).viewInsets.bottom == 0.0 ? 1 : 2,
+                child: Card(
+                  margin: EdgeInsets.only(
+                    top: Dimension.padding,
+                    left: Dimension.padding,
+                    right: Dimension.padding,
+                    bottom: Dimension.size10,
+                  ),
+                  elevation: Dimension.cardElevation,
+                  clipBehavior: Clip.antiAlias,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      bottom: Dimension.padding,
+                      left: Dimension.padding,
+                      right: Dimension.padding,
+                      top: 0,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(
+                            top: Dimension.padding,
+                          ),
+                          color: Colors.white,
+                          child: Text(
+                            "Enter your pincode and choose your location",
+                            style:
+                                Theme.of(context).textTheme.headline1.copyWith(
+                                      color: Themes.textColor,
+                                    ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                        defaultTextField(
+                          controller: pincodeTextController,
+                          label: "Enter your pincode",
+                          textInputType: TextInputType.phone,
+                          isRequired: true,
+                          onChanged: (e) => updateSuggestions(e),
+                        ),
+                        if (suggestions.length > 0)
+                          Expanded(
+                            child: ListView.builder(
+                              itemCount: suggestions.length,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  onTap: () {
+                                    pincodeTextController.text =
+                                        '${suggestions[index].pincode} - ${suggestions[index].address}';
+                                    setState(() {
+                                      pincodesController
+                                          .userPincodeData(suggestions[index]);
+                                      suggestions = [];
+                                    });
+                                  },
+                                  tileColor: index % 2 == 0
+                                      ? Colors.grey[100]
+                                      : Colors.grey[50],
+                                  title: Text(
+                                      '${suggestions[index].pincode} - ${suggestions[index].address}'),
+                                );
+                              },
+                            ),
+                          ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            Card(
-              margin: EdgeInsets.only(
-                  top: Dimension.Padding,
-                  left: Dimension.Padding,
-                  right: Dimension.Padding,
-                  bottom: Dimension.Size_10),
-              elevation: Dimension.card_elevation,
-              clipBehavior: Clip.antiAlias,
-              child: Container(
-                padding: EdgeInsets.all(Dimension.Padding),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Enter your pincode and choose your location",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1
-                          .copyWith(color: Themes.Text_Color),
-                      textAlign: TextAlign.center,
-                    ),
-                    DefaultTextField(
-                        controller: pincodeTextController,
-                        label: "Enter your pincode",
-                        textInputType: TextInputType.phone,
-                        isRequired: true,
-                        onChanged: (e) => updateSuggestions(e)),
-                    SizedBox(
-                      height: Dimension.Size_10,
-                    ),
-                    if (suggestions.length > 0)
-                      ListView.builder(
-                        itemCount: suggestions.length,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            onTap: () {
-                              pincodeTextController.text =
-                                  '${suggestions[index].pincode} - ${suggestions[index].address}';
-                              setState(() {
-                                pincodesController
-                                    .userPincodeData(suggestions[index]);
-                                suggestions = [];
-                              });
-                            },
-                            title: Text(
-                                '${suggestions[index].pincode} - ${suggestions[index].address}'),
-                          );
-                        },
-                      ),
-                  ],
+              if (suggestions.length == 0)
+                Expanded(
+                  flex: MediaQuery.of(context).viewInsets.bottom == 0.0 ? 2 : 1,
+                  child: Container(),
+                ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: Dimension.padding),
+                child: DefaultButton(
+                  color: Themes.primary2,
+                  text: 'SUBMIT',
+                  press: () {
+                    if (pincodesController.userPincodeData.value.pincode !=
+                        null) {
+                      Get.toNamed(MAIN_PAGE);
+                    } else {
+                      errorMessage(context, message: "Pincode is required");
+                    }
+                  },
                 ),
               ),
-            ),
-            Expanded(child: Container()),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: Dimension.Padding),
-              child: DefaultButton(
-                color: Themes.Primary2,
-                text: 'SUBMIT',
-                press: () {
-                  if (pincodesController.userPincodeData.value.pincode !=
-                      null) {
-                    Get.toNamed(MAIN_PAGE);
-                  } else {
-                    errorMessage(context, message: "Pincode is required");
-                  }
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

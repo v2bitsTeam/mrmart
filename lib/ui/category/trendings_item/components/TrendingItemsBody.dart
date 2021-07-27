@@ -1,6 +1,6 @@
-import 'package:MrMart/Controllers/categories_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/ui/category/trendings_item/components/TrendingItems.dart';
+import 'package:mr_mart/Controllers/categories_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/ui/category/trendings_item/components/TrendingItems.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

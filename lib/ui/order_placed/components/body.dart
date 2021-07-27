@@ -1,17 +1,16 @@
-import 'package:MrMart/Controllers/my_order_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Models/MyOrderItems.dart';
-import 'package:MrMart/Models/MyOrders.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Controllers/my_order_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Models/MyOrderItems.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:MrMart/ui/order/order_history/tabs/CartItemsWidget.dart';
-import 'package:MrMart/ui/order/order_history/tabs/CartTextWidget.dart';
+import 'package:mr_mart/ui/order/order_history/tabs/CartItemsWidget.dart';
+import 'package:mr_mart/ui/order/order_history/tabs/CartTextWidget.dart';
 
 class Body extends StatefulWidget {
   final String orderId;
@@ -104,7 +103,7 @@ class _BodyState extends State<Body> {
                       child: Text(
                         'Our team will get this assigned and delivered at the earliest.',
                         style: TextStyle(
-                          color: Themes.Text_Color,
+                          color: Themes.textColor,
                           fontSize: 16.0,
                           height: 1,
                         ),
@@ -140,7 +139,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Themes.Blue,
+                      primary: Themes.blue,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
@@ -160,7 +159,7 @@ class _BodyState extends State<Body> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Themes.Button_Color1,
+                      primary: Themes.buttonColor1,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),

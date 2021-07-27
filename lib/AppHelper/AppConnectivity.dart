@@ -1,7 +1,7 @@
 /*
 import 'dart:async';
 import 'dart:io';
-import 'package:MrMart/URL/URL.dart';
+import 'package:mr_mart/URL/URL.dart';
 import 'package:connectivity/connectivity.dart';
 
 class AppConnectivity {

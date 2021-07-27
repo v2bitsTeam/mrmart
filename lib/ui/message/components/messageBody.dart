@@ -1,34 +1,27 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/message/widgets/category_selector.dart';
-import 'package:MrMart/ui/message/widgets/favorite_contacts.dart';
-import 'package:MrMart/ui/message/widgets/recent_chats.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:mr_mart/ui/message/widgets/favorite_contacts.dart';
+import 'package:mr_mart/ui/message/widgets/recent_chats.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:shape_of_view/shape_of_view.dart';
-import 'package:flutter_svg/svg.dart';
 
 class MessageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //CategorySelector(),
         SizedBox(height: 45),
         ClipRRect(
           borderRadius: BorderRadius.circular(5.0),
           child: Container(
-            //height: 100.0,
-            margin: const EdgeInsets.only(
-                bottom: 6.0), //Same as `blurRadius` i guess
+            margin: const EdgeInsets.only(bottom: 6.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5.0),
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey,
-                  offset: Offset(0, 0), //(x,y)
+                  offset: Offset(0, 0),
                   blurRadius: 3.0,
                 ),
               ],
@@ -97,9 +90,7 @@ class MessageBody extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onTap: () {
-                        // clear function
-                      },
+                      onTap: () {},
                     ),
                   ),
                 ],
@@ -109,13 +100,6 @@ class MessageBody extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            /*decoration: BoxDecoration(
-              color: Theme.of(context).accentColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30.0),
-                topRight: Radius.circular(30.0),
-              ),
-            ),*/
             child: Column(
               children: [
                 FavoriteContacts(),

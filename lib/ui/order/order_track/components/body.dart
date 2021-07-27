@@ -1,20 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/StyleScheme.dart';
-import 'package:MrMart/ui/order/track_your_location/track_your_location_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/app_components/StyleScheme.dart';
+import 'package:mr_mart/ui/order/track_your_location/track_your_location_screen.dart';
 import 'package:flutter/widgets.dart';
-import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:MrMart/ui/message_2/message_screen2.dart';
-import 'package:MrMart/ui_components/default_button.dart';
-import 'package:MrMart/ui_components/CustomDialogReview.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
+import 'package:mr_mart/ui_components/CustomDialogReview.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
@@ -28,9 +23,6 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: kBackgroundColor,
       body: ListView(
@@ -51,7 +43,6 @@ class _BodyState extends State<Body> {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) => CustomDialogReview());
-                //Navigator.pushNamed(context, cart_summary_screen.routeName)
               },
             ),
           ),
@@ -226,13 +217,11 @@ class _BodyState extends State<Body> {
           strokeWidth: 1,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Expanded(
                 flex: 3,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  //crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
@@ -345,51 +334,11 @@ class _BodyState extends State<Body> {
                           ),
                         ),
                       ),
-                      onTap: () {
-                        launch("tel://017123456789");
-                        /*Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      TrackYourLocationScreen()),
-                            );*/
-                      },
+                      onTap: () => launch("tel://017123456789"),
                     ),
                     SizedBox(
                       width: 10,
                     ),
-                    // InkWell(
-                    //   child: ShapeOfView(
-                    //     height: 50,
-                    //     width: 50,
-                    //     elevation: 0,
-                    //     shape: RoundRectShape(
-                    //       borderRadius: BorderRadius.circular(5),
-                    //       borderColor: Colors.black, //optional
-                    //       borderWidth: 0, //optional
-                    //     ),
-                    //     child: Container(
-                    //       color: kPrimaryColor2,
-                    //       child: Padding(
-                    //         padding: EdgeInsets.all(10.0),
-                    //         child: SvgPicture.asset(
-                    //             'assets/icons/track_your_location/sms.svg',
-                    //             color: Colors.white,
-                    //             semanticsLabel: ''),
-                    //       ),
-                    //     ),
-                    //   ),
-                    //   onTap: () {
-                    //     Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           builder: (context) => MessageScreen2()),
-                    //     );
-                    //   },
-                    // ),
-                    // SizedBox(
-                    //   width: 10,
-                    // ),
                     InkWell(
                       child: ShapeOfView(
                         height: 50,
@@ -412,7 +361,6 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                       onTap: () {
-                        //Get.toNamed(TRACK_YOUR_LOCATION_SCREEN);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -521,88 +469,3 @@ class _BodyState extends State<Body> {
     );
   }
 }
-
-/*class Example10Horizontal extends StatelessWidget {
-  const Example10Horizontal({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildListDelegate(
-        <Widget>[
-          Center(
-            child: Container(
-              constraints: const BoxConstraints(maxHeight: 120),
-              color: Colors.white,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                children: [
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.manual,
-                    lineXY: 0.1,
-                    isFirst: true,
-                    indicatorStyle: const IndicatorStyle(
-                      height: 20,
-                      color: Colors.purple,
-                    ),
-                    beforeLineStyle: const LineStyle(
-                      color: Colors.purple,
-                      thickness: 6,
-                    ),
-                  ),
-                  const TimelineDivider(
-                    axis: TimelineAxis.vertical,
-                    begin: 0.1,
-                    end: 0.9,
-                    thickness: 6,
-                    color: Colors.purple,
-                  ),
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.manual,
-                    lineXY: 0.9,
-                    beforeLineStyle: const LineStyle(
-                      color: Colors.purple,
-                      thickness: 6,
-                    ),
-                    afterLineStyle: const LineStyle(
-                      color: Colors.deepOrange,
-                      thickness: 6,
-                    ),
-                    indicatorStyle: const IndicatorStyle(
-                      height: 20,
-                      color: Colors.cyan,
-                    ),
-                  ),
-                  const TimelineDivider(
-                    axis: TimelineAxis.vertical,
-                    begin: 0.1,
-                    end: 0.9,
-                    thickness: 6,
-                    color: Colors.deepOrange,
-                  ),
-                  TimelineTile(
-                    axis: TimelineAxis.horizontal,
-                    alignment: TimelineAlign.manual,
-                    lineXY: 0.1,
-                    isLast: true,
-                    beforeLineStyle: const LineStyle(
-                      color: Colors.deepOrange,
-                      thickness: 6,
-                    ),
-                    indicatorStyle: const IndicatorStyle(
-                      height: 20,
-                      color: Colors.red,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}*/

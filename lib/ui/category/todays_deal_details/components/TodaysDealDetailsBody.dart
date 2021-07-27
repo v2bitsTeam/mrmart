@@ -1,25 +1,15 @@
-import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/ui/favorite_items/favorite_items_screen.dart';
-import 'package:dotted_border/dotted_border.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
 import 'dart:ui';
-import 'package:provider/provider.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'dart:ui';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui/category/favorite_items_with_header/favorite_items_with_header_screen.dart';
+import 'package:mr_mart/ui/category/favorite_items_with_header/favorite_items_with_header_screen.dart';
 
 class TodaysDealDetailsBody extends StatefulWidget {
   @override
@@ -30,7 +20,6 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      //padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -42,7 +31,6 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                 'assets/demo/package1.png',
                 fit: BoxFit.cover,
               ),
-              //child: SvgPicture.asset('assets/demo/package1.svg'),
             ),
           ),
           Container(
@@ -54,7 +42,7 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
+                  offset: Offset(0, 1.0),
                 )
               ],
             ),
@@ -115,7 +103,7 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
+                  offset: Offset(0, 1.0),
                 )
               ],
             ),
@@ -460,8 +448,9 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          FavoriteItemsWithHeaderScreen()),
+                                    builder: (context) =>
+                                        FavoriteItemsWithHeaderScreen(),
+                                  ),
                                 );
                               },
                               child: Container(
@@ -469,20 +458,23 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                                 height: 45,
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.only(
-                                    top: Dimension.Size_3,
-                                    bottom: Dimension.Size_3),
+                                  top: Dimension.size3,
+                                  bottom: Dimension.size3,
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Themes.Primary2,
-                                    borderRadius: BorderRadius.circular(
-                                        Dimension.Size_5)),
+                                  color: Themes.primary2,
+                                  borderRadius:
+                                      BorderRadius.circular(Dimension.size5),
+                                ),
                                 child: Text(
                                   'Add To Favourite',
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText2
                                       .copyWith(
-                                          color: Themes.White,
-                                          fontWeight: Dimension.textMedium),
+                                        color: Themes.white,
+                                        fontWeight: Dimension.textMedium,
+                                      ),
                                 ),
                               ),
                             ),
@@ -491,7 +483,8 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => CartScreen()),
+                                    builder: (context) => CartScreen(),
+                                  ),
                                 );
                               },
                               child: Container(
@@ -499,20 +492,23 @@ class _TodaysDealDetailsBodyState extends State<TodaysDealDetailsBody> {
                                 height: 45,
                                 alignment: Alignment.center,
                                 padding: EdgeInsets.only(
-                                    top: Dimension.Size_3,
-                                    bottom: Dimension.Size_3),
+                                  top: Dimension.size3,
+                                  bottom: Dimension.size3,
+                                ),
                                 decoration: BoxDecoration(
-                                    color: Themes.Primary2,
-                                    borderRadius: BorderRadius.circular(
-                                        Dimension.Size_5)),
+                                  color: Themes.primary2,
+                                  borderRadius:
+                                      BorderRadius.circular(Dimension.size5),
+                                ),
                                 child: Text(
                                   'Add to cart',
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText2
                                       .copyWith(
-                                          color: Themes.White,
-                                          fontWeight: Dimension.textMedium),
+                                        color: Themes.white,
+                                        fontWeight: Dimension.textMedium,
+                                      ),
                                 ),
                               ),
                             ),

@@ -1,16 +1,16 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Services/http_services.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Services/http_services.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
 import 'dart:ui';
 
@@ -42,16 +42,17 @@ class CustomDeleteDialog extends StatelessWidget {
             padding: EdgeInsets.all(16),
             margin: EdgeInsets.only(top: 13.0, right: 8.0),
             decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(16.0),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 0.0,
-                    offset: Offset(0.0, 0.0),
-                  ),
-                ]),
+              color: Colors.white,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(16.0),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 0.0,
+                  offset: Offset(0.0, 0.0),
+                ),
+              ],
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -96,7 +97,7 @@ class CustomDeleteDialog extends StatelessWidget {
                         height: 45,
                         alignment: Alignment.center,
                         padding: EdgeInsets.only(
-                            top: Dimension.Size_3, bottom: Dimension.Size_3),
+                            top: Dimension.size3, bottom: Dimension.size3),
                         decoration: BoxDecoration(
                             color: kBackgroundColor,
                             borderRadius: BorderRadius.circular(7)),
@@ -116,14 +117,14 @@ class CustomDeleteDialog extends StatelessWidget {
                         height: 45,
                         alignment: Alignment.center,
                         padding: EdgeInsets.only(
-                            top: Dimension.Size_3, bottom: Dimension.Size_3),
+                            top: Dimension.size3, bottom: Dimension.size3),
                         decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(7)),
                         child: Text(
                           'Remove',
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                              color: Themes.White,
+                              color: Themes.white,
                               fontWeight: Dimension.textMedium),
                         ),
                       ),

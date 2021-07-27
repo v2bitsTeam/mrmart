@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter/rendering.dart';
 
 enum Direction { ltr, rtl, ttb, btt }
+
 @immutable
 class Skeleton extends StatefulWidget {
   final Widget child;
@@ -22,7 +22,6 @@ class Skeleton extends StatefulWidget {
     this.enabled = true,
   }) : super(key: key);
 
-
   Skeleton.fromColors({
     Key key,
     @required this.child,
@@ -33,22 +32,22 @@ class Skeleton extends StatefulWidget {
     this.loop = 0,
     this.enabled = true,
   })  : gradient = LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.centerRight,
-      colors: <Color>[
-        baseColor,
-        baseColor,
-        highlightColor,
-        baseColor,
-        baseColor
-      ],
-      stops: const <double>[
-        0.0,
-        0.35,
-        0.5,
-        0.65,
-        1.0
-      ]),
+            begin: Alignment.topLeft,
+            end: Alignment.centerRight,
+            colors: <Color>[
+              baseColor,
+              baseColor,
+              highlightColor,
+              baseColor,
+              baseColor
+            ],
+            stops: const <double>[
+              0.0,
+              0.35,
+              0.5,
+              0.65,
+              1.0
+            ]),
         super(key: key);
 
   @override
@@ -67,7 +66,8 @@ class Skeleton extends StatefulWidget {
   }
 }
 
-class _SkeletonState extends State<Skeleton> with SingleTickerProviderStateMixin {
+class _SkeletonState extends State<Skeleton>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
   int _count;
 
@@ -107,7 +107,7 @@ class _SkeletonState extends State<Skeleton> with SingleTickerProviderStateMixin
     return AnimatedBuilder(
       animation: _controller,
       child: widget.child,
-      builder: (BuildContext context, Widget child) => _Make_Skeleton(
+      builder: (BuildContext context, Widget child) => _MakeSkeleton(
         child: child,
         direction: widget.direction,
         gradient: widget.gradient,
@@ -125,13 +125,13 @@ class _SkeletonState extends State<Skeleton> with SingleTickerProviderStateMixin
 }
 
 @immutable
-class _Make_Skeleton extends SingleChildRenderObjectWidget {
+class _MakeSkeleton extends SingleChildRenderObjectWidget {
   final double percent;
   final Direction direction;
   final Gradient gradient;
   final bool enabled;
 
-  const _Make_Skeleton({
+  const _MakeSkeleton({
     Widget child,
     this.percent,
     this.direction,
@@ -218,4 +218,3 @@ class _SkeletonFilter extends RenderProxyBox {
     return start + (end - start) * percent;
   }
 }
-

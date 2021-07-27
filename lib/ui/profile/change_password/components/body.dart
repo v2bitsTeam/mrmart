@@ -1,18 +1,15 @@
 import 'dart:async';
-
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Services/http_services.dart';
-import 'package:MrMart/Widgets/DefaultTextField.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/ui_components/DefaultTextFieldProfileEdit.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/ui_components/DefaultTextFieldProfileEdit.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -53,7 +50,6 @@ class _BodyState extends State<Body> {
               height: 1,
             ),
           ),
-          //TitleWithClearAllBtn(text: "Today", press: () {}),
           SizedBox(
             height: 15,
           ),
@@ -69,19 +65,14 @@ class _BodyState extends State<Body> {
       padding: EdgeInsets.zero,
       children: [
         Card(
-          /*margin: EdgeInsets.only(
-            top: (Get.height * 0.2),
-            left: Dimension.Padding,
-            right: Dimension.Padding,
-            bottom: Dimension.Size_20),*/
-          elevation: Dimension.card_elevation,
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
-            padding: EdgeInsets.all(Dimension.Padding),
+            padding: EdgeInsets.all(Dimension.padding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                DefaultTextFieldProfileEdit(
+                defaultTextFieldProfileEdit(
                   controller: oldPasswordController,
                   label: 'Old Password',
                   isRequired: true,
@@ -103,7 +94,7 @@ class _BodyState extends State<Body> {
                     },
                   ),
                 ),
-                DefaultTextFieldProfileEdit(
+                defaultTextFieldProfileEdit(
                   controller: newPasswordController,
                   label: 'New Password',
                   isRequired: true,
@@ -125,7 +116,7 @@ class _BodyState extends State<Body> {
                     },
                   ),
                 ),
-                DefaultTextFieldProfileEdit(
+                defaultTextFieldProfileEdit(
                   controller: confirmPasswordController,
                   label: 'Confirm Password',
                   isRequired: true,
@@ -148,7 +139,7 @@ class _BodyState extends State<Body> {
                   ),
                 ),
                 SizedBox(
-                  height: Dimension.Size_10,
+                  height: Dimension.size10,
                 )
               ],
             ),

@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'components/message2Body.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui/message_2/components/message2Body.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/ui/message_2/components/message2Body.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
 
 class MessageScreen2 extends StatelessWidget {
   @override
@@ -55,12 +52,6 @@ class MessageScreen2 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),

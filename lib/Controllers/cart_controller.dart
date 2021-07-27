@@ -1,5 +1,5 @@
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Services/http_services.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Services/http_services.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/category/trendings_item/components/TrendingItemsBody.dart';
-
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/category/trendings_item/components/TrendingItemsBody.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 class TrendingItemsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         title: Text("Trending Items"),
@@ -41,12 +39,6 @@ class TrendingItemsScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),

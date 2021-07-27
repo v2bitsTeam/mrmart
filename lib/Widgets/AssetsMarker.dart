@@ -4,13 +4,11 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter/services.dart' show ByteData, rootBundle;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
 import 'package:path_provider/path_provider.dart';
 
-Future<BitmapDescriptor> AssetsMarker({
+Future<BitmapDescriptor> assetsMarker({
   String imagePath,
   Size size,
   Color color,
@@ -19,17 +17,12 @@ Future<BitmapDescriptor> AssetsMarker({
   final Canvas canvas = Canvas(pictureRecorder);
 
   final Radius radius = Radius.circular(5);
-  final Radius square = Radius.circular(0);
-
-  /*final Paint tagPaint = Paint()..color = Colors.blue;
-  final double tagWidth = 40.0;*/
 
   final Paint shadowPaint = Paint()
     ..color = color == null ? Colors.transparent : color;
   final double shadowWidth = 15.0;
   Rect oval;
 
-  //final Paint borderPaint = Paint()..color = Colors.white;
   final double borderWidth = 3.0;
 
   final double imageOffset = shadowWidth + borderWidth;

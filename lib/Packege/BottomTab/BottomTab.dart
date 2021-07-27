@@ -67,10 +67,6 @@ class BottomTab extends StatelessWidget {
                     selectedItemColor ??
                     theme.primaryColor;
 
-                final _unselectedColor = item.unselectedColor ??
-                    unselectedItemColor ??
-                    theme.iconTheme.color;
-
                 return Material(
                   color: Color.lerp(_selectedColor.withOpacity(0.0),
                       _selectedColor.withOpacity(0.1), t),
@@ -103,9 +99,10 @@ class BottomTab extends StatelessWidget {
                                     child: DefaultTextStyle(
                                       style: TextStyle(
                                         color: Color.lerp(
-                                            _selectedColor.withOpacity(0.0),
-                                            _selectedColor,
-                                            t),
+                                          _selectedColor.withOpacity(0.0),
+                                          _selectedColor,
+                                          t,
+                                        ),
                                         fontWeight: FontWeight.w600,
                                       ),
                                       child: item.title ?? SizedBox.shrink(),

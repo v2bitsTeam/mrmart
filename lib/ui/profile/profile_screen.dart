@@ -1,13 +1,13 @@
-import 'package:MrMart/Controllers/user_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/profile/components/list.dart' as list_data;
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/profile/components/list.dart' as list_data;
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -51,7 +51,7 @@ class ProfileScreen extends StatelessWidget {
                 backgroundImage:
                     userController.user.value.profileImage != null &&
                             userController.user.value.profileImage.length > 0
-                        ? NetworkImage(AppConstant.MediaUrl +
+                        ? NetworkImage(AppConstant.mediaUrl +
                             userController.user.value.profileImage)
                         : AssetImage('assets/images/profile/user.jpg'),
               ),
@@ -61,19 +61,21 @@ class ProfileScreen extends StatelessWidget {
               Text(
                 userController.user.value.name ?? "User",
                 style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white,
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: AppConstant.font_mukta),
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontStyle: FontStyle.normal,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: AppConstant.fontMukta,
+                ),
               ),
               Text(
                 userController.user.value.mobile ?? "0000000000",
                 style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: AppConstant.font_mukta),
+                  fontSize: 14,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: AppConstant.fontMukta,
+                ),
               ),
               SizedBox(
                 height: 45,

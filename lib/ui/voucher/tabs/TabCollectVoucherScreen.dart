@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:bordered_text/bordered_text.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/ui_components/default_button.dart';
-import 'package:MrMart/ui_components/default_collect_voucher_button.dart';
+import 'package:mr_mart/ui_components/default_collect_voucher_button.dart';
 
 class TabCollectVoucherScreen extends StatelessWidget {
   TabCollectVoucherScreen();
@@ -27,7 +26,6 @@ class TabCollectVoucherScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                //I assumed you want to occupy the entire space of the card
                 image: AssetImage(
                   'assets/images/voucher/voucher1.png',
                 ),
@@ -42,10 +40,11 @@ class TabCollectVoucherScreen extends StatelessWidget {
                     child: Text(
                       "\$50.00",
                       style: TextStyle(
-                          fontSize: kVoucherLeftText,
-                          color: Colors.white,
-                          fontFamily: AppConstant.font_oswald,
-                          fontWeight: FontWeight.bold),
+                        fontSize: kVoucherLeftText,
+                        color: Colors.white,
+                        fontFamily: AppConstant.fontOswald,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -61,12 +60,13 @@ class TabCollectVoucherScreen extends StatelessWidget {
                         children: [
                           Text(
                             "VOUCHER",
-                            style: TextStyle(
-                                fontFamily: AppConstant.font_oswald,
-                                fontWeight: FontWeight.bold,
-                                fontSize: kVoucherMiddleText,
-                                color: Colors.white),
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: AppConstant.fontOswald,
+                              fontWeight: FontWeight.bold,
+                              fontSize: kVoucherMiddleText,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -80,18 +80,19 @@ class TabCollectVoucherScreen extends StatelessWidget {
                             child: Text(
                               '10%',
                               style: TextStyle(
-                                  decoration: TextDecoration.none,
-                                  decorationColor: Colors.white,
-                                  fontFamily: AppConstant.font_oswald,
-                                  fontSize: kVoucherMiddleNumText,
-                                  color: Colors.transparent,
-                                  fontWeight: FontWeight.bold),
+                                decoration: TextDecoration.none,
+                                decorationColor: Colors.white,
+                                fontFamily: AppConstant.fontOswald,
+                                fontSize: kVoucherMiddleNumText,
+                                color: Colors.transparent,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
                             ' off',
                             style: TextStyle(
-                              fontFamily: AppConstant.font_oswald,
+                              fontFamily: AppConstant.fontOswald,
                               fontSize: kVoucherMiddleSubText,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -151,7 +152,6 @@ class TabCollectVoucherScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                //I assumed you want to occupy the entire space of the card
                 image: AssetImage(
                   'assets/images/voucher/voucher2.png',
                 ),
@@ -166,10 +166,11 @@ class TabCollectVoucherScreen extends StatelessWidget {
                     child: Text(
                       "\$150.00",
                       style: TextStyle(
-                          fontSize: kVoucherLeftText,
-                          color: Colors.white,
-                          fontFamily: AppConstant.font_oswald,
-                          fontWeight: FontWeight.bold),
+                        fontSize: kVoucherLeftText,
+                        color: Colors.white,
+                        fontFamily: AppConstant.fontOswald,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -185,12 +186,13 @@ class TabCollectVoucherScreen extends StatelessWidget {
                         children: [
                           Text(
                             "VOUCHER",
-                            style: TextStyle(
-                                fontFamily: AppConstant.font_oswald,
-                                fontWeight: FontWeight.bold,
-                                fontSize: kVoucherMiddleText,
-                                color: Colors.white),
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: AppConstant.fontOswald,
+                              fontWeight: FontWeight.bold,
+                              fontSize: kVoucherMiddleText,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -204,18 +206,19 @@ class TabCollectVoucherScreen extends StatelessWidget {
                             child: Text(
                               '25%',
                               style: TextStyle(
-                                  decoration: TextDecoration.none,
-                                  decorationColor: Colors.white,
-                                  fontFamily: AppConstant.font_oswald,
-                                  fontSize: kVoucherMiddleNumText,
-                                  color: Colors.transparent,
-                                  fontWeight: FontWeight.bold),
+                                decoration: TextDecoration.none,
+                                decorationColor: Colors.white,
+                                fontFamily: AppConstant.fontOswald,
+                                fontSize: kVoucherMiddleNumText,
+                                color: Colors.transparent,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
                             ' off',
                             style: TextStyle(
-                              fontFamily: AppConstant.font_oswald,
+                              fontFamily: AppConstant.fontOswald,
                               fontSize: kVoucherMiddleSubText,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -290,10 +293,11 @@ class TabCollectVoucherScreen extends StatelessWidget {
                     child: Text(
                       "\$200.00",
                       style: TextStyle(
-                          fontSize: kVoucherLeftText,
-                          color: Colors.white,
-                          fontFamily: AppConstant.font_oswald,
-                          fontWeight: FontWeight.bold),
+                        fontSize: kVoucherLeftText,
+                        color: Colors.white,
+                        fontFamily: AppConstant.fontOswald,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -309,12 +313,13 @@ class TabCollectVoucherScreen extends StatelessWidget {
                         children: [
                           Text(
                             "VOUCHER",
-                            style: TextStyle(
-                                fontFamily: AppConstant.font_oswald,
-                                fontWeight: FontWeight.bold,
-                                fontSize: kVoucherMiddleText,
-                                color: Colors.white),
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: AppConstant.fontOswald,
+                              fontWeight: FontWeight.bold,
+                              fontSize: kVoucherMiddleText,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -328,18 +333,19 @@ class TabCollectVoucherScreen extends StatelessWidget {
                             child: Text(
                               '50%',
                               style: TextStyle(
-                                  decoration: TextDecoration.none,
-                                  decorationColor: Colors.white,
-                                  fontFamily: AppConstant.font_oswald,
-                                  fontSize: kVoucherMiddleNumText,
-                                  color: Colors.transparent,
-                                  fontWeight: FontWeight.bold),
+                                decoration: TextDecoration.none,
+                                decorationColor: Colors.white,
+                                fontFamily: AppConstant.fontOswald,
+                                fontSize: kVoucherMiddleNumText,
+                                color: Colors.transparent,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
                             ' off',
                             style: TextStyle(
-                              fontFamily: AppConstant.font_oswald,
+                              fontFamily: AppConstant.fontOswald,
                               fontSize: kVoucherMiddleSubText,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -399,7 +405,6 @@ class TabCollectVoucherScreen extends StatelessWidget {
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
-                //I assumed you want to occupy the entire space of the card
                 image: AssetImage(
                   'assets/images/voucher/voucher4.png',
                 ),
@@ -414,10 +419,11 @@ class TabCollectVoucherScreen extends StatelessWidget {
                     child: Text(
                       "\$200.00",
                       style: TextStyle(
-                          fontSize: kVoucherLeftText,
-                          color: Colors.white,
-                          fontFamily: AppConstant.font_oswald,
-                          fontWeight: FontWeight.bold),
+                        fontSize: kVoucherLeftText,
+                        color: Colors.white,
+                        fontFamily: AppConstant.fontOswald,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -433,12 +439,13 @@ class TabCollectVoucherScreen extends StatelessWidget {
                         children: [
                           Text(
                             "VOUCHER",
-                            style: TextStyle(
-                                fontFamily: AppConstant.font_oswald,
-                                fontWeight: FontWeight.bold,
-                                fontSize: kVoucherMiddleText,
-                                color: Colors.white),
                             textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontFamily: AppConstant.fontOswald,
+                              fontWeight: FontWeight.bold,
+                              fontSize: kVoucherMiddleText,
+                              color: Colors.white,
+                            ),
                           ),
                         ],
                       ),
@@ -452,18 +459,19 @@ class TabCollectVoucherScreen extends StatelessWidget {
                             child: Text(
                               '50%',
                               style: TextStyle(
-                                  decoration: TextDecoration.none,
-                                  decorationColor: Colors.white,
-                                  fontFamily: AppConstant.font_oswald,
-                                  fontSize: kVoucherMiddleNumText,
-                                  color: Colors.transparent,
-                                  fontWeight: FontWeight.bold),
+                                decoration: TextDecoration.none,
+                                decorationColor: Colors.white,
+                                fontFamily: AppConstant.fontOswald,
+                                fontSize: kVoucherMiddleNumText,
+                                color: Colors.transparent,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                           Text(
                             ' off',
                             style: TextStyle(
-                              fontFamily: AppConstant.font_oswald,
+                              fontFamily: AppConstant.fontOswald,
                               fontSize: kVoucherMiddleSubText,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
@@ -516,19 +524,6 @@ class TabCollectVoucherScreen extends StatelessWidget {
               ],
             ),
           ),
-          /*SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(4.0),
-            child: DefaultButton(
-              text: "Collect More Voucher",
-              press: () {
-                //Navigator.pushNamed(context, CartSummaryScreen.routeName);
-                Get.toNamed(VOUCHER_SCREEN);
-              },
-            ),
-          ),*/
         ],
       ),
     );

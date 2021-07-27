@@ -1,17 +1,16 @@
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/main.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/main.dart';
 import 'package:matrix4_transform/matrix4_transform.dart';
-
 import 'FirstLayer.dart';
 import 'SecondLayer.dart';
 import 'ThirdLayer.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatefulWidget {
-  Widget body;
-  Widget drawer;
+  final Widget body;
+  final Widget drawer;
 
   CustomDrawer({@required this.body, @required this.drawer});
 
@@ -30,10 +29,13 @@ class _CustomDrawerState extends State<CustomDrawer>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    navigationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 450));
+    navigationController = AnimationController(
+      vsync: this,
+      duration: Duration(
+        milliseconds: 450,
+      ),
+    );
   }
 
   @override
@@ -45,39 +47,44 @@ class _CustomDrawerState extends State<CustomDrawer>
           SecondLayer(),
           ThirdLayer(),
           Positioned.fill(
-              child: AnimatedContainer(
-                  transform: Matrix4Transform()
-                      .translate(x: xoffSet, y: yoffSet)
-                      .rotate(angle)
-                      .matrix4,
-                  duration: Duration(milliseconds: 300),
-                  child: Container(
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                          color: Themes.Background,
-                          borderRadius: BorderRadius.circular(
-                              isOpen ? Dimension.Size_30 : 0)),
-                      child: Stack(
-                        children: [
-                          Positioned.fill(child: widget.body),
-                          Positioned(
-                            top: paddingTop,
-                            left: Dimension.Size_5,
-                            child: IconButton(
-                              icon: AnimatedIcon(
-                                icon: AnimatedIcons.menu_arrow,
-                                progress: navigationController,
-                                color: Themes.White,
-                              ),
-                              onPressed: () {
-                                changeLayout();
-                              },
-                            ),
-                          ),
-                        ],
-                      )))),
+            child: AnimatedContainer(
+              transform: Matrix4Transform()
+                  .translate(x: xoffSet, y: yoffSet)
+                  .rotate(angle)
+                  .matrix4,
+              duration: Duration(milliseconds: 300),
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                clipBehavior: Clip.antiAlias,
+                decoration: BoxDecoration(
+                  color: Themes.background,
+                  borderRadius: BorderRadius.circular(
+                    isOpen ? Dimension.size30 : 0,
+                  ),
+                ),
+                child: Stack(
+                  children: [
+                    Positioned.fill(child: widget.body),
+                    Positioned(
+                      top: paddingTop - 20,
+                      left: Dimension.size5,
+                      child: IconButton(
+                        icon: AnimatedIcon(
+                          icon: AnimatedIcons.menu_arrow,
+                          progress: navigationController,
+                          color: Themes.white,
+                        ),
+                        onPressed: () {
+                          changeLayout();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

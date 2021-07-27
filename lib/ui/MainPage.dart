@@ -1,20 +1,20 @@
 import 'dart:ui';
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Packege/BottomTab/BottomTab.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/Packege/NavigationDrawer/CustomDrawer.dart';
-import 'package:MrMart/Providers/MainPageProvider.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/ui/category/category_screen.dart';
-import 'package:MrMart/ui/search/search_screen.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Packege/BottomTab/BottomTab.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/Packege/NavigationDrawer/CustomDrawer.dart';
+import 'package:mr_mart/Providers/MainPageProvider.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/ui/category/category_screen.dart';
+import 'package:mr_mart/ui/search/search_screen.dart';
 import 'package:provider/provider.dart';
 import '../main.dart';
 import 'BaseActivity.dart';
@@ -48,46 +48,51 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
           return SafeArea(
             child: CustomDrawer(
               body: BaseActivity(
-                title: language.Main_Page_Tab[provider.selectedTab],
+                title: language.mainPageTab[provider.selectedTab],
                 automaticLeading: false,
                 body: openTabView(),
                 bottomNavigationBar: Container(
-                  padding: EdgeInsets.all(Dimension.Size_5),
+                  padding: EdgeInsets.all(Dimension.size5),
                   decoration: BoxDecoration(
-                    color: Themes.White,
+                    color: Themes.white,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(Dimension.Padding2),
-                        topLeft: Radius.circular(Dimension.Padding2)),
+                      topRight: Radius.circular(Dimension.padding2),
+                      topLeft: Radius.circular(Dimension.padding2),
+                    ),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
-                        blurRadius: Dimension.Size_30,
+                        blurRadius: Dimension.size30,
                         offset: Offset(0,
-                            Dimension.Padding2), // changes position of shadow
+                            Dimension.padding2), // changes position of shadow
                       ),
                     ],
                   ),
                   child: BottomTab(
                     currentIndex: provider.selectedTab,
                     onTap: provider.handleIndexChanged,
-                    items: language.Main_Page_Tab.asMap()
-                        .map((index, value) => MapEntry(
+                    items: language.mainPageTab
+                        .asMap()
+                        .map(
+                          (index, value) => MapEntry(
                             index,
                             BottomTabItem(
                               icon: SvgPicture.asset(
                                 'assets/icons/home-tab$index.svg',
-                                color: Themes.Primary,
-                                height: Dimension.Size_20,
+                                color: Themes.primary,
+                                height: Dimension.size20,
                               ),
                               title: Text(
                                 value,
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
-                                    .copyWith(color: Themes.Primary),
+                                    .copyWith(color: Themes.primary),
                               ),
-                              selectedColor: Themes.Primary,
-                            )))
+                              selectedColor: Themes.primary,
+                            ),
+                          ),
+                        )
                         .values
                         .toList(),
                   ),
@@ -118,7 +123,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       return HomePage();
     } else if (provider.selectedTab == 1) {
       return CategoryScreen();
-    } else if (provider.selectedTab == 2) {
+    } else {
       return SearchScreen();
     }
   }
@@ -148,7 +153,7 @@ class BuildDrawerNav extends StatelessWidget {
               radius: 50,
               backgroundImage: userController.user.value.profileImage != null &&
                       userController.user.value.profileImage.length > 0
-                  ? NetworkImage(AppConstant.MediaUrl +
+                  ? NetworkImage(AppConstant.mediaUrl +
                       userController.user.value.profileImage)
                   : AssetImage('assets/images/profile/user.jpg'),
             ),
@@ -158,11 +163,12 @@ class BuildDrawerNav extends StatelessWidget {
             Text(
               userController.user.value.name ?? "User",
               style: TextStyle(
-                  fontSize: kDrawerFontSize,
-                  color: Colors.white,
-                  fontStyle: FontStyle.normal,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: AppConstant.font_mukta),
+                fontSize: kDrawerFontSize,
+                color: Colors.white,
+                fontStyle: FontStyle.normal,
+                fontWeight: FontWeight.bold,
+                fontFamily: AppConstant.fontMukta,
+              ),
             ),
             SizedBox(
               height: 20,
@@ -176,12 +182,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Profile',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(PROFILE_SCREEN);
@@ -191,74 +198,29 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Order History',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(ORDER_HISTORY_SCREEN);
                     },
                   ),
-                  // InkWell(
-                  //   child: Text(
-                  //     'Add Location',
-                  //     style: TextStyle(
-                  //         fontSize: 16,
-                  //         height: kDrawerFontSizeHeight,
-                  //         color: Colors.white,
-                  //         fontStyle: FontStyle.normal,
-                  //         fontWeight: FontWeight.bold,
-                  //         fontFamily: AppConstant.font_mukta),
-                  //   ),
-                  //   onTap: () {
-                  //     //Get.toNamed(LOCATION_PERMISSION);
-                  //     Get.toNamed(ADD_LOCATION_SCREEN);
-                  //   },
-                  // ),
-
-                  // InkWell(
-                  //   child: Text(
-                  //     'Order Track',
-                  //     style: TextStyle(
-                  //         fontSize: 16,
-                  //         height: kDrawerFontSizeHeight,
-                  //         color: Colors.white,
-                  //         fontStyle: FontStyle.normal,
-                  //         fontWeight: FontWeight.bold,
-                  //         fontFamily: AppConstant.font_mukta),
-                  //   ),
-                  //   onTap: () {
-                  //     Get.toNamed(ORDER_TRACK_SCREEN);
-                  //   },
-                  // ),
-                  // InkWell(
-                  //   child: Text(
-                  //     'Settings',
-                  //     style: TextStyle(
-                  //         fontSize: 16,
-                  //         height: kDrawerFontSizeHeight,
-                  //         color: Colors.white,
-                  //         fontStyle: FontStyle.normal,
-                  //         fontWeight: FontWeight.bold,
-                  //         fontFamily: AppConstant.font_mukta),
-                  //   ),
-                  //   onTap: () {
-                  //     Get.toNamed(SETTINGS_SCREEN);
-                  //   },
-                  // ),
                   InkWell(
                     child: Text(
                       'About Us',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(ABOUT_US_SCREEN);
@@ -268,12 +230,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Contact Us',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(CONTACT_US_SCREEN);
@@ -283,12 +246,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Privacy Policy',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(PRIVACY_POLICY_SCREEN);
@@ -298,12 +262,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Shipping Policy',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(SHIPPING_POLICY_SCREEN);
@@ -313,12 +278,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Returns & Refund Policy',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(RETURN_AND_REFUND_POLICY_SCREEN);
@@ -328,12 +294,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Term & Condition',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       Get.toNamed(TERMS_AND_CONDITION_SCREEN);
@@ -343,12 +310,13 @@ class BuildDrawerNav extends StatelessWidget {
                     child: Text(
                       'Sign Out',
                       style: TextStyle(
-                          fontSize: 16,
-                          height: kDrawerFontSizeHeight,
-                          color: Colors.white,
-                          fontStyle: FontStyle.normal,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: AppConstant.font_mukta),
+                        fontSize: 16,
+                        height: kDrawerFontSizeHeight,
+                        color: Colors.white,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: AppConstant.fontMukta,
+                      ),
                     ),
                     onTap: () {
                       userController.signOutUser();

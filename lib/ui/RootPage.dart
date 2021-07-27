@@ -2,12 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/ui/category/category_screen.dart';
-import 'package:MrMart/ui/search/search_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/category/category_screen.dart';
+import 'package:mr_mart/ui/search/search_screen.dart';
 import 'HomePage.dart';
 import 'favorite_items/favorite_items_screen.dart';
 import 'message/message_screen.dart';
@@ -149,16 +145,7 @@ class RootPageState extends State<RootPage> {
           ],
         ),
       ),
-      title: Text(
-        title,
-        style: TextStyle(
-          color: selectedBottomBarIndex == position
-              ? Colors.blue
-              : Color(0xFFC0CFD0),
-          fontSize: 14.0,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
+      label: title,
     );
   }
 }

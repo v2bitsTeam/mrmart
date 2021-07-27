@@ -1,38 +1,34 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DynamicSizeWidget extends StatefulWidget {
-  Widget child;
-  bool isEnableGetSize;
-  Function onGetSize;
+  final Widget child;
+  final bool isEnableGetSize;
+  final Function onGetSize;
 
-
-  DynamicSizeWidget({this.child, this.isEnableGetSize=true, this.onGetSize});
+  DynamicSizeWidget({this.child, this.isEnableGetSize = true, this.onGetSize});
 
   @override
   _DynamicSizeWidgetState createState() => _DynamicSizeWidgetState();
 }
 
 class _DynamicSizeWidgetState extends State<DynamicSizeWidget> {
-  GlobalKey stickyKey = GlobalKey();
+  final GlobalKey stickyKey = GlobalKey();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getHeight();
   }
 
-  getHeight(){
-    if(widget.isEnableGetSize) {
+  getHeight() {
+    if (widget.isEnableGetSize) {
       Timer(Duration(milliseconds: 50), () {
         try {
           final keyContext = stickyKey.currentContext;
           final box = keyContext.findRenderObject() as RenderBox;
-          widget.onGetSize(box.size.height,box.size.width);
-        }
-        catch (e) {
+          widget.onGetSize(box.size.height, box.size.width);
+        } catch (e) {
           print('Error');
         }
       });

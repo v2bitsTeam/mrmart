@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/message_2/screens/chat_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/ui/message_2/screens/chat_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 import '../models/message_model.dart';
 
@@ -21,11 +21,13 @@ class FavoriteContacts extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => ChatScreen(
-                                    user: favorites[index],
-                                  ))),
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ChatScreen(
+                            user: favorites[index],
+                          ),
+                        ),
+                      ),
                       child: Container(
                         width: 87,
                         child: Padding(
@@ -59,10 +61,11 @@ class FavoriteContacts extends StatelessWidget {
                   })),
           Padding(
             padding: const EdgeInsets.only(
-                left: kDefaultPadding,
-                top: 10,
-                right: kDefaultPadding,
-                bottom: 10),
+              left: kDefaultPadding,
+              top: 10,
+              right: kDefaultPadding,
+              bottom: 10,
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -71,12 +74,6 @@ class FavoriteContacts extends StatelessWidget {
                   textDirection: TextDirection.ltr,
                   style:
                       Theme.of(context).textTheme.headline1.copyWith(height: 1),
-                  /*style: TextStyle(
-                    fontSize: 18.0,
-                    color: Colors.blueGrey,
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.0,
-                  ),*/
                 ),
               ],
             ),

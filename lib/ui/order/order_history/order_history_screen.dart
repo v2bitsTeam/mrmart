@@ -1,14 +1,11 @@
-import 'package:MrMart/Controllers/my_order_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Models/MyOrders.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/ui/order/order_history/tabs/CartItemsWidget.dart';
-import 'package:MrMart/ui/order/order_history/tabs/CartTextWidget.dart';
+import 'package:mr_mart/Controllers/my_order_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/ui/order/order_history/tabs/CartItemsWidget.dart';
+import 'package:mr_mart/ui/order/order_history/tabs/CartTextWidget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/StyleScheme.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/app_components/StyleScheme.dart';
 import 'package:get/get.dart';
 
 class OrderHistoryScreen extends StatefulWidget {

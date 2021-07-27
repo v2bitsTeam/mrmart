@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'components/body.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 
 class NotificationScreen extends StatelessWidget {
-  //static String routeName = "/Checkout";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,12 +37,6 @@ class NotificationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),

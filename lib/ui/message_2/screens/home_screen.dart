@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/message_2/widgets/category_selector.dart';
-import 'package:MrMart/ui/message_2/widgets/favorite_contacts.dart';
-import 'package:MrMart/ui/message_2/widgets/recent_chats.dart';
+import 'package:mr_mart/ui/message_2/widgets/category_selector.dart';
+import 'package:mr_mart/ui/message_2/widgets/favorite_contacts.dart';
+import 'package:mr_mart/ui/message_2/widgets/recent_chats.dart';
 
 class HomeScreen extends StatefulWidget {
   @override

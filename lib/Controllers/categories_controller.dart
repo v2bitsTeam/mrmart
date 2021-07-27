@@ -1,5 +1,5 @@
-import 'package:MrMart/Models/categories.dart';
-import 'package:MrMart/Services/http_services.dart';
+import 'package:mr_mart/Models/categories.dart';
+import 'package:mr_mart/Services/http_services.dart';
 import 'package:get/get.dart';
 
 class CategoriesController extends GetxController {
@@ -19,13 +19,14 @@ class CategoriesController extends GetxController {
     var response = await HTTPServices.fetchCategories();
     List<Category> allCategory = [
       Category(
-          cid: "0",
-          categoryImage: "",
-          categoryName: "All",
-          createdOn: DateTime(2021),
-          featured: "no",
-          id: "0",
-          modifiedOn: DateTime(2021))
+        cid: "0",
+        categoryImage: "",
+        categoryName: "All",
+        createdOn: DateTime(2021),
+        featured: "no",
+        id: "0",
+        modifiedOn: DateTime(2021),
+      )
     ];
 
     if (response.status) {

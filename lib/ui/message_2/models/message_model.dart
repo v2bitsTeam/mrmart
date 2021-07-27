@@ -1,4 +1,4 @@
-import 'package:MrMart/ui/message_2/models/user_model.dart';
+import 'package:mr_mart/ui/message_2/models/user_model.dart';
 
 class Message {
   final User sender;

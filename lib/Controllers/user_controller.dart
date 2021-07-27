@@ -1,10 +1,10 @@
 import 'dart:io';
-
-import 'package:MrMart/Models/user.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Services/http_services.dart';
-import 'package:MrMart/Services/shared_prefs_services.dart';
 import 'package:get/get.dart';
+
+import 'package:mr_mart/Models/user.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Services/http_services.dart';
+import 'package:mr_mart/Services/shared_prefs_services.dart';
 
 class UserController extends GetxController {
   final user = UserDetails().obs;

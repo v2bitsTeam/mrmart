@@ -1,21 +1,21 @@
 import 'dart:ui';
-import 'package:MrMart/AppHelper/Helper.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Models/cart.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Services/http_services.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
+import 'package:mr_mart/AppHelper/Helper.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Models/cart.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Services/http_services.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/ui/checkout/cart_summary/cart_summary_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/ui_components/default_button.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/ui_components/CustomDeleteDialog.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/ui_components/CustomDeleteDialog.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -231,13 +231,12 @@ class _BodyState extends State<Body> {
                     child: Center(
                       child: element.image != null || element.image != ""
                           ? Image.network(
-                              AppConstant.MediaUrl + element.image,
+                              AppConstant.mediaUrl + element.image,
                               width: Get.width * 0.2,
                               fit: BoxFit.contain,
                             )
                           : Image.asset(
                               'assets/demo/trending0.png',
-                              //width: Get.width * 0.2,
                               fit: BoxFit.contain,
                             ),
                     ),
@@ -277,9 +276,10 @@ class _BodyState extends State<Body> {
                                   element.name,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      color: Themes.Text_Color,
-                                      fontSize: Dimension.Size_20,
-                                      fontWeight: FontWeight.w700),
+                                    color: Themes.textColor,
+                                    fontSize: Dimension.size20,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ),
@@ -308,9 +308,10 @@ class _BodyState extends State<Body> {
                                           .textTheme
                                           .bodyText2
                                           .copyWith(
-                                              color: Themes.Grey,
-                                              decoration:
-                                                  TextDecoration.lineThrough),
+                                            color: Themes.grey,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                          ),
                                       text:
                                           '${AppConstant.currencySymbol}${currencyFormatter.format(double.tryParse(element.price))}')
                                 ],
@@ -330,9 +331,9 @@ class _BodyState extends State<Body> {
                               IconButton(
                                 icon: Icon(
                                   Icons.remove,
-                                  color: Themes.Primary,
+                                  color: Themes.primary,
                                 ),
-                                splashColor: Themes.Primary,
+                                splashColor: Themes.primary,
                                 splashRadius: 24.0,
                                 onPressed: () => quantitySubmitted("remove"),
                               ),
@@ -351,9 +352,9 @@ class _BodyState extends State<Body> {
                               IconButton(
                                 icon: Icon(
                                   Icons.add,
-                                  color: Themes.Primary3,
+                                  color: Themes.primary3,
                                 ),
-                                splashColor: Themes.Primary2,
+                                splashColor: Themes.primary2,
                                 splashRadius: 24.0,
                                 onPressed: () => quantitySubmitted("add"),
                               ),
@@ -374,7 +375,7 @@ class _BodyState extends State<Body> {
                       Text(
                         'Subtotal: ',
                         style: Theme.of(context).textTheme.bodyText2.copyWith(
-                              color: Themes.Grey,
+                              color: Themes.grey,
                             ),
                       ),
                       Text(
@@ -396,7 +397,7 @@ class _BodyState extends State<Body> {
                           },
                           child: SvgPicture.asset(
                             'assets/icons/delete.svg',
-                            height: Dimension.Size_20,
+                            height: Dimension.size20,
                             color: Colors.red,
                           ),
                         ),

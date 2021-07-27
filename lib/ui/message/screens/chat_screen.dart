@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import "package:flutter/material.dart";
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:flutter/material.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import '../models/message_model.dart';
 import '../models/user_model.dart';
 import 'package:flutter_svg/svg.dart';
@@ -45,15 +43,16 @@ class _ChatScreenState extends State<ChatScreen> {
             width: 10,
           ),
           Expanded(
-              child: TextField(
-            cursorColor: Colors.black,
-            onChanged: (value) {},
-            textCapitalization: TextCapitalization.sentences,
-            decoration: InputDecoration(
-              hintText: "Send a message ...",
-              border: InputBorder.none,
+            child: TextField(
+              cursorColor: Colors.black,
+              onChanged: (value) {},
+              textCapitalization: TextCapitalization.sentences,
+              decoration: InputDecoration(
+                hintText: "Send a message ...",
+                border: InputBorder.none,
+              ),
             ),
-          )),
+          ),
           Container(
             width: 50.0,
             height: 50.0,
@@ -64,7 +63,7 @@ class _ChatScreenState extends State<ChatScreen> {
             child: InkWell(
               child: SvgPicture.asset(
                 'assets/icons/navigation_white.svg',
-                height: Dimension.Size_20,
+                height: Dimension.size20,
               ),
               onTap: () {
                 // function
@@ -98,21 +97,25 @@ class _ChatScreenState extends State<ChatScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(message.time,
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-                color: isMe
-                    ? Colors.white.withOpacity(.5)
-                    : kChatOtherTextColor.withOpacity(.5),
-              )),
+          Text(
+            message.time,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: isMe
+                  ? Colors.white.withOpacity(.5)
+                  : kChatOtherTextColor.withOpacity(.5),
+            ),
+          ),
           SizedBox(height: 8.0),
-          Text(message.text,
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-                color: isMe ? Colors.white : kChatOtherTextColor,
-              )),
+          Text(
+            message.text,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600,
+              color: isMe ? Colors.white : kChatOtherTextColor,
+            ),
+          ),
         ],
       ),
     );
@@ -123,16 +126,6 @@ class _ChatScreenState extends State<ChatScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         msg,
-/*        IconButton(
-          icon: Icon(
-            message.isLiked ? Icons.favorite : Icons.favorite_border_outlined,
-            size: 30.0,
-            color: message.isLiked
-                ? Theme.of(context).primaryColor
-                : Colors.blueGrey,
-          ),
-          onPressed: () {},
-        ),*/
       ],
     );
   }
@@ -184,12 +177,6 @@ class _ChatScreenState extends State<ChatScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),
@@ -208,12 +195,6 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
         ),
-        /*actions: [
-          IconButton(
-            icon: Icon(Icons.more_horiz, size: 30.0),
-            onPressed: () {},
-          ),
-        ],*/
       ),
       body: GestureDetector(
         onTap: () {
@@ -237,14 +218,15 @@ class _ChatScreenState extends State<ChatScreen> {
                     topLeft: Radius.circular(30.0),
                   ),
                   child: ListView.builder(
-                      reverse: true,
-                      padding: EdgeInsets.only(top: 15.0),
-                      itemCount: messages.length,
-                      itemBuilder: (context, index) {
-                        final Message message = messages[index];
-                        final bool isMe = message.sender.id == currentUser.id;
-                        return _buildMessage(message, isMe);
-                      }),
+                    reverse: true,
+                    padding: EdgeInsets.only(top: 15.0),
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
+                      final Message message = messages[index];
+                      final bool isMe = message.sender.id == currentUser.id;
+                      return _buildMessage(message, isMe);
+                    },
+                  ),
                 ),
               ),
             ),

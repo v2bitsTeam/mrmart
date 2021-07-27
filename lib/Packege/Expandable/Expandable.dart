@@ -1,9 +1,8 @@
 library expandable;
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
 /// Makes an [ExpandableController] available to the widget subtree.
 /// Useful for making multiple [Expandable] widgets synchronized with a single controller.
@@ -141,16 +140,16 @@ class Expandable extends StatelessWidget {
   /// The alignment of [expanded] and [collapsed] widgets during animation
   final AlignmentGeometry alignment;
 
-  Expandable(
-      {Key key,
-      this.collapsed,
-      this.expanded,
-      this.controller,
-      this.crossFadePoint = 0.5,
-      this.fadeCurve = Curves.linear,
-      this.sizeCurve = Curves.fastOutSlowIn,
-      this.alignment = Alignment.topLeft})
-      : super(key: key);
+  Expandable({
+    Key key,
+    this.collapsed,
+    this.expanded,
+    this.controller,
+    this.crossFadePoint = 0.5,
+    this.fadeCurve = Curves.linear,
+    this.sizeCurve = Curves.fastOutSlowIn,
+    this.alignment = Alignment.topLeft,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -258,22 +257,22 @@ class ExpandablePanel extends StatelessWidget {
     );
   }
 
-  ExpandablePanel(
-      {Key key,
-      this.collapsed,
-      this.header,
-      this.expanded,
-      this.tapHeaderToExpand = true,
-      this.tapBodyToCollapse = false,
-      this.hasIcon = true,
-      this.iconPlacement = ExpandablePanelIconPlacement.right,
-      this.iconColor, // The default color is based on the theme
-      this.builder = defaultExpandableBuilder,
-      this.headerAlignment = ExpandablePanelHeaderAlignment.top,
-      this.onStateChange,
-      this.controller,
-      this.showBackCircle = true})
-      : super(key: key);
+  ExpandablePanel({
+    Key key,
+    this.collapsed,
+    this.header,
+    this.expanded,
+    this.tapHeaderToExpand = true,
+    this.tapBodyToCollapse = false,
+    this.hasIcon = true,
+    this.iconPlacement = ExpandablePanelIconPlacement.right,
+    this.iconColor, // The default color is based on the theme
+    this.builder = defaultExpandableBuilder,
+    this.headerAlignment = ExpandablePanelHeaderAlignment.top,
+    this.onStateChange,
+    this.controller,
+    this.showBackCircle = true,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -368,8 +367,8 @@ class ExpandablePanel extends StatelessWidget {
 /// The model is accessed via [ScopedModelDescendant].
 class ExpandableIcon extends StatelessWidget {
   final Color color;
-  Function onStateChange;
-  bool showBackCircle;
+  final Function onStateChange;
+  final bool showBackCircle;
 
   ExpandableIcon({this.color, this.onStateChange, this.showBackCircle = true});
 
@@ -382,10 +381,12 @@ class ExpandableIcon extends StatelessWidget {
         Visibility(
           visible: showBackCircle,
           child: Container(
-            height: Dimension.Size_30,
-            width: Dimension.Size_30,
-            decoration:
-                BoxDecoration(shape: BoxShape.circle, color: Themes.Primary),
+            height: Dimension.size30,
+            width: Dimension.size30,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Themes.primary,
+            ),
           ),
         ),
         ExpandIcon(
@@ -404,7 +405,7 @@ class ExpandableIcon extends StatelessWidget {
 /// Toggles the state of [ExpandableController] when the user clicks on it.
 class ExpandableButton extends StatelessWidget {
   final Widget child;
-  Function onStateChange;
+  final Function onStateChange;
 
   ExpandableButton({this.child, this.onStateChange});
 

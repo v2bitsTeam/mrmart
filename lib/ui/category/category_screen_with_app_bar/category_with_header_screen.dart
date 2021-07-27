@@ -1,11 +1,10 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/categories_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/ui/category/components/categoryBody.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/categories_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/ui/category/components/categoryBody.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import 'package:get/get.dart';
 
 class CategoryWithHeaderScreen extends StatelessWidget {
@@ -61,7 +60,8 @@ class CategoryWithHeaderScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CartScreen()),
+                              builder: (context) => CartScreen(),
+                            ),
                           );
                         },
                       ),

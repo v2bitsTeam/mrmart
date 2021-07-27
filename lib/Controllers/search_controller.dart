@@ -1,4 +1,4 @@
-import 'package:MrMart/Models/products.dart';
+import 'package:mr_mart/Models/products.dart';
 import 'package:get/get.dart';
 
 class SearchController extends GetxController {

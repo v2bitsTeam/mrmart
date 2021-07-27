@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
 
 class PrivacyPolicyScreen extends StatelessWidget {
   final CartController cartController = Get.find();
@@ -91,7 +91,6 @@ class PrivacyPolicyScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Container(
-          // height: Get.height,
           color: Colors.grey[200],
           padding: EdgeInsets.only(
             top: 4.0,
@@ -142,7 +141,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Consent",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -156,7 +155,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Information we collect",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -182,7 +181,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "How we use your information",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -259,7 +258,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Log Files",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -273,7 +272,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Cookies and Web Beacons",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -293,7 +292,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Advertising Partners Privacy Policies",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -319,7 +318,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Third Party Privacy Policies",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -339,7 +338,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "CCPA Privacy Rights (Do Not Sell My Personal Information)",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -389,7 +388,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "GDPR Data Protection Rights",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),
@@ -463,7 +462,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
                 "Children's Information",
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                 ),
               ),
               Divider(),

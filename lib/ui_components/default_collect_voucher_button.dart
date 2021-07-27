@@ -13,21 +13,20 @@ class DefaultCollectVoucherButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      //width: double.infinity,
-      //height: getProportionateScreenHeight(56),
       height: 25,
-      child: FlatButton(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(4),
+      child: TextButton(
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          backgroundColor: kPrimaryColor2,
         ),
-        color: kPrimaryColor2,
         onPressed: press,
         child: Padding(
           padding: const EdgeInsets.all(0.0),
           child: Text(
             text,
             style: TextStyle(
-              //fontSize: getProportionateScreenWidth(18),
               fontSize: 12,
               color: Colors.white,
             ),

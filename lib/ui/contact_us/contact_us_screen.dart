@@ -1,6 +1,6 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -46,7 +46,8 @@ class ContactUsScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => CartScreen()),
+                              builder: (context) => CartScreen(),
+                            ),
                           );
                         },
                       ),
@@ -134,7 +135,7 @@ class ContactUsScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: Themes.Primary3,
+                      color: Themes.primary3,
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     child: Icon(Icons.room, color: Colors.white),
@@ -146,7 +147,7 @@ class ContactUsScreen extends StatelessWidget {
                     child: Text(
                       "1ST FLOOR, SHANGRILA PLAZA, ROAD NO.2 , BANJARA HILLS, Hyderabad , Telangana , 500034.",
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: Themes.Text_Color,
+                            color: Themes.textColor,
                           ),
                       softWrap: true,
                     ),
@@ -157,7 +158,7 @@ class ContactUsScreen extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.arrow_forward_ios_sharp,
-                      color: Themes.Primary,
+                      color: Themes.primary3,
                     ),
                     onTap: () async {
                       final url = 'https://goo.gl/maps/Lj5TBnYju4rH2RMv8';
@@ -182,7 +183,7 @@ class ContactUsScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: Themes.Primary3,
+                      color: Themes.primary3,
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     child: Icon(
@@ -197,7 +198,7 @@ class ContactUsScreen extends StatelessWidget {
                     child: Text(
                       "+91 7406234567",
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: Themes.Text_Color,
+                            color: Themes.textColor,
                           ),
                       softWrap: true,
                     ),
@@ -208,7 +209,7 @@ class ContactUsScreen extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.arrow_forward_ios_sharp,
-                      color: Themes.Primary,
+                      color: Themes.primary3,
                     ),
                     onTap: () async {
                       final url = 'tel:+917406234567';
@@ -233,7 +234,7 @@ class ContactUsScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: Themes.Primary3,
+                      color: Themes.primary3,
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     child: Icon(Icons.mail, color: Colors.white),
@@ -245,7 +246,7 @@ class ContactUsScreen extends StatelessWidget {
                     child: Text(
                       "info@mrmart.co.in",
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: Themes.Text_Color,
+                            color: Themes.textColor,
                           ),
                       softWrap: true,
                     ),
@@ -256,7 +257,7 @@ class ContactUsScreen extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.arrow_forward_ios_sharp,
-                      color: Themes.Primary,
+                      color: Themes.primary3,
                     ),
                     onTap: () async {
                       final url = 'mailto:info@mrmart.co.in';
@@ -281,7 +282,7 @@ class ContactUsScreen extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(10.0),
                     decoration: BoxDecoration(
-                      color: Themes.Primary3,
+                      color: Themes.primary3,
                       borderRadius: BorderRadius.circular(40.0),
                     ),
                     child: Icon(FlutterIcons.whatsapp_faw, color: Colors.white),
@@ -293,7 +294,7 @@ class ContactUsScreen extends StatelessWidget {
                     child: Text(
                       "7406234567",
                       style: Theme.of(context).textTheme.bodyText1.copyWith(
-                            color: Themes.Text_Color,
+                            color: Themes.textColor,
                           ),
                       softWrap: true,
                     ),
@@ -304,7 +305,7 @@ class ContactUsScreen extends StatelessWidget {
                   GestureDetector(
                     child: Icon(
                       Icons.arrow_forward_ios_sharp,
-                      color: Themes.Primary,
+                      color: Themes.primary3,
                     ),
                     onTap: () async {
                       final url = 'whatsapp://send?phone=917406234567';
@@ -319,10 +320,13 @@ class ContactUsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 10.0,
+            ),
             Text(
               "6:00 AM to 8:00 PM, 365 Days",
               style: Theme.of(context).textTheme.bodyText1.copyWith(
-                    color: Themes.Text_Color,
+                    color: Themes.textColor,
                   ),
               textAlign: TextAlign.center,
             ),
@@ -337,7 +341,7 @@ class ContactUsScreen extends StatelessWidget {
                   Text(
                     "Please, note that you are accessing the BETA version of www.mrmart.co",
                     style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          color: Themes.SUB_TEXT,
+                          color: Themes.subText,
                         ),
                     textAlign: TextAlign.center,
                   ),
@@ -345,7 +349,7 @@ class ContactUsScreen extends StatelessWidget {
                   Text(
                     "Should you encounter any bugs, glitches, lack of functionality, delayed deliveries, billing errors or other problems on the BETA version of the website, please email us on info@mrmart.co.in",
                     style: Theme.of(context).textTheme.bodyText1.copyWith(
-                          color: Themes.SUB_TEXT,
+                          color: Themes.subText,
                         ),
                     textAlign: TextAlign.center,
                   ),

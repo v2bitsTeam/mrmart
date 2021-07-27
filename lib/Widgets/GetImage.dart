@@ -1,27 +1,25 @@
-import 'dart:io';
-import 'dart:typed_data';
 import 'dart:async';
 import 'package:image_picker/image_picker.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/DefaultDialog.dart';
-import 'package:MrMart/main.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Widgets/DefaultDialog.dart';
+import 'package:mr_mart/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:path_provider/path_provider.dart';
 
 Future getImage(BuildContext context) async {
   var source = await showDialog(
       context: context,
       builder: (context) {
         return DefaultDialog(
-          title: language.Choose,
+          title: language.choose,
           child: Container(
             padding: EdgeInsets.only(
-                left: Dimension.Padding,
-                right: Dimension.Padding,
-                top: Dimension.Padding),
+              left: Dimension.padding,
+              right: Dimension.padding,
+              top: Dimension.padding,
+            ),
             child: ListView(
               shrinkWrap: true,
               padding: EdgeInsets.all(0),
@@ -41,13 +39,13 @@ Future getImage(BuildContext context) async {
                         children: [
                           Image.asset(
                             'assets/images/camera.png',
-                            height: Dimension.Size_40,
-                            width: Dimension.Size_40,
+                            height: Dimension.size40,
+                            width: Dimension.size40,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: Dimension.Size_5),
+                            padding: EdgeInsets.only(top: Dimension.size5),
                             child: Text(
-                              language.Camera,
+                              language.camera,
                               style: Theme.of(context).textTheme.bodyText1,
                             ),
                           )
@@ -67,13 +65,13 @@ Future getImage(BuildContext context) async {
                         children: [
                           Image.asset(
                             'assets/images/gallery.png',
-                            height: Dimension.Size_40,
-                            width: Dimension.Size_40,
+                            height: Dimension.size40,
+                            width: Dimension.size40,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: Dimension.Size_5),
+                            padding: EdgeInsets.only(top: Dimension.size5),
                             child: Text(
-                              language.Gallery,
+                              language.gallery,
                               style: Theme.of(context).textTheme.bodyText1,
                             ),
                           )
@@ -85,15 +83,15 @@ Future getImage(BuildContext context) async {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FlatButton(
+                    TextButton(
                       onPressed: () {
                         Get.back(result: null);
                       },
                       child: Text(
-                        language.Close,
+                        language.close,
                         style: TextStyle(
-                            color: Themes.Primary,
-                            fontSize: Dimension.Text_Size_Small,
+                            color: Themes.primary,
+                            fontSize: Dimension.textSizeSmall,
                             fontWeight: FontWeight.bold),
                       ),
                     )
@@ -105,7 +103,7 @@ Future getImage(BuildContext context) async {
         );
       });
   if (source != null) {
-    final pickedFile = await ImagePicker().getImage(
+    final pickedFile = await ImagePicker().pickImage(
       source: source,
     );
     try {

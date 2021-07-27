@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Packege/CountDown/utils.dart';
+import 'package:mr_mart/Packege/CountDown/utils.dart';
 
 class Countdown extends StatefulWidget {
   Countdown({
@@ -14,7 +14,7 @@ class Countdown extends StatefulWidget {
 
   final Duration duration;
   final Duration interval;
-  Duration initialTime;
+  final Duration initialTime;
   final void Function() onFinish;
   final Widget Function(BuildContext context, Duration remaining) builder;
   @override
@@ -26,7 +26,6 @@ class _CountdownState extends State<Countdown> {
   Duration _duration;
   @override
   void initState() {
-    //_duration = widget.duration;
     _duration = Duration(
         seconds: widget.duration.inSeconds - widget.initialTime.inSeconds);
     startTimer();

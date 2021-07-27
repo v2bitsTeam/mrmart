@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/LocationPermission.dart';
-import 'package:MrMart/ui/SearchLocation.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Route/Route.dart';
+import 'package:mr_mart/Route/Route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -28,15 +26,18 @@ Widget getListView() {
             width: 50,
             shape: RoundRectShape(
               borderRadius: BorderRadius.circular(5),
-              borderColor: Colors.black, //optional
-              borderWidth: 0, //optional
+              borderColor: Colors.black,
+              borderWidth: 0,
             ),
             child: Container(
               color: kOrderTrack_icon1,
               child: Padding(
                 padding: EdgeInsets.all(10.0),
-                child: SvgPicture.asset('assets/icons/location_current.svg',
-                    color: Colors.white, semanticsLabel: ''),
+                child: SvgPicture.asset(
+                  'assets/icons/location_current.svg',
+                  color: Colors.white,
+                  semanticsLabel: '',
+                ),
               ),
             ),
           ),
@@ -52,16 +53,18 @@ Widget getListView() {
           contentPadding: const EdgeInsets.all(kDefaultPadding),
           title: Text(
             "Location 1",
-            style:
-                TextStyle(fontSize: kDefaultFontSizeTitle, color: kTextColor),
+            style: TextStyle(
+              fontSize: kDefaultFontSizeTitle,
+              color: kTextColor,
+            ),
           ),
           leading: ShapeOfView(
             height: 50,
             width: 50,
             shape: RoundRectShape(
               borderRadius: BorderRadius.circular(5),
-              borderColor: Colors.black, //optional
-              borderWidth: 0, //optional
+              borderColor: Colors.black,
+              borderWidth: 0,
             ),
             child: Container(
               color: kLocation_one_bg1,
@@ -93,8 +96,8 @@ Widget getListView() {
             width: 50,
             shape: RoundRectShape(
               borderRadius: BorderRadius.circular(5),
-              borderColor: Colors.black, //optional
-              borderWidth: 0, //optional
+              borderColor: Colors.black,
+              borderWidth: 0,
             ),
             child: Container(
               color: kLocation_one_bg2,
@@ -126,22 +129,22 @@ Widget getListView() {
             width: 50,
             shape: RoundRectShape(
               borderRadius: BorderRadius.circular(5),
-              borderColor: Colors.black, //optional
-              borderWidth: 0, //optional
+              borderColor: Colors.black,
+              borderWidth: 0,
             ),
             child: Container(
-              color: Themes.BG4,
+              color: Themes.bG4,
               child: Padding(
                 padding: EdgeInsets.all(10.0),
-                child: SvgPicture.asset('assets/icons/add.svg',
-                    color: Colors.white, semanticsLabel: ''),
+                child: SvgPicture.asset(
+                  'assets/icons/add.svg',
+                  color: Colors.white,
+                  semanticsLabel: '',
+                ),
               ),
             ),
           ),
-          onTap: () {
-            Get.toNamed(MAIN_PAGE);
-            //Get.toNamed(SEARCH_LOCATION);
-          },
+          onTap: () => Get.toNamed(MAIN_PAGE),
         ),
       ],
     ),

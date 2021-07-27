@@ -1,10 +1,10 @@
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/main.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Widget EmptyView({String image = 'assets/images/empty.gif', Widget message}) {
+Widget emptyView({String image = 'assets/images/empty.gif', Widget message}) {
   return Container(
     width: Get.width,
     height: 300,
@@ -19,10 +19,10 @@ Widget EmptyView({String image = 'assets/images/empty.gif', Widget message}) {
         ),
         message == null
             ? Text(
-                language.No_data_here,
+                language.noDataHere,
                 style: TextStyle(
-                    color: Themes.Grey,
-                    fontSize: Dimension.Text_Size_Big,
+                    color: Themes.grey,
+                    fontSize: Dimension.textSizeBig,
                     fontWeight: FontWeight.bold),
               )
             : message,

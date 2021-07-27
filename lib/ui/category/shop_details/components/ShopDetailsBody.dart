@@ -1,20 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui/message/message_screen.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/ui/message/message_screen.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
 import 'dart:ui';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:MrMart/ui/category/trendings_item/trending_items_screen.dart';
-import 'package:MrMart/ui/category/recommemded_Items/recommended_items_screen.dart';
-import 'package:MrMart/ui/category/Items_details/item_details_screen.dart';
-import 'package:MrMart/Language/Language.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/Widgets/GridAnimation.dart';
+import 'package:mr_mart/ui/category/trendings_item/trending_items_screen.dart';
+import 'package:mr_mart/ui/category/recommemded_Items/recommended_items_screen.dart';
+import 'package:mr_mart/ui/category/Items_details/item_details_screen.dart';
+import 'package:mr_mart/Language/Language.dart';
 
 Language language = Language();
 
@@ -27,7 +27,6 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      //padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -41,8 +40,8 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
-                )
+                  offset: Offset(0, 1.0),
+                ),
               ],
             ),
             child: Column(
@@ -59,11 +58,6 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                             flex: 2,
                             child: Image.asset(
                                 'assets/demo/shop_details_circle_image.png'),
-                            /*CircleAvatar(
-                              radius: 50,
-                              backgroundImage: AssetImage(
-                                  'assets/demo/item_detal_circle_image.png'),
-                            ),*/
                           ),
                           Expanded(
                             flex: 4,
@@ -176,23 +170,16 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       InkWell(
-                                        /*  onTap: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    FavoriteItemsWithHeaderScreen()),
-                                          );
-                                        },*/
                                         child: Container(
                                           width: Get.width * 0.25,
                                           height: 40,
                                           alignment: Alignment.center,
                                           padding: EdgeInsets.only(
-                                              top: Dimension.Size_3,
-                                              bottom: Dimension.Size_3),
+                                            top: Dimension.size3,
+                                            bottom: Dimension.size3,
+                                          ),
                                           decoration: BoxDecoration(
-                                              color: Themes.Primary2,
+                                              color: Themes.primary2,
                                               borderRadius:
                                                   BorderRadius.circular(7)),
                                           child: Text(
@@ -224,10 +211,11 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                                           height: 40,
                                           alignment: Alignment.center,
                                           padding: EdgeInsets.only(
-                                              top: Dimension.Size_3,
-                                              bottom: Dimension.Size_3),
+                                            top: Dimension.size3,
+                                            bottom: Dimension.size3,
+                                          ),
                                           decoration: BoxDecoration(
-                                              color: Themes.Primary2,
+                                              color: Themes.primary2,
                                               borderRadius:
                                                   BorderRadius.circular(7)),
                                           child: Text(
@@ -236,9 +224,10 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                                                 .textTheme
                                                 .bodyText2
                                                 .copyWith(
-                                                    color: Themes.White,
-                                                    fontWeight:
-                                                        Dimension.textMedium),
+                                                  color: Themes.white,
+                                                  fontWeight:
+                                                      Dimension.textMedium,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -271,7 +260,7 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
                   color: Colors.black.withOpacity(.1),
                   blurRadius: 0.2,
                   spreadRadius: 0.0,
-                  offset: Offset(0, 1.0), // shadow direction: bottom right
+                  offset: Offset(0, 1.0),
                 )
               ],
             ),
@@ -395,7 +384,7 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
             height: 10,
           ),
           titleHeader(
-              title: Language().Trending_Item,
+              title: Language().trendingItem,
               press: TrendingItemsScreen(),
               context: context),
           Padding(
@@ -406,7 +395,7 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
             height: 5,
           ),
           titleHeader(
-              title: Language().Featured_Item,
+              title: Language().featuredItem,
               press: RecommendedItemsScreen(),
               context: context),
           SizedBox(
@@ -436,7 +425,7 @@ class _ShopDetailsBodyState extends State<ShopDetailsBody> {
 
 Widget titleHeader({String title, press, context}) {
   return Padding(
-    padding: EdgeInsets.only(left: Dimension.Padding),
+    padding: EdgeInsets.only(left: Dimension.padding),
     child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -445,11 +434,11 @@ Widget titleHeader({String title, press, context}) {
           title,
           style: Theme.of(context).textTheme.headline1,
         )),
-        FlatButton(
+        TextButton(
           onPressed: () {},
           child: InkWell(
             child: Text(
-              Language().See_All,
+              Language().seeAll,
               style: Theme.of(context).textTheme.subtitle1,
             ),
             onTap: () {
@@ -469,14 +458,14 @@ Widget trendingItem() {
   double width = Get.width * 0.4;
   return Container(
     height: Get.height * 0.30,
-    margin: EdgeInsets.only(top: Dimension.Size_5),
+    margin: EdgeInsets.only(top: Dimension.size5),
     child: ListView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.zero,
       itemCount: 3,
       itemBuilder: (context, index) {
-        return GridAnimation(
+        return gridAnimation(
           column: 3,
           index: index,
           child: InkWell(
@@ -490,12 +479,13 @@ Widget trendingItem() {
               width: width,
               clipBehavior: Clip.antiAlias,
               margin: EdgeInsets.only(
-                  left: Dimension.Size_10,
-                  bottom: Dimension.Padding,
-                  right: 2 == index ? Dimension.Size_10 : 0),
+                left: Dimension.size10,
+                bottom: Dimension.padding,
+                right: 2 == index ? Dimension.size10 : 0,
+              ),
               decoration: BoxDecoration(
-                color: Themes.White,
-                borderRadius: BorderRadius.circular(Dimension.Size_8),
+                color: Themes.white,
+                borderRadius: BorderRadius.circular(Dimension.size8),
                 boxShadow: Themes.defaultShadow,
               ),
               child: Stack(
@@ -512,7 +502,7 @@ Widget trendingItem() {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -523,7 +513,6 @@ Widget trendingItem() {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Trending Items $index',
                                     style: Theme.of(context)
                                         .textTheme
@@ -539,20 +528,23 @@ Widget trendingItem() {
                                   Expanded(
                                     flex: 4,
                                     child: RichText(
-                                        text: TextSpan(
-                                            text:
-                                                '${AppConstant.currencySymbol}120/ ',
+                                      text: TextSpan(
+                                        text:
+                                            '${AppConstant.currencySymbol}120/ ',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyText2,
+                                        children: [
+                                          TextSpan(
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .bodyText2,
-                                            children: [
-                                          TextSpan(
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodyText2
-                                                  .copyWith(color: Themes.Grey),
-                                              text: 'kg')
-                                        ])),
+                                                .bodyText2
+                                                .copyWith(color: Themes.grey),
+                                            text: 'kg',
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                   Expanded(
                                     flex: 1,
@@ -560,12 +552,12 @@ Widget trendingItem() {
                                       onTap: () {},
                                       child: SvgPicture.asset(
                                         'assets/icons/cart-outline.svg',
-                                        height: Dimension.Size_16,
+                                        height: Dimension.size16,
                                       ),
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -573,43 +565,45 @@ Widget trendingItem() {
                     ),
                   ),
                   Positioned(
-                      top: 0,
-                      child: Container(
-                        width: width,
-                        padding: EdgeInsets.all(Dimension.Size_10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                  color: Themes.Primary2,
-                                  borderRadius:
-                                      BorderRadius.circular(Dimension.Size_5)),
-                              padding: EdgeInsets.all(Dimension.Size_3)
-                                  .copyWith(
-                                      left: Dimension.Size_10,
-                                      right: Dimension.Size_10),
-                              child: Text(
-                                '30% ${language.Off}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyText2
-                                    .copyWith(
-                                        color: Themes.White,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
-                              ),
+                    top: 0,
+                    child: Container(
+                      width: width,
+                      padding: EdgeInsets.all(Dimension.size10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Themes.primary2,
+                              borderRadius:
+                                  BorderRadius.circular(Dimension.size5),
                             ),
-                            InkWell(
-                              onTap: () {},
-                              child: SvgPicture.asset(
-                                'assets/icons/favorite-outline.svg',
-                                height: Dimension.Size_20,
-                              ),
-                            )
-                          ],
-                        ),
-                      ))
+                            padding: EdgeInsets.all(
+                              Dimension.size3,
+                            ).copyWith(
+                                left: Dimension.size10,
+                                right: Dimension.size10),
+                            child: Text(
+                              '30% ${language.off}',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2
+                                  .copyWith(
+                                      color: Themes.white,
+                                      fontSize: Dimension.textSizeSmallExtra),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {},
+                            child: SvgPicture.asset(
+                              'assets/icons/favorite-outline.svg',
+                              height: Dimension.size20,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -623,8 +617,8 @@ Widget trendingItem() {
 List category = ['All', 'Grocery', 'Fruit', 'Vegetables'];
 Widget allCategory() {
   return Container(
-    height: Dimension.Size_70,
-    margin: EdgeInsets.only(top: Dimension.Size_5),
+    height: Dimension.size70,
+    margin: EdgeInsets.only(top: Dimension.size5),
     child: ListView(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
@@ -643,30 +637,33 @@ Widget singleCategory(String e, int index) {
   return Column(
     children: [
       Container(
-        height: Dimension.Size_50,
+        height: Dimension.size50,
         margin: EdgeInsets.only(
-            left: Dimension.Size_10,
-            right: category.length - 1 == index ? Dimension.Size_10 : 0),
+            left: Dimension.size10,
+            right: category.length - 1 == index ? Dimension.size10 : 0),
         alignment: Alignment.center,
-        padding:
-            EdgeInsets.only(left: Dimension.Size_30, right: Dimension.Size_30),
+        padding: EdgeInsets.only(
+          left: Dimension.size30,
+          right: Dimension.size30,
+        ),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(Dimension.Size_24),
+          borderRadius: BorderRadius.circular(Dimension.size24),
           boxShadow: [
             BoxShadow(
               color: color.withOpacity(0.5),
-              blurRadius: Dimension.Size_10,
-              offset: Offset(0, Dimension.Size_5), // changes position of shadow
+              blurRadius: Dimension.size10,
+              offset: Offset(0, Dimension.size5),
             ),
           ],
         ),
         child: Text(
           e,
           style: TextStyle(
-              fontSize: Dimension.Text_Size,
-              fontWeight: Dimension.textMedium,
-              color: Themes.White),
+            fontSize: Dimension.textSize,
+            fontWeight: Dimension.textMedium,
+            color: Themes.white,
+          ),
         ),
       ),
     ],
@@ -693,13 +690,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -715,7 +711,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -726,13 +722,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Oil',
                                     'Olive oil',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -742,55 +737,60 @@ Widget allItems(context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   RichText(
-                                      text: TextSpan(
-                                          text:
-                                              '${AppConstant.currencySymbol}120/ ',
-                                          style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
-                                          children: [
+                                    text: TextSpan(
+                                      text:
+                                          '${AppConstant.currencySymbol}120/ ',
+                                      style: TextStyle(
+                                        color: kTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmallExtra,
+                                      ),
+                                      children: [
                                         TextSpan(
-                                            style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
-                                            text: 'kg')
-                                      ])),
+                                          style: TextStyle(
+                                            color: kSubTextColor,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize:
+                                                Dimension.textSizeSmallExtra,
+                                          ),
+                                          text: 'kg',
+                                        )
+                                      ],
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -804,13 +804,14 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(
+                    Dimension.size5,
+                  ),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -824,7 +825,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -835,13 +836,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'FaceWash',
                                     'FaceWash',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -855,24 +855,26 @@ Widget allItems(context) {
                                           text:
                                               '${AppConstant.currencySymbol}120/ ',
                                           style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
+                                            color: kTextColor,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize:
+                                                Dimension.textSizeSmallExtra,
+                                          ),
                                           children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
                                       ])),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -886,7 +888,7 @@ Widget allItems(context) {
                         top: 0,
                         child: Container(
                           width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
+                          padding: EdgeInsets.all(Dimension.size10),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -894,7 +896,7 @@ Widget allItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
+                                  height: Dimension.size20,
                                 ),
                               )
                             ],
@@ -921,13 +923,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -941,7 +942,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -952,13 +953,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Green Apple',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -972,24 +972,26 @@ Widget allItems(context) {
                                           text:
                                               '${AppConstant.currencySymbol}120/ ',
                                           style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
+                                            color: kTextColor,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize:
+                                                Dimension.textSizeSmallExtra,
+                                          ),
                                           children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
                                       ])),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -1000,23 +1002,24 @@ Widget allItems(context) {
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1030,13 +1033,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -1050,7 +1052,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -1061,13 +1063,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'FaceWash',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1077,28 +1078,31 @@ Widget allItems(context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   RichText(
-                                      text: TextSpan(
-                                          text:
-                                              '${AppConstant.currencySymbol}120/ ',
-                                          style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
-                                          children: [
+                                    text: TextSpan(
+                                      text:
+                                          '${AppConstant.currencySymbol}120/ ',
+                                      style: TextStyle(
+                                        color: kTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmallExtra,
+                                      ),
+                                      children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
-                                      ])),
+                                      ],
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -1109,23 +1113,24 @@ Widget allItems(context) {
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1147,13 +1152,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -1167,7 +1171,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -1178,13 +1182,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Ripe Pomegranates',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1194,28 +1197,31 @@ Widget allItems(context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   RichText(
-                                      text: TextSpan(
-                                          text:
-                                              '${AppConstant.currencySymbol}120/ ',
-                                          style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
-                                          children: [
+                                    text: TextSpan(
+                                      text:
+                                          '${AppConstant.currencySymbol}120/ ',
+                                      style: TextStyle(
+                                        color: kTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmallExtra,
+                                      ),
+                                      children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
-                                      ])),
+                                      ],
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -1226,23 +1232,24 @@ Widget allItems(context) {
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1256,13 +1263,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -1276,7 +1282,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -1287,13 +1293,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Ripe Pomegranates',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1307,24 +1312,26 @@ Widget allItems(context) {
                                           text:
                                               '${AppConstant.currencySymbol}120/ ',
                                           style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
+                                            color: kTextColor,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize:
+                                                Dimension.textSizeSmallExtra,
+                                          ),
                                           children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
                                       ])),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -1335,23 +1342,24 @@ Widget allItems(context) {
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1373,13 +1381,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -1393,7 +1400,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -1404,13 +1411,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Green Apple',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1420,55 +1426,59 @@ Widget allItems(context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   RichText(
-                                      text: TextSpan(
-                                          text:
-                                              '${AppConstant.currencySymbol}120/ ',
-                                          style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
-                                          children: [
+                                    text: TextSpan(
+                                      text:
+                                          '${AppConstant.currencySymbol}120/ ',
+                                      style: TextStyle(
+                                        color: kTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmallExtra,
+                                      ),
+                                      children: [
                                         TextSpan(
                                             style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
+                                              color: kSubTextColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimension.textSizeSmallExtra,
+                                            ),
                                             text: 'kg')
-                                      ])),
+                                      ],
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
-                                  )
+                                  ),
                                 ],
-                              )
+                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1482,13 +1492,12 @@ Widget allItems(context) {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Themes.White,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
-                  //boxShadow: Themes.defaultShadow,
+                  color: Themes.white,
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                 ),
                 height: Get.height * 0.30,
                 width: Get.width * 0.44,
-                margin: EdgeInsets.only(top: Dimension.Size_5),
+                margin: EdgeInsets.only(top: Dimension.size5),
                 child: Stack(
                   children: [
                     Column(
@@ -1502,7 +1511,7 @@ Widget allItems(context) {
                         ),
                         Divider(
                           height: 2,
-                          color: Themes.Grey.withOpacity(0.1),
+                          color: Themes.grey.withOpacity(0.1),
                           thickness: 2,
                         ),
                         Padding(
@@ -1513,13 +1522,12 @@ Widget allItems(context) {
                               Row(
                                 children: [
                                   Text(
-                                    //'Ripe Pomegranates',
                                     'Ripe Pomegranates',
                                     style: TextStyle(
-                                        color: kTextColor,
-                                        fontWeight: FontWeight.normal,
-                                        fontSize:
-                                            Dimension.Text_Size_Small_Extra),
+                                      color: kTextColor,
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Dimension.textSizeSmallExtra,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -1529,28 +1537,32 @@ Widget allItems(context) {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   RichText(
-                                      text: TextSpan(
-                                          text:
-                                              '${AppConstant.currencySymbol}120/ ',
-                                          style: TextStyle(
-                                              color: kTextColor,
-                                              fontWeight: FontWeight.normal,
-                                              fontSize: Dimension
-                                                  .Text_Size_Small_Extra),
-                                          children: [
+                                    text: TextSpan(
+                                      text:
+                                          '${AppConstant.currencySymbol}120/ ',
+                                      style: TextStyle(
+                                        color: kTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmallExtra,
+                                      ),
+                                      children: [
                                         TextSpan(
-                                            style: TextStyle(
-                                                color: kSubTextColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: Dimension
-                                                    .Text_Size_Small_Extra),
-                                            text: 'kg')
-                                      ])),
+                                          style: TextStyle(
+                                            color: kSubTextColor,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize:
+                                                Dimension.textSizeSmallExtra,
+                                          ),
+                                          text: 'kg',
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                   InkWell(
                                     onTap: () {},
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-outline.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                     ),
                                   )
                                 ],
@@ -1561,23 +1573,24 @@ Widget allItems(context) {
                       ],
                     ),
                     Positioned(
-                        top: 0,
-                        child: Container(
-                          width: 150,
-                          padding: EdgeInsets.all(Dimension.Size_10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              InkWell(
-                                onTap: () {},
-                                child: SvgPicture.asset(
-                                  'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_20,
-                                ),
-                              )
-                            ],
-                          ),
-                        ))
+                      top: 0,
+                      child: Container(
+                        width: 150,
+                        padding: EdgeInsets.all(Dimension.size10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                'assets/icons/favorite-outline.svg',
+                                height: Dimension.size20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1604,7 +1617,9 @@ Widget featuredItems(context) {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ItemDetailsScreen()),
+                MaterialPageRoute(
+                  builder: (context) => ItemDetailsScreen(),
+                ),
               );
             },
             child: Container(
@@ -1617,7 +1632,7 @@ Widget featuredItems(context) {
                     blurRadius: 0.2,
                     spreadRadius: 0.0,
                     offset: Offset(0, 1.0), // shadow direction: bottom right
-                  )
+                  ),
                 ],
               ),
               width: Get.width * 0.99,
@@ -1630,8 +1645,9 @@ Widget featuredItems(context) {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            bottomLeft: Radius.circular(5)),
+                          topLeft: Radius.circular(5),
+                          bottomLeft: Radius.circular(5),
+                        ),
                         color: kFollowed_BG1,
                         boxShadow: [
                           BoxShadow(
@@ -1639,14 +1655,15 @@ Widget featuredItems(context) {
                             blurRadius: 0.2,
                             spreadRadius: 0.0,
                             offset: Offset(
-                                0, 1.0), // shadow direction: bottom right
-                          )
+                              0,
+                              1.0,
+                            ), // shadow direction: bottom right
+                          ),
                         ],
                       ),
                       child: Center(
                         child: Image.asset(
                           'assets/demo/trending0.png',
-                          //width: Get.width * 0.2,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -1672,13 +1689,13 @@ Widget featuredItems(context) {
                             children: [
                               Flexible(
                                 child: Text(
-                                  //'Ripe Pomegranates',
                                   'Ripe Pomegranates',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      color: Themes.Text_Color,
-                                      fontSize: Dimension.Text_Size,
-                                      fontWeight: FontWeight.w700),
+                                    color: Themes.textColor,
+                                    fontSize: Dimension.textSize,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ],
@@ -1691,22 +1708,25 @@ Widget featuredItems(context) {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               RichText(
-                                  text: TextSpan(
-                                      text:
-                                          '${AppConstant.currencySymbol}120/ ',
-                                      style: TextStyle(
-                                          color: kTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      children: [
+                                text: TextSpan(
+                                  text: '${AppConstant.currencySymbol}120/ ',
+                                  style: TextStyle(
+                                    color: kTextColor,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: Dimension.textSizeSmall,
+                                  ),
+                                  children: [
                                     TextSpan(
-                                        style: TextStyle(
-                                            color: kSubTextColor,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize:
-                                                Dimension.Text_Size_Small),
-                                        text: 'kg')
-                                  ])),
+                                      style: TextStyle(
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
+                                      text: 'kg',
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -1718,7 +1738,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                 ),
                               ),
                               SizedBox(
@@ -1728,7 +1748,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/cart-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                   color: kSubTextColor,
                                 ),
                               ),
@@ -1763,8 +1783,8 @@ Widget featuredItems(context) {
                     color: Colors.black.withOpacity(.1),
                     blurRadius: 0.2,
                     spreadRadius: 0.0,
-                    offset: Offset(0, 1.0), // shadow direction: bottom right
-                  )
+                    offset: Offset(0, 1.0),
+                  ),
                 ],
               ),
               width: Get.width * 0.99,
@@ -1777,8 +1797,9 @@ Widget featuredItems(context) {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            bottomLeft: Radius.circular(5)),
+                          topLeft: Radius.circular(5),
+                          bottomLeft: Radius.circular(5),
+                        ),
                         color: kFollowed_BG2,
                         boxShadow: [
                           BoxShadow(
@@ -1787,13 +1808,12 @@ Widget featuredItems(context) {
                             spreadRadius: 0.0,
                             offset: Offset(
                                 0, 1.0), // shadow direction: bottom right
-                          )
+                          ),
                         ],
                       ),
                       child: Center(
                         child: Image.asset(
                           'assets/demo/recomended2.png',
-                          //width: Get.width * 0.2,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -1823,9 +1843,10 @@ Widget featuredItems(context) {
                                   'Green Apple',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      color: Themes.Text_Color,
-                                      fontSize: Dimension.Text_Size,
-                                      fontWeight: FontWeight.w700),
+                                    color: Themes.textColor,
+                                    fontSize: Dimension.textSize,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ],
@@ -1838,22 +1859,25 @@ Widget featuredItems(context) {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               RichText(
-                                  text: TextSpan(
-                                      text:
-                                          '${AppConstant.currencySymbol}120/ ',
-                                      style: TextStyle(
-                                          color: kTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      children: [
+                                text: TextSpan(
+                                  text: '${AppConstant.currencySymbol}120/ ',
+                                  style: TextStyle(
+                                    color: kTextColor,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: Dimension.textSizeSmall,
+                                  ),
+                                  children: [
                                     TextSpan(
-                                        style: TextStyle(
-                                            color: kSubTextColor,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize:
-                                                Dimension.Text_Size_Small),
-                                        text: 'kg')
-                                  ])),
+                                      style: TextStyle(
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
+                                      text: 'kg',
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -1865,7 +1889,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                 ),
                               ),
                               SizedBox(
@@ -1875,7 +1899,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/cart-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                   color: kSubTextColor,
                                 ),
                               ),
@@ -1910,7 +1934,7 @@ Widget featuredItems(context) {
                     color: Colors.black.withOpacity(.1),
                     blurRadius: 0.2,
                     spreadRadius: 0.0,
-                    offset: Offset(0, 1.0), // shadow direction: bottom right
+                    offset: Offset(0, 1.0),
                   )
                 ],
               ),
@@ -1924,23 +1948,22 @@ Widget featuredItems(context) {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            bottomLeft: Radius.circular(5)),
+                          topLeft: Radius.circular(5),
+                          bottomLeft: Radius.circular(5),
+                        ),
                         color: kFollowed_BG3,
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(.1),
                             blurRadius: 0.2,
                             spreadRadius: 0.0,
-                            offset: Offset(
-                                0, 1.0), // shadow direction: bottom right
+                            offset: Offset(0, 1.0),
                           )
                         ],
                       ),
                       child: Center(
                         child: Image.asset(
                           'assets/demo/recomended3.png',
-                          //width: Get.width * 0.2,
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -1966,13 +1989,13 @@ Widget featuredItems(context) {
                             children: [
                               Flexible(
                                 child: Text(
-                                  //'Ripe Pomegranates',
                                   'Green Apple Facewash',
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                      color: Themes.Text_Color,
-                                      fontSize: Dimension.Text_Size,
-                                      fontWeight: FontWeight.w700),
+                                    color: Themes.textColor,
+                                    fontSize: Dimension.textSize,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ),
                               ),
                             ],
@@ -1985,22 +2008,25 @@ Widget featuredItems(context) {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               RichText(
-                                  text: TextSpan(
-                                      text:
-                                          '${AppConstant.currencySymbol}120/ ',
-                                      style: TextStyle(
-                                          color: kTextColor,
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Dimension.Text_Size_Small),
-                                      children: [
+                                text: TextSpan(
+                                  text: '${AppConstant.currencySymbol}120/ ',
+                                  style: TextStyle(
+                                    color: kTextColor,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: Dimension.textSizeSmall,
+                                  ),
+                                  children: [
                                     TextSpan(
-                                        style: TextStyle(
-                                            color: kSubTextColor,
-                                            fontWeight: FontWeight.normal,
-                                            fontSize:
-                                                Dimension.Text_Size_Small),
-                                        text: 'kg')
-                                  ])),
+                                      style: TextStyle(
+                                        color: kSubTextColor,
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: Dimension.textSizeSmall,
+                                      ),
+                                      text: 'kg',
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                           SizedBox(
@@ -2012,7 +2038,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/favorite-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                 ),
                               ),
                               SizedBox(
@@ -2022,7 +2048,7 @@ Widget featuredItems(context) {
                                 onTap: () {},
                                 child: SvgPicture.asset(
                                   'assets/icons/cart-outline.svg',
-                                  height: Dimension.Size_16,
+                                  height: Dimension.size16,
                                   color: kSubTextColor,
                                 ),
                               ),

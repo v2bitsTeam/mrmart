@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/ui/profile/recipients_details_edit/components/body.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/ui/profile/recipients_details_edit/components/body.dart';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
 
 class RecipientsDetailsScreenEdit extends StatelessWidget {
   @override

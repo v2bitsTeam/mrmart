@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -58,9 +58,8 @@ class _BodyState extends State<Body> {
                     title: Text("Recepients Details"),
                     subtitle: Text(
                       "Rahul Subramaniam-096 987 56 7890-2025 M Street, 3rd Blok Northwest, california, DC, 20036.",
-                      style: TextStyle(color: Themes.SUB_TEXT),
+                      style: TextStyle(color: Themes.subText),
                     ),
-                    //leading: Icon(Icons.star_border,color: Colors.black,),
                     leading: ShapeOfView(
                       height: 50,
                       width: 50,
@@ -70,7 +69,7 @@ class _BodyState extends State<Body> {
                         borderWidth: 0, //optional
                       ),
                       child: Container(
-                        color: Themes.BG1,
+                        color: Themes.bG1,
                         child: Padding(
                           padding: EdgeInsets.all(10.0),
                           child: SvgPicture.asset(
@@ -80,7 +79,6 @@ class _BodyState extends State<Body> {
                         ),
                       ),
                     ),
-                    //trailing: Icon(FontAwesomeIcons.arrowDown),
                     children: <Widget>[
                       IconTheme(
                         data: IconThemeData(
@@ -89,36 +87,16 @@ class _BodyState extends State<Body> {
                         ),
                         child: Column(
                           children: [
-                            /* Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: TextField(
-                                style: TextStyle(
-                                    color: Colors.white.withOpacity(0.8),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.normal),
-                                cursorColor: Colors.white,
-                                */ /*decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                      borderSide: BorderSide.none),
-                                  labelText: 'Name',
-                                ),*/ /*
-                                decoration: InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: "Your Name",
-                                  hintStyle: TextStyle(
-                                      color: Colors.white.withOpacity(.3), fontSize: 20),
-                                ),
-                              ),
-                            ),*/
                             Container(
                               alignment: Alignment.bottomLeft,
                               padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                               child: Text(
                                 'Name',
                                 style: TextStyle(
-                                    color: Themes.Form_field_upper_Text,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18),
+                                  color: Themes.formFieldUpperText,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
                             Padding(
@@ -127,22 +105,24 @@ class _BodyState extends State<Body> {
                                 decoration: BoxDecoration(
                                   border: Border(
                                     bottom: BorderSide(
-                                      color: Themes.Form_field_border,
+                                      color: Themes.formFieldBorder,
                                     ),
                                   ),
                                 ),
                                 child: TextField(
                                   style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.normal),
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                   cursorColor: Colors.black,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "your name",
                                     hintStyle: TextStyle(
-                                        color: Colors.black.withOpacity(.2),
-                                        fontSize: 20),
+                                      color: Colors.black.withOpacity(.2),
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -153,9 +133,10 @@ class _BodyState extends State<Body> {
                               child: Text(
                                 'Phone',
                                 style: TextStyle(
-                                    color: Themes.Form_field_upper_Text,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18),
+                                  color: Themes.formFieldUpperText,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18,
+                                ),
                               ),
                             ),
                             Padding(
@@ -164,22 +145,24 @@ class _BodyState extends State<Body> {
                                 decoration: BoxDecoration(
                                   border: Border(
                                     bottom: BorderSide(
-                                      color: Themes.Form_field_border,
+                                      color: Themes.formFieldBorder,
                                     ),
                                   ),
                                 ),
                                 child: TextField(
                                   style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.normal),
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal,
+                                  ),
                                   cursorColor: Colors.black,
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "your phone number",
                                     hintStyle: TextStyle(
-                                        color: Colors.black.withOpacity(.2),
-                                        fontSize: 20),
+                                      color: Colors.black.withOpacity(.2),
+                                      fontSize: 20,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -199,23 +182,23 @@ class _BodyState extends State<Body> {
                                           Expanded(
                                             child: Container(
                                               height: 45,
-                                              child: RaisedButton(
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
-                                                  //side: BorderSide(color: Colors.red)
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            5.0),
+                                                  ),
+                                                  elevation: 1,
+                                                  primary: Themes.primary3,
                                                 ),
-                                                elevation: 1,
-                                                textColor: Colors.black,
-                                                color: Themes.Primary3,
                                                 child: Text(
                                                   "No",
                                                   style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                    color: Colors.black,
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
                                                 onPressed: () {},
                                               ),
@@ -227,23 +210,24 @@ class _BodyState extends State<Body> {
                                           Expanded(
                                             child: Container(
                                               height: 45,
-                                              child: RaisedButton(
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          5.0),
-                                                  //side: BorderSide(color: Colors.red)
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                      5.0,
+                                                    ),
+                                                  ),
+                                                  elevation: 1,
+                                                  primary: Themes.primary2,
                                                 ),
-                                                elevation: 1,
-                                                textColor: Colors.white,
-                                                color: Themes.Primary2,
                                                 child: Text(
                                                   "Save Changes",
                                                   style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                                    color: Colors.white,
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
                                                 ),
                                                 onPressed: () {},
                                               ),
@@ -268,7 +252,7 @@ class _BodyState extends State<Body> {
                     trailing: Text(''),
                     subtitle: Text(
                       "Delivery time - 20 June2020 - (09.00am - 12.00pm)",
-                      style: TextStyle(color: Themes.SUB_TEXT),
+                      style: TextStyle(color: Themes.subText),
                     ),
                     leading: ShapeOfView(
                       height: 50,
@@ -279,13 +263,14 @@ class _BodyState extends State<Body> {
                         borderWidth: 0, //optional
                       ),
                       child: Container(
-                        color: Themes.BG2,
+                        color: Themes.bG2,
                         child: Padding(
                           padding: EdgeInsets.all(10.0),
                           child: SvgPicture.asset(
-                              'assets/icons/checkout/car.svg',
-                              color: Colors.white,
-                              semanticsLabel: ''),
+                            'assets/icons/checkout/car.svg',
+                            color: Colors.white,
+                            semanticsLabel: '',
+                          ),
                         ),
                       ),
                     ),
@@ -293,8 +278,6 @@ class _BodyState extends State<Body> {
                 ),
                 Card(
                   child: ExpansionTile(
-                    /* backgroundColor: isExpanded ? Colors.orange : Themes.BG_expantion_change,
-                    onExpansionChanged: (bool expanding) => setState(() => this.isExpanded = expanding),*/
                     title: Text("Payment Method"),
                     subtitle: Text(".... .... .... 0987"),
                     leading: ShapeOfView(
@@ -306,13 +289,14 @@ class _BodyState extends State<Body> {
                         borderWidth: 0, //optional
                       ),
                       child: Container(
-                        color: Themes.BG3,
+                        color: Themes.bG3,
                         child: Padding(
                           padding: EdgeInsets.all(10.0),
                           child: SvgPicture.asset(
-                              'assets/icons/checkout/bank_card.svg',
-                              color: Colors.white,
-                              semanticsLabel: ''),
+                            'assets/icons/checkout/bank_card.svg',
+                            color: Colors.white,
+                            semanticsLabel: '',
+                          ),
                         ),
                       ),
                     ),
@@ -332,7 +316,7 @@ class _BodyState extends State<Body> {
                                     trailing: Text(''),
                                     subtitle: Text(
                                       ".... .... .... 0987)",
-                                      style: TextStyle(color: Themes.SUB_TEXT),
+                                      style: TextStyle(color: Themes.subText),
                                     ),
                                     leading: ShapeOfView(
                                       height: 50,
@@ -343,13 +327,14 @@ class _BodyState extends State<Body> {
                                         borderWidth: 0, //optional
                                       ),
                                       child: Container(
-                                        color: Themes.BG4,
+                                        color: Themes.bG4,
                                         child: Padding(
                                           padding: EdgeInsets.all(10.0),
                                           child: SvgPicture.asset(
-                                              'assets/icons/checkout/mastercard.svg',
-                                              color: Colors.white,
-                                              semanticsLabel: ''),
+                                            'assets/icons/checkout/mastercard.svg',
+                                            color: Colors.white,
+                                            semanticsLabel: '',
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -366,7 +351,7 @@ class _BodyState extends State<Body> {
                                     trailing: Text(''),
                                     subtitle: Text(
                                       ".... .... .... 0987)",
-                                      style: TextStyle(color: Themes.SUB_TEXT),
+                                      style: TextStyle(color: Themes.subText),
                                     ),
                                     leading: ShapeOfView(
                                       height: 50,
@@ -377,13 +362,14 @@ class _BodyState extends State<Body> {
                                         borderWidth: 0, //optional
                                       ),
                                       child: Container(
-                                        color: Themes.BG5,
+                                        color: Themes.bG5,
                                         child: Padding(
                                           padding: EdgeInsets.all(10.0),
                                           child: SvgPicture.asset(
-                                              'assets/icons/checkout/paypal.svg',
-                                              color: Colors.white,
-                                              semanticsLabel: ''),
+                                            'assets/icons/checkout/paypal.svg',
+                                            color: Colors.white,
+                                            semanticsLabel: '',
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -399,7 +385,7 @@ class _BodyState extends State<Body> {
                                     title: Text("Rahul Subramaniam"),
                                     subtitle: Text(
                                       ".... .... .... 0987)",
-                                      style: TextStyle(color: Themes.SUB_TEXT),
+                                      style: TextStyle(color: Themes.subText),
                                     ),
                                     leading: ShapeOfView(
                                       height: 50,
@@ -410,13 +396,14 @@ class _BodyState extends State<Body> {
                                         borderWidth: 0, //optional
                                       ),
                                       child: Container(
-                                        color: Themes.BG6,
+                                        color: Themes.bG6,
                                         child: Padding(
                                           padding: EdgeInsets.all(10.0),
                                           child: SvgPicture.asset(
-                                              'assets/icons/checkout/visa.svg',
-                                              color: Colors.white,
-                                              semanticsLabel: ''),
+                                            'assets/icons/checkout/visa.svg',
+                                            color: Colors.white,
+                                            semanticsLabel: '',
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -438,7 +425,7 @@ class _BodyState extends State<Body> {
                                     trailing: Text(''),
                                     subtitle: Text(
                                       " ",
-                                      style: TextStyle(color: Themes.SUB_TEXT),
+                                      style: TextStyle(color: Themes.subText),
                                     ),
                                     leading: ShapeOfView(
                                       height: 50,
@@ -449,13 +436,14 @@ class _BodyState extends State<Body> {
                                         borderWidth: 0, //optional
                                       ),
                                       child: Container(
-                                        color: Themes.BG7,
+                                        color: Themes.bG7,
                                         child: Padding(
                                           padding: EdgeInsets.all(10.0),
                                           child: SvgPicture.asset(
-                                              'assets/icons/checkout/add.svg',
-                                              color: Colors.white,
-                                              semanticsLabel: ''),
+                                            'assets/icons/checkout/add.svg',
+                                            color: Colors.white,
+                                            semanticsLabel: '',
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -476,9 +464,7 @@ class _BodyState extends State<Body> {
                   padding: const EdgeInsets.all(4.0),
                   child: DefaultButton(
                     text: "Proceed To Cart Summary",
-                    press: () {
-                      Get.toNamed(CART_SUMMARY_SCREEN);
-                    },
+                    press: () => Get.toNamed(CART_SUMMARY_SCREEN),
                   ),
                 ),
               ],

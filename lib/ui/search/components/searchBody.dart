@@ -1,11 +1,11 @@
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Controllers/search_controller.dart';
-import 'package:MrMart/Models/products.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/Controllers/search_controller.dart';
+import 'package:mr_mart/Models/products.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:get/get.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 
@@ -230,7 +230,7 @@ class SearchBody extends StatelessWidget {
                 children: [
                   product.image != "" || product.image != null
                       ? Image.network(
-                          AppConstant.MediaUrl + product.image,
+                          AppConstant.mediaUrl + product.image,
                           fit: BoxFit.contain,
                           height: 50.0,
                           width: 50.0,

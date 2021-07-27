@@ -5,7 +5,7 @@ class TrackProcessingWidget extends StatelessWidget {
   const TrackProcessingWidget({Key key}) : super(key: key);
 
   Widget testWidget() {
-    Container(
+    return Container(
       color: Colors.white,
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -83,7 +83,7 @@ class TrackProcessingWidget extends StatelessWidget {
                   alignment: TimelineAlign.manual,
                   lineXY: 0.1,
                   isFirst: true,
-                  indicatorStyle:  IndicatorStyle(
+                  indicatorStyle: IndicatorStyle(
                     width: 30,
                     color: Colors.purple,
                     iconStyle: IconStyle(

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
-Widget RatingView(
-    {double rating = 5,
-    int itemCount = 5,
-    double itemSize = 16,
-    Color color,
-    Color unratedColor,
-    bool ignoreGestures = true,
-    Function(double) onRatingUpdate}) {
+Widget ratingView({
+  double rating = 5,
+  int itemCount = 5,
+  double itemSize = 16,
+  Color color,
+  Color unratedColor,
+  bool ignoreGestures = true,
+  Function(double) onRatingUpdate,
+}) {
   return RatingBar.builder(
     initialRating: rating,
     minRating: 0,
@@ -23,7 +23,7 @@ Widget RatingView(
     itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
     itemBuilder: (context, _) => Icon(
       Icons.star,
-      color: color == null ? Themes.Rating_Color : color,
+      color: color == null ? Themes.ratingColor : color,
     ),
     onRatingUpdate: onRatingUpdate == null
         ? (rating) {

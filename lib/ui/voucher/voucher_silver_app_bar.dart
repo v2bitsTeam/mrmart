@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_svg/svg.dart';
-
 
 class VoucherSliverAppBar extends StatelessWidget {
   final String _title;
 
   const VoucherSliverAppBar(
-      this._title, {
-        Key key,
-      }) : super(key: key);
+    this._title, {
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +33,7 @@ class VoucherSliverAppBar extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(right: 20.0),
           child: GestureDetector(
-            onTap: () {
-              // cart screen here;
-            },
+            onTap: () {},
             child: SvgPicture.asset('assets/icons/cart_white.svg'),
           ),
         ),

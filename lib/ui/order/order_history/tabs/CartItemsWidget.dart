@@ -1,9 +1,9 @@
-import 'package:MrMart/AppHelper/Helper.dart';
-import 'package:MrMart/Controllers/my_order_controller.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/AppHelper/Helper.dart';
+import 'package:mr_mart/Controllers/my_order_controller.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -65,7 +65,7 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
             color: Colors.black.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 1,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: Offset(0, 1),
           ),
         ],
       ),
@@ -137,15 +137,14 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                         color: Colors.black.withOpacity(0.1),
                         spreadRadius: 1,
                         blurRadius: 1,
-                        offset: Offset(0, 1), // changes position of shadow
+                        offset: Offset(0, 1),
                       ),
                     ],
                   ),
                   child: Center(
                     child: orderItem != null && orderItem.image != null
                         ? Image.network(
-                            '${AppConstant.MediaUrl}${orderItem.image}',
-                            //width: Get.width * 0.2,
+                            '${AppConstant.mediaUrl}${orderItem.image}',
                             fit: BoxFit.contain,
                           )
                         : Container(),
@@ -169,9 +168,10 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                           '${orderItem?.name}',
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                              color: Themes.Text_Color,
-                              fontSize: Dimension.Text_Size,
-                              fontWeight: FontWeight.w700),
+                            color: Themes.textColor,
+                            fontSize: Dimension.textSize,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
                       ),
                     ],
@@ -194,8 +194,9 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                                     .textTheme
                                     .bodyText2
                                     .copyWith(
-                                        color: Themes.Grey,
-                                        decoration: TextDecoration.lineThrough),
+                                      color: Themes.grey,
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
                                 text:
                                     '${AppConstant.currencySymbol}${currencyFormatter.format(double.tryParse(orderItem?.price))}')
                           ],
@@ -211,7 +212,6 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                       Flexible(
                         child: Text(
                           'Sub Total: ${AppConstant.currencySymbol} ${currencyFormatter.format(double.parse(Helper.calculateDiscountedPrice(double.parse(orderItem?.price), int.parse(orderItem?.discount))) * int.parse(orderItem?.items))}',
-                          // overflow: TextOverflow.ellipsis,
                           style: Theme.of(context)
                               .textTheme
                               .subtitle1
@@ -234,8 +234,9 @@ class _CartItemsWidgetState extends State<CartItemsWidget> {
                 enabled: false,
                 textAlign: TextAlign.center,
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    contentPadding: EdgeInsets.all(4.0)),
+                  border: OutlineInputBorder(),
+                  contentPadding: EdgeInsets.all(4.0),
+                ),
               ),
             ),
           ),

@@ -1,18 +1,18 @@
 import 'dart:io';
 
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Models/user.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Models/user.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/ui_components/DefaultTextFieldProfileEdit.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/ui_components/DefaultTextFieldProfileEdit.dart';
+import 'package:mr_mart/ui_components/default_button.dart';
 import 'package:image_picker/image_picker.dart';
 
 class Body extends StatefulWidget {
@@ -96,7 +96,7 @@ class _BodyState extends State<Body> {
                       canEdit ? "Cancel" : "Edit",
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        color: canEdit ? Colors.grey[700] : Themes.Clear_Edit,
+                        color: canEdit ? Colors.grey[700] : Themes.clearEdit,
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                         height: 1,
@@ -129,10 +129,10 @@ class _BodyState extends State<Body> {
       child: Column(
         children: [
           Card(
-            elevation: Dimension.card_elevation,
+            elevation: Dimension.cardElevation,
             clipBehavior: Clip.antiAlias,
             child: Container(
-              padding: EdgeInsets.all(Dimension.Padding),
+              padding: EdgeInsets.all(Dimension.padding),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -143,7 +143,7 @@ class _BodyState extends State<Body> {
                               userController.user.value.profileImage.length !=
                                           0 &&
                                       image == null
-                                  ? NetworkImage(AppConstant.MediaUrl +
+                                  ? NetworkImage(AppConstant.mediaUrl +
                                       userController.user.value.profileImage)
                                   : image != null
                                       ? FileImage(image)
@@ -155,7 +155,7 @@ class _BodyState extends State<Body> {
                               width: 36.0,
                               height: 36.0,
                               decoration: BoxDecoration(
-                                color: Themes.Button_Color2,
+                                color: Themes.buttonColor2,
                                 borderRadius: BorderRadius.circular(
                                   16.0,
                                 ),
@@ -173,7 +173,7 @@ class _BodyState extends State<Body> {
                           ),
                         )
                       : Container(),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                       controller: mobileController,
                       label: 'Mobile',
                       enable: false,
@@ -182,7 +182,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                       controller: nameController,
                       label: 'Name',
                       enable: canEdit,
@@ -192,7 +192,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                       controller: emailController,
                       label: 'Email',
                       enable: canEdit,
@@ -202,7 +202,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                     controller: locationController,
                     label: 'Address',
                     enable: canEdit,
@@ -213,7 +213,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                     controller: cityController,
                     label: 'City',
                     enable: canEdit,
@@ -224,7 +224,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                     controller: stateController,
                     label: 'State',
                     enable: canEdit,
@@ -235,7 +235,7 @@ class _BodyState extends State<Body> {
                   SizedBox(
                     height: 4.0,
                   ),
-                  DefaultTextFieldProfileEdit(
+                  defaultTextFieldProfileEdit(
                     controller: pincodeController,
                     label: 'Pincode',
                     enable: canEdit,
@@ -244,7 +244,7 @@ class _BodyState extends State<Body> {
                     fontColor: canEdit ? null : Colors.grey[600],
                   ),
                   SizedBox(
-                    height: Dimension.Size_10,
+                    height: Dimension.size10,
                   )
                 ],
               ),
@@ -325,7 +325,7 @@ class _BodyState extends State<Body> {
       builder: (BuildContext context) => chooseImageSource(),
     );
     if (imageSourceIsCamera != null) {
-      final pickedFile = await picker.getImage(
+      final pickedFile = await picker.pickImage(
           source:
               imageSourceIsCamera ? ImageSource.camera : ImageSource.gallery,
           preferredCameraDevice: CameraDevice.front);

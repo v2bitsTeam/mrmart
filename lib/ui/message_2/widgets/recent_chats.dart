@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/ui/message_2/screens/chat_screen.dart';
-
+import 'package:mr_mart/ui/message_2/screens/chat_screen.dart';
 import '../models/message_model.dart';
 
 class RecentChats extends StatelessWidget {
@@ -8,30 +7,23 @@ class RecentChats extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        //padding: EdgeInsets.symmetric(vertical: 10.0),
-        /*decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),
-        ),*/
         child: ClipRRect(
-          /*borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30.0),
-            topRight: Radius.circular(30.0),
-          ),*/
           child: ListView.builder(
               itemCount: chats.length,
               itemBuilder: (context, index) {
                 final Message chat = chats[index];
                 return GestureDetector(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (_) {
-                      return ChatScreen(
-                        user: chat.sender,
-                      );
-                    }));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) {
+                          return ChatScreen(
+                            user: chat.sender,
+                          );
+                        },
+                      ),
+                    );
                   },
                   child: Container(
                     margin: EdgeInsets.only(top: 5.0, bottom: 5.0, right: 20.0),
@@ -65,11 +57,6 @@ class RecentChats extends StatelessWidget {
                                     textDirection: TextDirection.ltr,
                                     style:
                                         Theme.of(context).textTheme.headline1,
-                                    /*style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.bold,
-                                      ),*/
                                   ),
                                   SizedBox(
                                     height: 5.0,
@@ -80,11 +67,6 @@ class RecentChats extends StatelessWidget {
                                     textDirection: TextDirection.ltr,
                                     style:
                                         Theme.of(context).textTheme.headline5,
-                                    /*style: TextStyle(
-                                      color: Colors.blueGrey,
-                                      fontSize: 15.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),*/
                                   ),
                                 ],
                               ),

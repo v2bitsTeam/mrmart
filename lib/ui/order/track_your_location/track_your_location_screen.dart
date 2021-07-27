@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'components/body.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui/order/track_your_location/components/body.dart';
 
 class TrackYourLocationScreen extends StatelessWidget {
   @override
@@ -24,12 +20,6 @@ class TrackYourLocationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),

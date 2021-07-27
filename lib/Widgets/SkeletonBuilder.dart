@@ -1,21 +1,19 @@
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Packege/Skeleton/Skeleton.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Packege/Skeleton/Skeleton.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-Widget SkeletonBuilder({Widget child}) {
+Widget skeletonBuilder({Widget child}) {
   return Skeleton.fromColors(
-    baseColor: Themes.Grey.withAlpha(30),
-    highlightColor: Themes.White.withAlpha(50),
+    baseColor: Themes.grey.withAlpha(30),
+    highlightColor: Themes.white.withAlpha(50),
     child: child,
   );
 }
 
-Widget OrderSkeletonBuilder({Widget child, bool enable = true, Color color}) {
+Widget orderSkeletonBuilder({Widget child, bool enable = true, Color color}) {
   return Skeleton.fromColors(
-    baseColor: color ?? Themes.Grey,
-    highlightColor: Themes.Primary,
+    baseColor: color ?? Themes.grey,
+    highlightColor: Themes.primary,
     child: child,
     enabled: enable,
   );

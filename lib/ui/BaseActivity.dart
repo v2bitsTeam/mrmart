@@ -1,34 +1,33 @@
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Route/Route.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Route/Route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'dart:async';
-import 'dart:io';
+import 'package:mr_mart/ui/cart/cart_screen.dart';
 import '../main.dart';
 
 class BaseActivity extends StatefulWidget {
-  String title;
-  bool returnData = false;
-  Widget action;
-  Color color;
-  Widget body;
-  Widget bottomNavigationBar;
-  Widget leading;
-  bool automaticLeading;
+  final String title;
+  final bool returnData;
+  final Widget action;
+  final Color color;
+  final Widget body;
+  final Widget bottomNavigationBar;
+  final Widget leading;
+  final bool automaticLeading;
 
-  BaseActivity(
-      {@required this.title,
-      @required this.body,
-      this.returnData,
-      this.action,
-      this.color,
-      this.bottomNavigationBar,
-      this.leading,
-      this.automaticLeading = true});
+  BaseActivity({
+    @required this.title,
+    @required this.body,
+    this.returnData = false,
+    this.action,
+    this.color,
+    this.bottomNavigationBar,
+    this.leading,
+    this.automaticLeading = true,
+  });
 
   @override
   _BaseActivityState createState() => _BaseActivityState();
@@ -38,33 +37,12 @@ class _BaseActivityState extends State<BaseActivity> {
   double invisibleHeight = (Get.height * 0.15) * 0.2;
   final CartController cartController = Get.find();
 
-  Future<bool> _onWillPop() {
-    return showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: Text('Are you sure?'),
-            content: Text('Do you want to exit an App'),
-            actions: <Widget>[
-              FlatButton(
-                onPressed: () => Navigator.of(context).pop(false),
-                child: Text('No'),
-              ),
-              FlatButton(
-                onPressed: () => exit(0),
-                child: Text('Yes'),
-              ),
-            ],
-          ),
-        ) ??
-        false;
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: Stack(
-          overflow: Overflow.visible,
+          clipBehavior: Clip.none,
           children: [
             Positioned.fill(
               child: Container(
@@ -88,7 +66,7 @@ class _BaseActivityState extends State<BaseActivity> {
                     height: Get.height * 0.15,
                     width: Get.width,
                     fit: BoxFit.fill,
-                    color: Themes.Primary2,
+                    color: Themes.primary2,
                   ),
                   Positioned(
                     top: invisibleHeight,
@@ -96,7 +74,7 @@ class _BaseActivityState extends State<BaseActivity> {
                     child: Row(
                       children: [
                         SizedBox(
-                          width: Dimension.Size_5,
+                          width: Dimension.size5,
                         ),
                         Container(
                           margin: EdgeInsets.only(left: 50.0),
@@ -117,14 +95,18 @@ class _BaseActivityState extends State<BaseActivity> {
                           ),
                         ),
                         Expanded(
-                            child: Text(
-                          widget.title,
-                          style: Theme.of(context).textTheme.headline1.copyWith(
-                              color: Themes.White,
-                              fontSize: Dimension.Size_20,
-                              fontWeight: Dimension.textMedium),
-                          textAlign: TextAlign.center,
-                        )),
+                          child: Text(
+                            widget.title,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline1
+                                .copyWith(
+                                    color: Themes.white,
+                                    fontSize: Dimension.size20,
+                                    fontWeight: Dimension.textMedium),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
                         widget.action != null
                             ? widget.action
                             : Padding(
@@ -132,19 +114,20 @@ class _BaseActivityState extends State<BaseActivity> {
                                 child: Row(
                                   children: [
                                     Container(
-                                        width: 35,
-                                        height: 35,
-                                        margin: EdgeInsets.only(right: 20.0),
-                                        child: IconButton(
-                                          iconSize: 30.0,
-                                          icon: Icon(
-                                            Icons.pin_drop_outlined,
-                                            color: Colors.white,
-                                          ),
-                                          onPressed: () => Get.toNamed(
-                                              GET_USER_LOCATION_SCREEN,
-                                              arguments: true),
-                                        )),
+                                      width: 35,
+                                      height: 35,
+                                      margin: EdgeInsets.only(right: 20.0),
+                                      child: IconButton(
+                                        iconSize: 30.0,
+                                        icon: Icon(
+                                          Icons.pin_drop_outlined,
+                                          color: Colors.white,
+                                        ),
+                                        onPressed: () => Get.toNamed(
+                                            GET_USER_LOCATION_SCREEN,
+                                            arguments: true),
+                                      ),
+                                    ),
                                     Container(
                                       width: 35,
                                       height: 35,

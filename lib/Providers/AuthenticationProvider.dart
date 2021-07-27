@@ -1,11 +1,10 @@
-import 'dart:async';
 import 'package:country_pickers/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 
 class AuthenticationProvider with ChangeNotifier {
-  bool Loading = true;
+  bool loading = true;
   bool userSignedUp = false;
   TextEditingController name = TextEditingController();
   TextEditingController email = TextEditingController();
@@ -16,7 +15,7 @@ class AuthenticationProvider with ChangeNotifier {
   TextEditingController city = TextEditingController();
   TextEditingController state = TextEditingController();
   TextEditingController pinCode = TextEditingController();
-  String countryCode = AppConstant.Default_Phone_Code;
+  String countryCode = AppConstant.defaultPhoneCode;
 
   String error;
 
@@ -39,7 +38,7 @@ class AuthenticationProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> back() {
+  back() {
     if (controller.page > 0) {
       controller.animateToPage(controller.page.toInt() - 1,
           duration: Duration(milliseconds: 500), curve: Curves.easeIn);
@@ -49,7 +48,7 @@ class AuthenticationProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int onPageChange(int index) {
+  onPageChange(int index) {
     pageIndex = index;
     notifyListeners();
   }
@@ -64,13 +63,4 @@ class AuthenticationProvider with ChangeNotifier {
 
     notifyListeners();
   }
-
-  /* Future getData() async {
-    Loading = true;
-    notifyListeners();
-    await Api_Client.Request(context,
-        url: URL.Get_Restaurant, onSuccess: (data) {}, onError: (data) {});
-    Loading = false;
-    notifyListeners();
-  }*/
 }

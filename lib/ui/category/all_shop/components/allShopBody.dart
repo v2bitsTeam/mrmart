@@ -1,15 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Language/Language.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Language/Language.dart';
 import 'dart:ui';
-import 'package:MrMart/Widgets/GridAnimation.dart';
 
 Language language = Language();
 
@@ -28,8 +25,6 @@ class _AllShopBodyState extends State<AllShopBody> {
         children: [
           Positioned.fill(
             child: ListView(
-              /*padding: EdgeInsets.only(
-                  top: invisibleHeight + Dimension.Size_100 + Dimension.Size_30),*/
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -56,8 +51,8 @@ class _AllShopBodyState extends State<AllShopBody> {
 
   Widget allCategory() {
     return Container(
-      height: Dimension.Size_70,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      height: Dimension.size70,
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: ListView(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -76,31 +71,32 @@ class _AllShopBodyState extends State<AllShopBody> {
     return Column(
       children: [
         Container(
-          height: Dimension.Size_50,
+          height: Dimension.size50,
           margin: EdgeInsets.only(
-              left: Dimension.Size_10,
-              right: category.length - 1 == index ? Dimension.Size_10 : 0),
+            left: Dimension.size10,
+            right: category.length - 1 == index ? Dimension.size10 : 0,
+          ),
           alignment: Alignment.center,
-          padding: EdgeInsets.only(
-              left: Dimension.Size_30, right: Dimension.Size_30),
+          padding:
+              EdgeInsets.only(left: Dimension.size30, right: Dimension.size30),
           decoration: BoxDecoration(
             color: color,
-            borderRadius: BorderRadius.circular(Dimension.Size_24),
+            borderRadius: BorderRadius.circular(Dimension.size24),
             boxShadow: [
               BoxShadow(
                 color: color.withOpacity(0.5),
-                blurRadius: Dimension.Size_10,
-                offset:
-                    Offset(0, Dimension.Size_5), // changes position of shadow
+                blurRadius: Dimension.size10,
+                offset: Offset(0, Dimension.size5),
               ),
             ],
           ),
           child: Text(
             e,
             style: TextStyle(
-                fontSize: Dimension.Text_Size,
-                fontWeight: Dimension.textMedium,
-                color: Themes.White),
+              fontSize: Dimension.textSize,
+              fontWeight: Dimension.textMedium,
+              color: Themes.white,
+            ),
           ),
         ),
       ],
@@ -119,23 +115,21 @@ class _AllShopBodyState extends State<AllShopBody> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[2].color,
                       ),
                       child: Row(
@@ -143,8 +137,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[2].image,
                               width: 120,
@@ -163,20 +155,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[2].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[2].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -190,13 +174,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[2].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[2].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -213,10 +197,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[2].rating} (${TrendingShop.trendingShops[2].totalRating})',
@@ -240,23 +224,21 @@ class _AllShopBodyState extends State<AllShopBody> {
                 width: 0,
               ),
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[3].color,
                       ),
                       child: Row(
@@ -264,8 +246,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[3].image,
                               width: 120,
@@ -284,20 +264,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[index].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[index].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -311,13 +283,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[index].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[index].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -334,10 +306,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[index].rating} (${TrendingShop.trendingShops[index].totalRating})',
@@ -369,24 +341,21 @@ class _AllShopBodyState extends State<AllShopBody> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
-                //width: 160,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[index].color,
                       ),
                       child: Row(
@@ -394,8 +363,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[index].image,
                               width: 120,
@@ -414,20 +381,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[index].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[index].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -441,13 +400,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[index].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[index].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -464,10 +423,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[index].rating} (${TrendingShop.trendingShops[index].totalRating})',
@@ -491,24 +450,22 @@ class _AllShopBodyState extends State<AllShopBody> {
                 width: 0,
               ),
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 //width: 160,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[1].color,
                       ),
                       child: Row(
@@ -516,8 +473,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[1].image,
                               width: 120,
@@ -536,20 +491,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[1].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[1].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -563,13 +510,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[1].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[1].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -586,10 +533,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[1].rating} (${TrendingShop.trendingShops[1].totalRating})',
@@ -621,23 +568,21 @@ class _AllShopBodyState extends State<AllShopBody> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[3].color,
                       ),
                       child: Row(
@@ -645,8 +590,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[index].image,
                               width: 120,
@@ -665,20 +608,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[index].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[index].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -692,13 +627,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[index].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[index].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -715,10 +650,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[index].rating} (${TrendingShop.trendingShops[index].totalRating})',
@@ -742,23 +677,21 @@ class _AllShopBodyState extends State<AllShopBody> {
                 width: 0,
               ),
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[index].color,
                       ),
                       child: Row(
@@ -766,8 +699,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[index].image,
                               width: 120,
@@ -786,20 +717,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[index].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[index].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -813,13 +736,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[index].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[index].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -836,10 +759,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[index].rating} (${TrendingShop.trendingShops[index].totalRating})',
@@ -871,23 +794,21 @@ class _AllShopBodyState extends State<AllShopBody> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[1].color,
                       ),
                       child: Row(
@@ -895,8 +816,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[1].image,
                               width: 120,
@@ -915,20 +834,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[1].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[1].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -942,13 +853,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[1].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[1].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -965,10 +876,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[1].rating} (${TrendingShop.trendingShops[1].totalRating})',
@@ -992,23 +903,21 @@ class _AllShopBodyState extends State<AllShopBody> {
                 width: 0,
               ),
               Container(
-                //padding: EdgeInsets.only(left: Dimension.Size_10,right: TrendingShop.trendingShops.length-1==index ? Dimension.Size_10 : 0),
                 width: Get.width * 0.44,
                 decoration: BoxDecoration(
-                  //color: provider.trendingShop[index].color,
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimension.Size_5),
+                  borderRadius: BorderRadius.circular(Dimension.size5),
                   boxShadow: Themes.defaultShadow,
                 ),
-                //clipBehavior: Clip.antiAlias,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(Dimension.Size_5),
-                            topLeft: Radius.circular(Dimension.Size_5)),
+                          topRight: Radius.circular(Dimension.size5),
+                          topLeft: Radius.circular(Dimension.size5),
+                        ),
                         color: TrendingShop.trendingShops[2].color,
                       ),
                       child: Row(
@@ -1016,8 +925,6 @@ class _AllShopBodyState extends State<AllShopBody> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            //padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                            //color: provider.trendingShop[index].color,
                             child: Image.asset(
                               TrendingShop.trendingShops[0].image,
                               width: 120,
@@ -1036,20 +943,12 @@ class _AllShopBodyState extends State<AllShopBody> {
                             TrendingShop.trendingShops[index].name,
                             style: Theme.of(context).textTheme.headline1,
                           ),
-/*
-                    Flexible (
-                      child: Text(
-                        TrendingShop.trendingShops[index].details,
-                        style: Theme.of(context).textTheme.bodyText2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),*/
                           Text(
                             TrendingShop.trendingShops[2].details,
                             style: Theme.of(context).textTheme.bodyText2,
                           ),
                           SizedBox(
-                            height: Dimension.Size_3,
+                            height: Dimension.size3,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -1063,13 +962,13 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/distance.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_4,
+                                      width: Dimension.size4,
                                     ),
                                     Text(
-                                      '${TrendingShop.trendingShops[2].distance} ${language.Km_Away}',
+                                      '${TrendingShop.trendingShops[2].distance} ${language.kmAway}',
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyText2
@@ -1086,10 +985,10 @@ class _AllShopBodyState extends State<AllShopBody> {
                                   children: [
                                     SvgPicture.asset(
                                       'assets/icons/rating.svg',
-                                      height: Dimension.Size_12,
+                                      height: Dimension.size12,
                                     ),
                                     SizedBox(
-                                      width: Dimension.Size_5,
+                                      width: Dimension.size5,
                                     ),
                                     Text(
                                       '${TrendingShop.trendingShops[1].rating} (${TrendingShop.trendingShops[1].totalRating})',
@@ -1126,14 +1025,15 @@ class TrendingShop {
   double rating;
   Color color;
 
-  TrendingShop(
-      {this.image,
-      this.name,
-      this.details,
-      this.distance,
-      this.totalRating,
-      this.rating,
-      this.color});
+  TrendingShop({
+    this.image,
+    this.name,
+    this.details,
+    this.distance,
+    this.totalRating,
+    this.rating,
+    this.color,
+  });
 
   static List<TrendingShop> trendingShops = [
     TrendingShop(

@@ -1,12 +1,10 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/Class/Recommended.dart';
-import 'package:MrMart/Class/TodayDeal.dart';
-import 'package:MrMart/Class/TrendingShop.dart';
+import 'package:mr_mart/Class/Recommended.dart';
+import 'package:mr_mart/Class/TodayDeal.dart';
+import 'package:mr_mart/Class/TrendingShop.dart';
 
 class HomePageProvider with ChangeNotifier {
-  bool Loading = true;
+  bool loading = true;
   List<TodayDeal> todayDeal = TodayDeal.todaydeals;
   List<Recommended> recommended = Recommended.recommendeds;
   List<TrendingShop> trendingShop = TrendingShop.trendingShops;

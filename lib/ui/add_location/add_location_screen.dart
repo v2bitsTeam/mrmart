@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/ui/checkout/cart_summary/cart_summary_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/cart/cart_screen.dart';
-import 'package:MrMart/ui/notification/notification_screen.dart';
-import 'package:MrMart/ui/add_location/components/list_location.dart'
+import 'package:mr_mart/ui/cart/cart_screen.dart';
+import 'package:mr_mart/ui/notification/notification_screen.dart';
+import 'package:mr_mart/ui/add_location/components/list_location.dart'
     as list_data;
 
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 class AddLocationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: kBackgroundColor,
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
         title: Text("Add Location"),
@@ -57,12 +54,6 @@ class AddLocationScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              /*Container(
-                child: Image.asset(
-                  'assets/images/checkout/checkout_header_image.png',
-                  fit: BoxFit.fill,
-                ),
-              ),*/
               SizedBox(
                 height: 0,
               ),
@@ -78,8 +69,10 @@ class AddLocationScreen extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 16),
-                child: Text('Delivery Location',
-                    style: Theme.of(context).textTheme.headline1),
+                child: Text(
+                  'Delivery Location',
+                  style: Theme.of(context).textTheme.headline1,
+                ),
               ),
               list_data.getListView(),
             ],
@@ -87,60 +80,3 @@ class AddLocationScreen extends StatelessWidget {
     );
   }
 }
-
-/*
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomDrawer(
-      body: BaseActivity(
-        title: language.Main_Page_Tab[provider.selectedTab],
-        automaticLeading: false,
-        body: mainView(),
-        bottomNavigationBar: Container(
-          padding: EdgeInsets.all(Dimension.Size_10),
-          decoration: BoxDecoration(
-            color: Themes.White,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(Dimension.Padding),
-                topLeft: Radius.circular(Dimension.Padding)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                blurRadius: Dimension.Size_30,
-                offset: Offset(
-                    0, Dimension.Padding), // changes position of shadow
-              ),
-            ],
-          ),
-          child: BottomTab(
-            currentIndex: provider.selectedTab,
-            onTap: provider.handleIndexChanged,
-            items: language.Main_Page_Tab.asMap()
-                .map((index, value) => MapEntry(
-                index,
-                BottomTabItem(
-                  icon: SvgPicture.asset(
-                    'assets/icons/home-tab$index.svg',
-                    color: Themes.Primary,
-                    height: Dimension.Size_24,
-                  ),
-                  title: Text(
-                    value,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline1
-                        .copyWith(color: Themes.Primary),
-                  ),
-                  selectedColor: Themes.Primary,
-                )))
-                .values
-                .toList(),
-          ),
-        ),
-      ),
-      drawer: buildDrawerNav(),
-    );
-  }
-}
-*/

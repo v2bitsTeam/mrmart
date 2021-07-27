@@ -1,31 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 
-Widget DialogButton(
+Widget dialogButton(
     {String negativeButton, String positiveButton, Function onTap}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.end,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      FlatButton(
+      TextButton(
         child: Text(
           negativeButton,
           style: TextStyle(
-              color: Themes.Primary,
-              fontSize: Dimension.Text_Size_Small,
-              fontWeight: Dimension.textBold),
+            color: Themes.primary,
+            fontSize: Dimension.textSizeSmall,
+            fontWeight: Dimension.textBold,
+          ),
         ),
         onPressed: () => onTap(false),
       ),
-      FlatButton(
+      TextButton(
         child: Text(
           positiveButton,
           style: TextStyle(
-              color: Themes.Green,
-              fontSize: Dimension.Text_Size_Small,
-              fontWeight: Dimension.textBold),
+            color: Themes.green,
+            fontSize: Dimension.textSizeSmall,
+            fontWeight: Dimension.textBold,
+          ),
         ),
         onPressed: () => onTap(true),
       ),

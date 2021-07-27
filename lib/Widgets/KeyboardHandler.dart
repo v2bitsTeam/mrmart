@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:keyboard_actions/keyboard_actions.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/main.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/main.dart';
 
 class KeyboardHandler extends StatelessWidget {
-  Widget child;
-  KeyboardActionsConfig config;
+  final Widget child;
+  final KeyboardActionsConfig config;
 
   KeyboardHandler({this.child, this.config});
 
   @override
   Widget build(BuildContext context) {
     return KeyboardActions(
-      tapOutsideToDismiss: false,
+      tapOutsideBehavior: TapOutsideBehavior.none,
       autoScroll: false,
-      //enable: false,
       overscroll: 0,
       config: config,
       child: child,
@@ -35,18 +33,19 @@ class CustomActions extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Themes.White,
+      color: Themes.white,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FlatButton(
+          TextButton(
             onPressed: () => node.unfocus(),
             child: Text(
-              language.Done,
+              language.done,
               style: TextStyle(
-                  color: Themes.Primary,
-                  fontSize: Dimension.Text_Size,
-                  fontWeight: Dimension.textMedium),
+                color: Themes.primary,
+                fontSize: Dimension.textSize,
+                fontWeight: Dimension.textMedium,
+              ),
             ),
           )
         ],
@@ -58,7 +57,7 @@ class CustomActions extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => Size.fromHeight(40);
 }
 
-KeyboardActionsItem TextFieldAction({FocusNode focusNode}) {
+KeyboardActionsItem textFieldAction({FocusNode focusNode}) {
   return KeyboardActionsItem(
     focusNode: focusNode,
     displayArrows: false, //for next and back button

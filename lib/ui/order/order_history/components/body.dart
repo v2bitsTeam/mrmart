@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:shape_of_view/shape_of_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
                 borderWidth: 0, //optional
               ),
               child: Container(
-                color: Themes.BG3,
+                color: Themes.bG3,
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: SvgPicture.asset('assets/icons/notification2.svg',
@@ -53,9 +53,7 @@ class _BodyState extends State<Body> {
               Icons.arrow_forward_ios_sharp,
               size: 14,
             ),
-            onTap: () {
-              Get.toNamed(RECIPIENTS_DETAILS_SCREEN);
-            },
+            onTap: () => Get.toNamed(RECIPIENTS_DETAILS_SCREEN),
           ),
           Divider(
             color: kDividerLine,
@@ -78,7 +76,7 @@ class _BodyState extends State<Body> {
                 borderWidth: 0, //optional
               ),
               child: Container(
-                color: Themes.BG3,
+                color: Themes.bG3,
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: SvgPicture.asset('assets/icons/notification.svg',
@@ -90,9 +88,7 @@ class _BodyState extends State<Body> {
               Icons.arrow_forward_ios_sharp,
               size: 14,
             ),
-            onTap: () {
-              Get.toNamed(MY_VOUCHER_SCREEN);
-            },
+            onTap: () => Get.toNamed(MY_VOUCHER_SCREEN),
           ),
           Divider(
             color: kDividerLine,
@@ -114,7 +110,7 @@ class _BodyState extends State<Body> {
                 borderWidth: 0, //optional
               ),
               child: Container(
-                color: Themes.BG3,
+                color: Themes.bG3,
                 child: Icon(
                   Icons.notifications_outlined,
                   size: 14,
@@ -130,7 +126,7 @@ class _BodyState extends State<Body> {
                 borderWidth: 0, //optional
               ),
               child: Container(
-                color: Themes.BG3,
+                color: Themes.bG3,
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: SvgPicture.asset('assets/icons/language.svg',
@@ -138,9 +134,7 @@ class _BodyState extends State<Body> {
                 ),
               ),
             ),
-            onTap: () {
-              Get.toNamed(FOLLOWED_SHOP_SCREEN);
-            },
+            onTap: () => Get.toNamed(FOLLOWED_SHOP_SCREEN),
           ),
           Divider(
             color: kDividerLine,
@@ -162,7 +156,7 @@ class _BodyState extends State<Body> {
                 borderWidth: 0, //optional
               ),
               child: Container(
-                color: Themes.BG3,
+                color: Themes.bG3,
                 child: Padding(
                   padding: EdgeInsets.all(10.0),
                   child: SvgPicture.asset('assets/icons/currency.svg',
@@ -175,9 +169,7 @@ class _BodyState extends State<Body> {
               color: Colors.purple,
               size: 20,
             ),
-            onTap: () {
-              Get.toNamed(CHANGE_PASSWORD_SCREEN);
-            },
+            onTap: () => Get.toNamed(CHANGE_PASSWORD_SCREEN),
           ),
         ],
       ),

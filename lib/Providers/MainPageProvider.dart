@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MainPageProvider with ChangeNotifier {
-  bool Loading = true;
+  bool loading = true;
   int selectedTab = 0;
 
   TabController tabController;
@@ -23,13 +20,4 @@ class MainPageProvider with ChangeNotifier {
     selectedTab = i;
     notifyListeners();
   }
-
-  /* Future getData() async {
-    Loading = true;
-    notifyListeners();
-    await Api_Client.Request(context,
-        url: URL.Get_Restaurant, onSuccess: (data) {}, onError: (data) {});
-    Loading = false;
-    notifyListeners();
-  }*/
 }

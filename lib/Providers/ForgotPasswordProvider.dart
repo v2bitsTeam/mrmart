@@ -1,14 +1,12 @@
-import 'dart:async';
-
 import 'package:country_pickers/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 
 class ForgotPasswordProvider with ChangeNotifier {
-  bool Loading = true;
-  String countryCode = AppConstant.Default_Phone_Code;
+  bool loading = true;
+  String countryCode = AppConstant.defaultPhoneCode;
 
   PageController controller = PageController(initialPage: 0);
   int pageIndex = 0;
@@ -26,7 +24,7 @@ class ForgotPasswordProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> back() {
+  back() {
     if (controller.page > 0) {
       controller.animateToPage(controller.page.toInt() - 1,
           duration: Duration(milliseconds: 500), curve: Curves.easeIn);
@@ -36,7 +34,7 @@ class ForgotPasswordProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int onPageChange(int index) {
+  onPageChange(int index) {
     pageIndex = index;
     notifyListeners();
   }
@@ -50,13 +48,4 @@ class ForgotPasswordProvider with ChangeNotifier {
       Get.toNamed(AUTHENTICATION);
     }
   }
-
-  /* Future getData() async {
-    Loading = true;
-    notifyListeners();
-    await Api_Client.Request(context,
-        url: URL.Get_Restaurant, onSuccess: (data) {}, onError: (data) {});
-    Loading = false;
-    notifyListeners();
-  }*/
 }

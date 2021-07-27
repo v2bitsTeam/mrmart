@@ -1,28 +1,19 @@
-import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
-import 'package:MrMart/Widgets/CustomBanner.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
+import 'package:mr_mart/Widgets/CustomBanner.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Language/Language.dart';
-import 'package:dotted_border/dotted_border.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Language/Language.dart';
 import 'package:get/get.dart';
-import 'package:flutter/services.dart';
 import 'dart:ui';
-import 'package:provider/provider.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'dart:ui';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 
 class TodaysDealBody extends StatefulWidget {
-  Language language = Language();
+  final Language language = Language();
 
   @override
   _TodaysDealBodyState createState() => _TodaysDealBodyState();
@@ -47,7 +38,6 @@ class _TodaysDealBodyState extends State<TodaysDealBody> {
           SizedBox(
             height: 15,
           ),
-          //trendingItem(),
           priceFilter(),
           SizedBox(
             height: 10,
@@ -96,10 +86,10 @@ class _TodaysDealBodyState extends State<TodaysDealBody> {
               child: Text(
                 value,
                 style: TextStyle(
-                    color: Themes.Primary,
-                    fontSize: Dimension.Text_Size_Small,
-                    fontWeight: FontWeight.normal),
-                //style: Theme.of(context).textTheme.headline4,
+                  color: Themes.primary,
+                  fontSize: Dimension.textSizeSmall,
+                  fontWeight: FontWeight.normal,
+                ),
               ),
             ),
           );
@@ -113,8 +103,8 @@ List category = ['All', 'Grocery', 'Fruit', 'Vegetables'];
 
 Widget allCategory() {
   return Container(
-    height: Dimension.Size_70,
-    margin: EdgeInsets.only(top: Dimension.Size_5),
+    height: Dimension.size70,
+    margin: EdgeInsets.only(top: Dimension.size5),
     child: ListView(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
@@ -133,30 +123,32 @@ Widget singleCategory(String e, int index) {
   return Column(
     children: [
       Container(
-        height: Dimension.Size_50,
+        height: Dimension.size50,
         margin: EdgeInsets.only(
-            left: Dimension.Size_10,
-            right: category.length - 1 == index ? Dimension.Size_10 : 0),
+          left: Dimension.size10,
+          right: category.length - 1 == index ? Dimension.size10 : 0,
+        ),
         alignment: Alignment.center,
         padding:
-            EdgeInsets.only(left: Dimension.Size_30, right: Dimension.Size_30),
+            EdgeInsets.only(left: Dimension.size30, right: Dimension.size30),
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(Dimension.Size_24),
+          borderRadius: BorderRadius.circular(Dimension.size24),
           boxShadow: [
             BoxShadow(
               color: color.withOpacity(0.5),
-              blurRadius: Dimension.Size_10,
-              offset: Offset(0, Dimension.Size_5), // changes position of shadow
+              blurRadius: Dimension.size10,
+              offset: Offset(0, Dimension.size5),
             ),
           ],
         ),
         child: Text(
           e,
           style: TextStyle(
-              fontSize: Dimension.Text_Size,
-              fontWeight: Dimension.textMedium,
-              color: Themes.White),
+            fontSize: Dimension.textSize,
+            fontWeight: Dimension.textMedium,
+            color: Themes.white,
+          ),
         ),
       ),
     ],
@@ -164,7 +156,6 @@ Widget singleCategory(String e, int index) {
 }
 
 Widget todaysDeal(BuildContext context) {
-  //double width = Get.width * 0.4;
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,16 +168,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[1].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[1].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[1].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[1].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -213,8 +204,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[1].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -222,40 +214,44 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                              color: Themes.primary2,
+                              borderRadius:
+                                  BorderRadius.circular(Dimension.size5),
+                            ),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -268,16 +264,14 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[0].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[0].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[0].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                  color: Themes.white, fontSize: Dimension.textSizeSmallExtra),
               color: TodayDeal.todaydeals[1].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -304,8 +298,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[0].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -313,40 +308,43 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
+                                color: Themes.primary2,
                                 borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                                    BorderRadius.circular(Dimension.size5)),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -364,16 +362,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[2].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[2].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[2].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[2].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -400,8 +398,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[2].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -409,40 +408,43 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
+                                color: Themes.primary2,
                                 borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                                    BorderRadius.circular(Dimension.size5)),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -455,16 +457,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[3].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[3].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[3].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[3].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -491,8 +493,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[3].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -500,40 +503,44 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                              color: Themes.primary2,
+                              borderRadius:
+                                  BorderRadius.circular(Dimension.size5),
+                            ),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -551,16 +558,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[4].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[4].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[4].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[4].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -587,8 +594,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[4].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -596,40 +604,43 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
+                                color: Themes.primary2,
                                 borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                                    BorderRadius.circular(Dimension.size5)),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -642,16 +653,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[5].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[5].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[5].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[5].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -678,8 +689,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[5].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -687,40 +699,43 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
+                                color: Themes.primary2,
                                 borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                                    BorderRadius.circular(Dimension.size5)),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -738,16 +753,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[6].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[6].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[6].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[6].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -774,8 +789,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[6].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -783,40 +799,44 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                              color: Themes.primary2,
+                              borderRadius:
+                                  BorderRadius.circular(Dimension.size5),
+                            ),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -829,16 +849,16 @@ Widget todaysDeal(BuildContext context) {
             height: Get.height * 0.28,
             decoration: BoxDecoration(
               color: TodayDeal.todaydeals[7].color.withOpacity(0.8),
-              borderRadius: BorderRadius.circular(Dimension.Size_5),
-              //boxShadow: Themes.defaultShadow,
+              borderRadius: BorderRadius.circular(Dimension.size5),
             ),
             clipBehavior: Clip.antiAlias,
             child: CustomBanner(
               message:
-                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[7].price} ${Language().Only}",
+                  "${AppConstant.currencySymbol} ${TodayDeal.todaydeals[7].price} ${Language().only}",
               textStyle: Theme.of(context).textTheme.bodyText2.copyWith(
-                  color: Themes.White,
-                  fontSize: Dimension.Text_Size_Small_Extra),
+                    color: Themes.white,
+                    fontSize: Dimension.textSizeSmallExtra,
+                  ),
               color: TodayDeal.todaydeals[7].color,
               location: CustomBannerLocation.topEnd,
               layoutDirection: TextDirection.rtl,
@@ -865,8 +885,9 @@ Widget todaysDeal(BuildContext context) {
                         Text(
                           TodayDeal.todaydeals[7].name,
                           style: Theme.of(context).textTheme.headline1.copyWith(
-                              fontWeight: Dimension.textMedium,
-                              color: Themes.White),
+                                fontWeight: Dimension.textMedium,
+                                color: Themes.white,
+                              ),
                         ),
                         InkWell(
                           onTap: () {},
@@ -874,40 +895,44 @@ Widget todaysDeal(BuildContext context) {
                             width: Get.width * 0.3,
                             alignment: Alignment.center,
                             padding: EdgeInsets.only(
-                                top: Dimension.Size_3,
-                                bottom: Dimension.Size_3),
+                              top: Dimension.size3,
+                              bottom: Dimension.size3,
+                            ),
                             decoration: BoxDecoration(
-                                color: Themes.Primary2,
-                                borderRadius:
-                                    BorderRadius.circular(Dimension.Size_5)),
+                              color: Themes.primary2,
+                              borderRadius:
+                                  BorderRadius.circular(Dimension.size5),
+                            ),
                             child: Text(
-                              Language().Add_to_cart,
+                              Language().addToCart,
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyText2
                                   .copyWith(
-                                      color: Themes.White,
-                                      fontWeight: Dimension.textMedium),
+                                    color: Themes.white,
+                                    fontWeight: Dimension.textMedium,
+                                  ),
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: Dimension.Size_5,
+                          height: Dimension.size5,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: Dimension.Size_10,
-                      right: Dimension.Size_10,
-                      child: InkWell(
-                        onTap: () {},
-                        child: SvgPicture.asset(
-                          'assets/icons/favorite-outline.svg',
-                          height: Dimension.Size_16,
-                          color: Themes.White,
-                        ),
-                      ))
+                    top: Dimension.size10,
+                    right: Dimension.size10,
+                    child: InkWell(
+                      onTap: () {},
+                      child: SvgPicture.asset(
+                        'assets/icons/favorite-outline.svg',
+                        height: Dimension.size16,
+                        color: Themes.white,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

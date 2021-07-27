@@ -1,11 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:get/get.dart';
-import 'package:MrMart/ui_components/default_button.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -17,9 +14,6 @@ class _BodyState extends State<Body> {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.width;
-
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
@@ -35,32 +29,26 @@ class _BodyState extends State<Body> {
               height: 1,
             ),
           ),
-          //TitleWithClearAllBtn(text: "Today", press: () {}),
           SizedBox(
             height: 15,
           ),
-          NoVoucherImageView(),
+          noVoucherImageView(),
         ],
       ),
     );
   }
 }
 
-Widget NoVoucherImageView() {
+Widget noVoucherImageView() {
   return ListView(
     shrinkWrap: true,
     padding: EdgeInsets.zero,
     children: [
       Card(
-        /*margin: EdgeInsets.only(
-            top: (Get.height * 0.2),
-            left: Dimension.Padding,
-            right: Dimension.Padding,
-            bottom: Dimension.Size_20),*/
-        elevation: Dimension.card_elevation,
+        elevation: Dimension.cardElevation,
         clipBehavior: Clip.antiAlias,
         child: Container(
-          padding: EdgeInsets.all(Dimension.Padding),
+          padding: EdgeInsets.all(Dimension.padding),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -69,7 +57,7 @@ Widget NoVoucherImageView() {
               ),
               Image.asset('assets/images/voucher/bg_no_voucher.png'),
               SizedBox(
-                height: Dimension.Size_10,
+                height: Dimension.size10,
               ),
               Text(
                 'There are no Items, go add \nitems now.',
@@ -80,7 +68,7 @@ Widget NoVoucherImageView() {
                 ),
               ),
               SizedBox(
-                height: Dimension.Size_10,
+                height: Dimension.size10,
               ),
             ],
           ),
@@ -89,15 +77,6 @@ Widget NoVoucherImageView() {
       SizedBox(
         height: 10,
       ),
-      // Padding(
-      //   padding: const EdgeInsets.all(4.0),
-      //   child: DefaultButton(
-      //     text: "Collect Voucher",
-      //     press: () {
-      //       Get.toNamed(MY_VOUCHER_ALL_SCREEN);
-      //     },
-      //   ),
-      // ),
     ],
   );
 }

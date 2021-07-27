@@ -1,30 +1,27 @@
-import 'dart:ffi';
-
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Widgets/DynamicSIzeWidget.dart';
-
-import '../main.dart';
+import 'package:mr_mart/Widgets/DynamicSIzeWidget.dart';
 
 class DefaultDialog extends StatefulWidget {
-  Widget child;
-  String title;
-  bool isError;
-  Alignment alignment;
-  double width;
-  bool enableCloseButton;
-  bool enableHeading;
+  final Widget child;
+  final String title;
+  final bool isError;
+  final Alignment alignment;
+  final double width;
+  final bool enableCloseButton;
+  final bool enableHeading;
 
-  DefaultDialog(
-      {@required this.child,
-      @required this.title,
-      this.isError = false,
-      this.alignment = Alignment.center,
-      this.width,
-      this.enableCloseButton = false,
-      this.enableHeading = true});
+  DefaultDialog({
+    @required this.child,
+    @required this.title,
+    this.isError = false,
+    this.alignment = Alignment.center,
+    this.width,
+    this.enableCloseButton = false,
+    this.enableHeading = true,
+  });
   @override
   _DefaultDialogState createState() =>
       _DefaultDialogState(child: child, title: title, isError: isError);
@@ -51,30 +48,30 @@ class _DefaultDialogState extends State<DefaultDialog> {
             clipBehavior: Clip.antiAlias,
             margin: EdgeInsets.all(0),
             elevation: 0,
-            color: Themes.Primary,
+            color: Themes.primary,
             child: Container(
               width: widget.width ?? Get.width * 0.9,
-              color: Themes.White,
+              color: Themes.white,
               padding: EdgeInsets.zero,
               margin: EdgeInsets.zero,
               child: ListView(
                 shrinkWrap: true,
-                //physics: NeverScrollableScrollPhysics(),
                 padding: EdgeInsets.zero,
                 children: [
                   Container(
-                    height: Dimension.Size_10,
-                    color: Themes.Primary,
+                    height: Dimension.size10,
+                    color: Themes.primary,
                     padding: EdgeInsets.zero,
                   ),
                   Visibility(
                     visible: widget.enableHeading,
                     child: Container(
                       padding: EdgeInsets.only(
-                          left: Dimension.Padding + Dimension.Size_10,
-                          right: Dimension.Size_20,
-                          top: Dimension.Padding,
-                          bottom: Dimension.Size_10),
+                        left: Dimension.padding + Dimension.size10,
+                        right: Dimension.size20,
+                        top: Dimension.padding,
+                        bottom: Dimension.size10,
+                      ),
                       child: Row(
                         children: [
                           Expanded(
@@ -92,38 +89,43 @@ class _DefaultDialogState extends State<DefaultDialog> {
                                           Theme.of(context).textTheme.headline1,
                                     )),
                                 Container(
-                                  margin:
-                                      EdgeInsets.only(top: Dimension.Size_5),
-                                  height: Dimension.Size_5,
+                                  margin: EdgeInsets.only(top: Dimension.size5),
+                                  height: Dimension.size5,
                                   width: titleWidth / 2,
                                   decoration: BoxDecoration(
-                                      color: Themes.Primary,
-                                      borderRadius: BorderRadius.circular(
-                                          Dimension.Size_5)),
+                                    color: Themes.primary,
+                                    borderRadius: BorderRadius.circular(
+                                      Dimension.size5,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
                           Visibility(
-                              visible: widget.enableCloseButton,
-                              child: GestureDetector(
-                                onTap: () => Get.back(),
-                                child: Container(
-                                  height: Dimension.Size_30,
-                                  width: Dimension.Size_30,
-                                  decoration: BoxDecoration(
-                                      color: Themes.White,
-                                      borderRadius: BorderRadius.circular(
-                                          Dimension.Size_8),
-                                      border: Border.all(
-                                          color: Themes.Grey, width: 1)),
-                                  child: Icon(
-                                    Icons.close,
-                                    color: Themes.Primary,
-                                    size: Dimension.Size_14,
+                            visible: widget.enableCloseButton,
+                            child: GestureDetector(
+                              onTap: () => Get.back(),
+                              child: Container(
+                                height: Dimension.size30,
+                                width: Dimension.size30,
+                                decoration: BoxDecoration(
+                                  color: Themes.white,
+                                  borderRadius:
+                                      BorderRadius.circular(Dimension.size8),
+                                  border: Border.all(
+                                    color: Themes.grey,
+                                    width: 1,
                                   ),
                                 ),
-                              ))
+                                child: Icon(
+                                  Icons.close,
+                                  color: Themes.primary,
+                                  size: Dimension.size14,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -138,63 +140,3 @@ class _DefaultDialogState extends State<DefaultDialog> {
     );
   }
 }
-/*
-class DefaultDialog extends StatelessWidget {
-
-  Widget child;
-  String title;
-  bool isError;
-
-  DefaultDialog({@required this.child,@required this.title,this.isError=false});
-
-  @override
-  Widget build(BuildContext context) {
-    return Dialog(
-      backgroundColor: Colors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-      ),
-      child: Stack(
-        overflow: Overflow.visible,
-        fit: StackFit.loose,
-        alignment: Alignment.topCenter,
-        children: <Widget>[
-            Card(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              margin: EdgeInsets.all(0),
-              elevation: 0,
-              child: ListView(
-                shrinkWrap: true,
-                padding: EdgeInsets.only(top: 30),
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: Dimension.Padding,right: Dimension.Padding,bottom: 10),
-                    child: Text(title,style: TextStyle(color: isError ? Colors.redAccent:Themes.Text_Color,fontSize: Dimension.Text_Size_Big,fontWeight: FontWeight.bold ),maxLines: 1,overflow: TextOverflow.ellipsis,),
-                  ),
-                  child
-                ],
-              ),
-            ),
-          Positioned(
-            top: -30,
-            child: Container(
-              height: 60,
-              width: 60,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                border: Border.all(width: 2,color: Themes.Primary)
-              ),
-              child: Image.asset('assets/images/logo_transparent.png',height: 40,width: 40),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-*/

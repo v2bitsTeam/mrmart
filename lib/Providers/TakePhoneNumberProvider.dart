@@ -1,14 +1,11 @@
-import 'dart:async';
-
 import 'package:country_pickers/country.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
 
 class TakePhoneNumberProvider with ChangeNotifier {
-  bool Loading = true;
-  String countryCode = AppConstant.Default_Phone_Code;
+  String countryCode = AppConstant.defaultPhoneCode;
 
   PageController controller = PageController(initialPage: 0);
   int pageIndex = 0;
@@ -23,7 +20,7 @@ class TakePhoneNumberProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> back() {
+  void back() {
     if (controller.page > 0) {
       controller.animateToPage(controller.page.toInt() - 1,
           duration: Duration(milliseconds: 500), curve: Curves.easeIn);
@@ -33,7 +30,7 @@ class TakePhoneNumberProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  int onPageChange(int index) {
+  void onPageChange(int index) {
     pageIndex = index;
     notifyListeners();
   }
@@ -46,13 +43,4 @@ class TakePhoneNumberProvider with ChangeNotifier {
     } else
       Get.toNamed(AUTHENTICATION);
   }
-
-  /* Future getData() async {
-    Loading = true;
-    notifyListeners();
-    await Api_Client.Request(context,
-        url: URL.Get_Restaurant, onSuccess: (data) {}, onError: (data) {});
-    Loading = false;
-    notifyListeners();
-  }*/
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/ui/order/order_track/components/list_feedback_data.dart'
+import 'package:mr_mart/ui/order/order_track/components/list_feedback_data.dart'
     as list_feedback_data;
 
 class CustomDialogReview extends StatelessWidget {
@@ -27,16 +27,17 @@ class CustomDialogReview extends StatelessWidget {
             ),
             margin: EdgeInsets.only(top: 13.0, right: 8.0),
             decoration: BoxDecoration(
-                color: kBackgroundColor,
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.circular(3.0),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                    color: Colors.black26,
-                    blurRadius: 0.0,
-                    offset: Offset(0.0, 0.0),
-                  ),
-                ]),
+              color: kBackgroundColor,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(3.0),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 0.0,
+                  offset: Offset(0.0, 0.0),
+                ),
+              ],
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -54,25 +55,6 @@ class CustomDialogReview extends StatelessWidget {
                   padding: const EdgeInsets.all(2),
                   child: list_feedback_data.getFeedBackListView(),
                 ),
-                /*InkWell(
-                  child: Container(
-                    padding: EdgeInsets.only(top: 15.0, bottom: 15.0),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(16.0),
-                          bottomRight: Radius.circular(16.0)),
-                    ),
-                    child: Text(
-                      "OK",
-                      style: TextStyle(color: Colors.blue, fontSize: 25.0),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                )*/
               ],
             ),
           ),

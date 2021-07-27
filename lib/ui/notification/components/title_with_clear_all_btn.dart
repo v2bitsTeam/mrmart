@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/app_components/constants.dart';
 
 class TitleWithClearAllBtn extends StatelessWidget {
   const TitleWithClearAllBtn({
@@ -16,16 +16,17 @@ class TitleWithClearAllBtn extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Row(
         children: <Widget>[
-          //TitleWithCustomUnderline(text: title),
           Text(
             text,
             style: TextStyle(
                 fontSize: kDefaultFontSize, fontWeight: FontWeight.bold),
           ),
           Spacer(),
-          FlatButton(
+          TextButton(
             onPressed: press,
-            padding: EdgeInsets.all(0),
+            style: TextButton.styleFrom(
+              padding: EdgeInsets.all(0),
+            ),
             child: Text(
               "Clear All",
               textDirection: TextDirection.rtl,
@@ -37,27 +38,3 @@ class TitleWithClearAllBtn extends StatelessWidget {
     );
   }
 }
-
-/*class TitleWithCustomUnderline extends StatelessWidget {
-  const TitleWithCustomUnderline({
-    Key key,
-    this.text,
-  }) : super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 24,
-      child: Stack(
-        children: <Widget>[
-          Text(
-            text,
-            style: TextStyle(fontSize: kDefaultFontSize, fontWeight: FontWeight.bold),
-          ),
-        ],
-      ),
-    );
-  }
-}*/

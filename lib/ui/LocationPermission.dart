@@ -1,21 +1,13 @@
-import 'dart:async';
 import 'dart:ui';
-
-import 'package:cached_network_image/cached_network_image.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Packege/Loading_Button/Loading_Button.dart';
-import 'package:MrMart/Providers/LocationPermissionProvider.dart';
-import 'package:MrMart/Providers/SplashProvider.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/DefaultAppbar.dart';
-import 'package:MrMart/Widgets/TopShape.dart';
-
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Packege/Loading_Button/Loading_Button.dart';
+import 'package:mr_mart/Providers/LocationPermissionProvider.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
 import 'package:provider/provider.dart';
 
 import '../main.dart';
@@ -34,7 +26,6 @@ class _LocationPermissionState extends State<LocationPermission>
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -46,7 +37,7 @@ class _LocationPermissionState extends State<LocationPermission>
         builder: (context, model, child) {
           provider = model;
           return BaseActivity(
-            title: language.Location_Permission,
+            title: language.locationPermission,
             body: mainView(),
           );
         },
@@ -69,9 +60,9 @@ class _LocationPermissionState extends State<LocationPermission>
                   height: Get.height * 0.2,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(Dimension.Size_30),
+                  padding: EdgeInsets.all(Dimension.size30),
                   child: Text(
-                    language.Location_Permission_Message,
+                    language.locationPermissionMessage,
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.center,
                   ),
@@ -80,21 +71,21 @@ class _LocationPermissionState extends State<LocationPermission>
             ),
           ),
           Positioned(
-            bottom: Dimension.Size_20,
+            bottom: Dimension.size20,
             child: LoadingButton(
               isLoading: false,
               onPressed: () {
                 Get.toNamed(SEARCH_LOCATION);
               },
               child: Container(
-                  width: Get.width - (Dimension.Padding * 6),
+                  width: Get.width - (Dimension.padding * 6),
                   alignment: Alignment.center,
-                  padding: EdgeInsets.all(Dimension.Size_20)
+                  padding: EdgeInsets.all(Dimension.size20)
                       .copyWith(top: 0, bottom: 0),
                   child: Text(
-                    language.Continue,
+                    language.continueWord,
                     style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Themes.White, fontSize: Dimension.Size_20),
+                        color: Themes.white, fontSize: Dimension.size20),
                   )),
             ),
           )

@@ -1,12 +1,9 @@
 import 'dart:ui' show lerpDouble;
-
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'navigation_bar_item.dart';
 
-// ignore: must_be_immutable
 class CustomTabView extends StatefulWidget {
   final bool reverse;
   final Curve curve;
@@ -15,28 +12,25 @@ class CustomTabView extends StatefulWidget {
   final Color inactiveStripColor;
   final Color indicatorColor;
   final bool enableShadow;
-  int currentIndex;
   final ValueChanged<int> onTap;
   final List<TabViewItem> items;
-  double fontSize=10;
+  final double fontSize;
 
-  CustomTabView({
-    Key key,
-    this.reverse = false,
-    this.curve = Curves.linear,
-    @required this.onTap,
-    @required this.items,
-    this.activeColor,
-    this.inactiveColor,
-    this.inactiveStripColor,
-    this.indicatorColor,
-    this.enableShadow = true,
-    this.currentIndex = 0,
-    this.fontSize=10
-  })  : assert(items != null),
+  CustomTabView(
+      {Key key,
+      this.reverse = false,
+      this.curve = Curves.linear,
+      @required this.onTap,
+      @required this.items,
+      this.activeColor,
+      this.inactiveColor,
+      this.inactiveStripColor,
+      this.indicatorColor,
+      this.enableShadow = true,
+      this.fontSize = 10})
+      : assert(items != null),
         assert(items.length >= 2 && items.length <= 5),
         assert(onTap != null),
-        assert(currentIndex != null),
         assert(enableShadow != null),
         super(key: key);
 
@@ -48,6 +42,7 @@ class _CustomTabViewState extends State<CustomTabView> {
   static const double BAR_HEIGHT = 60;
   static const double INDICATOR_HEIGHT = 2;
 
+  int currentIndex = 0;
   bool get reverse => widget.reverse;
 
   Curve get curve => widget.curve;
@@ -83,17 +78,22 @@ class _CustomTabViewState extends State<CustomTabView> {
             : null,
       ),
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.none,
         children: <Widget>[
           Positioned(
             bottom: INDICATOR_HEIGHT,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: items.asMap().map((index,item)=>MapEntry(index,
-                  GestureDetector(
-                    onTap: () => _select(index),
-                    child: _buildItemWidget(item, index == widget.currentIndex),
-                  ))).values.toList(),
+              children: items
+                  .asMap()
+                  .map((index, item) => MapEntry(
+                      index,
+                      GestureDetector(
+                        onTap: () => _select(index),
+                        child: _buildItemWidget(item, index == currentIndex),
+                      )))
+                  .values
+                  .toList(),
             ),
           ),
           Positioned(
@@ -102,11 +102,15 @@ class _CustomTabViewState extends State<CustomTabView> {
             child: Stack(
               children: [
                 Positioned(
-                    bottom:0,
-                    child: Container(height: 2,width: MediaQuery.of(context).size.width,color:Colors.grey.withAlpha(150),)
+                  bottom: 0,
+                  child: Container(
+                    height: 2,
+                    width: MediaQuery.of(context).size.width,
+                    color: Colors.grey.withAlpha(150),
+                  ),
                 ),
                 AnimatedAlign(
-                  alignment: Alignment(_getIndicatorPosition(widget.currentIndex), 0),
+                  alignment: Alignment(_getIndicatorPosition(currentIndex), 0),
                   curve: curve,
                   duration: duration,
                   child: Container(
@@ -124,26 +128,30 @@ class _CustomTabViewState extends State<CustomTabView> {
   }
 
   _select(int index) {
-    widget.currentIndex = index;
-    widget.onTap(widget.currentIndex);
+    currentIndex = index;
+    widget.onTap(currentIndex);
 
     setState(() {});
   }
 
-  Widget _buildIcon(TabViewItem item,{bool isSelected=false}) {
+  Widget _buildIcon(TabViewItem item, {bool isSelected = false}) {
     return SvgPicture.asset(
       item.icon,
-      color: isSelected==false ? widget.inactiveColor : widget.activeColor,
+      color: isSelected == false ? widget.inactiveColor : widget.activeColor,
       height: 24,
       width: 24,
     );
   }
 
-  Widget _buildText(TabViewItem item,{bool isSelected=false}) {
+  Widget _buildText(TabViewItem item, {bool isSelected = false}) {
     return DefaultTextStyle.merge(
       child: item.title,
-      style: TextStyle(color: isSelected==false ?  widget.inactiveColor : widget.activeColor ,fontSize: widget.fontSize,fontWeight: isSelected==true ? FontWeight.bold : FontWeight.normal),
-      textAlign: TextAlign.center
+      style: TextStyle(
+        color: isSelected == false ? widget.inactiveColor : widget.activeColor,
+        fontSize: widget.fontSize,
+        fontWeight: isSelected == true ? FontWeight.bold : FontWeight.normal,
+      ),
+      textAlign: TextAlign.center,
     );
   }
 
@@ -157,10 +165,12 @@ class _CustomTabViewState extends State<CustomTabView> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            item.icon!=null ? _buildIcon(item,isSelected: isSelected) : Container(),
+            item.icon != null
+                ? _buildIcon(item, isSelected: isSelected)
+                : Container(),
             Padding(
               padding: EdgeInsets.only(top: 2),
-              child: _buildText(item,isSelected: isSelected),
+              child: _buildText(item, isSelected: isSelected),
             ),
           ],
         ),

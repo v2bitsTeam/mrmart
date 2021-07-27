@@ -1,19 +1,19 @@
 import 'dart:ui';
 import 'dart:io';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/Packege/Loading_Button/Loading_Button.dart';
-import 'package:MrMart/Providers/AuthenticationProvider.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/BackButton.dart';
-import 'package:MrMart/Widgets/DefaultTextField.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/Packege/Loading_Button/Loading_Button.dart';
+import 'package:mr_mart/Providers/AuthenticationProvider.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Widgets/BackButton.dart';
+import 'package:mr_mart/Widgets/DefaultTextField.dart';
 import 'package:image_picker/image_picker.dart';
 
 import 'package:provider/provider.dart';
@@ -75,65 +75,65 @@ class _AuthenticationState extends State<Authentication>
                     child: Column(
                       children: [
                         Expanded(
-                            child: Container(
-                          color: Themes.Primary2,
-                        )),
+                          child: Container(
+                            color: Themes.primary2,
+                          ),
+                        ),
                         Image.asset(
                           'assets/images/header.png',
                           width: Get.width,
                           fit: BoxFit.fitWidth,
-                          color: Themes.Primary2,
+                          color: Themes.primary2,
                         ),
                       ],
                     ),
                   ),
                   Positioned(
-                      top: paddingTop,
-                      width: Get.width,
-                      child: Column(
-                        children: [
-                          SizedBox(
-                            height: Dimension.Size_5,
+                    top: paddingTop,
+                    width: Get.width,
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: Dimension.size5,
+                        ),
+                        Text(
+                          provider.pageIndex == 0
+                              ? language.signInyourAccount
+                              : language.createYourAccount,
+                          style: Theme.of(context).textTheme.headline1.copyWith(
+                                color: Themes.white,
+                                fontSize: Dimension.size20,
+                                fontWeight: Dimension.textMedium,
+                              ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(
+                            left: Dimension.size32,
+                            right: Dimension.size32,
+                            top: Dimension.size20,
+                            bottom: Dimension.size20,
                           ),
-                          Text(
+                          child: Text(
                             provider.pageIndex == 0
-                                ? language.SignIn_your_account
-                                : language.Create_your_account,
+                                ? language.signIn
+                                : language.enterPhoneNumberMessage,
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1
-                                .copyWith(
-                                    color: Themes.White,
-                                    fontSize: Dimension.Size_20,
-                                    fontWeight: Dimension.textMedium),
+                                .bodyText1
+                                .copyWith(color: Themes.white),
                             textAlign: TextAlign.center,
                           ),
-                          Container(
-                            margin: EdgeInsets.only(
-                                left: Dimension.Size_32,
-                                right: Dimension.Size_32,
-                                top: Dimension.Size_20,
-                                bottom: Dimension.Size_20),
-                            child: Text(
-                              provider.pageIndex == 0
-                                  ? language.SignIn
-                                  : language.Enter_Phone_number_message,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText1
-                                  .copyWith(color: Themes.White),
-                              textAlign: TextAlign.center,
-                            ),
-                          )
-                        ],
-                      ))
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
             Positioned.fill(
               child: PageView(
                 controller: provider.controller,
-                // physics: NeverScrollableScrollPhysics(),
                 children: [
                   signInView(),
                   signUpView(),
@@ -144,12 +144,12 @@ class _AuthenticationState extends State<Authentication>
             provider.pageIndex != 0
                 ? Container()
                 : Positioned(
-                    bottom: Dimension.Size_10,
+                    bottom: Dimension.size10,
                     width: Get.width,
                     child: bottomView(),
                   ),
             provider.pageIndex != 0
-                ? DefaultBackButton(context, onTap: provider.back)
+                ? defaultBackButton(context, onTap: provider.back)
                 : Container(),
           ],
         ),
@@ -163,14 +163,15 @@ class _AuthenticationState extends State<Authentication>
       children: [
         Card(
           margin: EdgeInsets.only(
-              top: (Get.height * 0.2),
-              left: Dimension.Padding,
-              right: Dimension.Padding,
-              bottom: Dimension.Size_20),
-          elevation: Dimension.card_elevation,
+            top: (Get.height * 0.2),
+            left: Dimension.padding,
+            right: Dimension.padding,
+            bottom: Dimension.size20,
+          ),
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
-            padding: EdgeInsets.all(Dimension.Padding),
+            padding: EdgeInsets.all(Dimension.padding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -185,7 +186,7 @@ class _AuthenticationState extends State<Authentication>
                       width: 36.0,
                       height: 36.0,
                       decoration: BoxDecoration(
-                        color: Themes.Button_Color2,
+                        color: Themes.buttonColor2,
                         borderRadius: BorderRadius.circular(
                           16.0,
                         ),
@@ -202,24 +203,24 @@ class _AuthenticationState extends State<Authentication>
                     ),
                   ),
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.name,
-                  label: language.Name,
+                  label: language.name,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.email,
-                  label: "Email",
+                  label: 'Email',
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.mobile,
-                  label: language.Mobile,
+                  label: language.mobile,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.password,
-                  label: language.Password,
+                  label: language.password,
                   isRequired: true,
                   obscureText: _isHidden,
                   suffixIcon: IconButton(
@@ -235,9 +236,9 @@ class _AuthenticationState extends State<Authentication>
                     onPressed: _togglePasswordView,
                   ),
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.conPassword,
-                  label: language.Confirm_Password,
+                  label: language.confirmPassword,
                   isRequired: true,
                   obscureText: _isHidden,
                   suffixIcon: IconButton(
@@ -253,28 +254,28 @@ class _AuthenticationState extends State<Authentication>
                     onPressed: _togglePasswordView,
                   ),
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.address,
-                  label: language.Address,
+                  label: language.address,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.city,
-                  label: language.City,
+                  label: language.city,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.state,
-                  label: language.State,
+                  label: language.state,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.pinCode,
-                  label: language.PinCode,
+                  label: language.pinCode,
                   isRequired: true,
                 ),
                 SizedBox(
-                  height: Dimension.Size_40,
+                  height: Dimension.size40,
                 ),
                 bottomView(),
               ],
@@ -291,26 +292,27 @@ class _AuthenticationState extends State<Authentication>
       children: [
         Card(
           margin: EdgeInsets.only(
-              top: (Get.height * 0.2),
-              left: Dimension.Padding,
-              right: Dimension.Padding,
-              bottom: Dimension.Size_10),
-          elevation: Dimension.card_elevation,
+            top: (Get.height * 0.2),
+            left: Dimension.padding,
+            right: Dimension.padding,
+            bottom: Dimension.size10,
+          ),
+          elevation: Dimension.cardElevation,
           clipBehavior: Clip.antiAlias,
           child: Container(
-            padding: EdgeInsets.all(Dimension.Padding),
+            padding: EdgeInsets.all(Dimension.padding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.mobile,
-                  label: language.Mobile,
+                  label: language.mobile,
                   textInputType: TextInputType.phone,
                   isRequired: true,
                 ),
-                DefaultTextField(
+                defaultTextField(
                   controller: provider.password,
-                  label: language.Password,
+                  label: language.password,
                   isRequired: true,
                   obscureText: _isHidden,
                   suffixIcon: IconButton(
@@ -327,23 +329,23 @@ class _AuthenticationState extends State<Authentication>
                   ),
                 ),
                 SizedBox(
-                  height: Dimension.Size_10,
+                  height: Dimension.size10,
                 )
               ],
             ),
           ),
         ),
-        FlatButton(
-            onPressed: () {
-              Get.toNamed(FORGOT_PASSWORD);
-            },
-            child: Text(
-              language.Forgot_Password,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Themes.Grey),
-            ))
+        TextButton(
+          onPressed: () {
+            Get.toNamed(FORGOT_PASSWORD);
+          },
+          child: Text(
+            language.forgotPassword,
+            style: Theme.of(context).textTheme.bodyText1.copyWith(
+                  color: Themes.grey,
+                ),
+          ),
+        ),
       ],
     );
   }
@@ -363,44 +365,48 @@ class _AuthenticationState extends State<Authentication>
                     : signUp();
               },
               child: Container(
-                  width: Get.width - (Dimension.Padding * 6),
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.all(Dimension.Size_20)
-                      .copyWith(top: 0, bottom: 0),
-                  child: Text(
-                    provider.pageIndex == 0 ? language.SignIn : language.SignUp,
-                    style: Theme.of(context).textTheme.bodyText1.copyWith(
-                        color: Themes.White, fontSize: Dimension.Size_20),
-                  )),
+                width: Get.width - (Dimension.padding * 6),
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(Dimension.size20)
+                    .copyWith(top: 0, bottom: 0),
+                child: Text(
+                  provider.pageIndex == 0 ? language.signIn : language.signUp,
+                  style: Theme.of(context).textTheme.bodyText1.copyWith(
+                        color: Themes.white,
+                        fontSize: Dimension.size20,
+                      ),
+                ),
+              ),
             ),
           ],
         ),
         SizedBox(
-          height: Dimension.Size_10,
+          height: Dimension.size10,
         ),
         RichText(
           text: TextSpan(
             style: Theme.of(context).textTheme.bodyText1,
             text:
-                '${provider.pageIndex == 0 ? language.Dont_have_an_account : language.Already_have_and_account} ',
+                '${provider.pageIndex == 0 ? language.dontHaveAnAccount : language.alreadyHaveAndAccount} ',
             children: <TextSpan>[
               TextSpan(
-                  recognizer: TapGestureRecognizer()
-                    ..onTap = () {
-                      resetData();
-                      provider.changePage();
-                    },
-                  text: provider.pageIndex == 0
-                      ? language.SignUp
-                      : language.SignIn,
-                  style: Theme.of(context).textTheme.bodyText1.copyWith(
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    resetData();
+                    provider.changePage();
+                  },
+                text:
+                    provider.pageIndex == 0 ? language.signUp : language.signIn,
+                style: Theme.of(context).textTheme.bodyText1.copyWith(
                       fontWeight: Dimension.textBold,
-                      decoration: TextDecoration.underline))
+                      decoration: TextDecoration.underline,
+                    ),
+              ),
             ],
           ),
         ),
         SizedBox(
-          height: Dimension.Size_10,
+          height: Dimension.size10,
         ),
       ],
     );
@@ -459,10 +465,10 @@ class _AuthenticationState extends State<Authentication>
       builder: (BuildContext context) => chooseImageSource(),
     );
     if (imageSourceIsCamera != null) {
-      final pickedFile = await picker.getImage(
-          source:
-              imageSourceIsCamera ? ImageSource.camera : ImageSource.gallery,
-          preferredCameraDevice: CameraDevice.front);
+      final pickedFile = await picker.pickImage(
+        source: imageSourceIsCamera ? ImageSource.camera : ImageSource.gallery,
+        preferredCameraDevice: CameraDevice.front,
+      );
       if (pickedFile != null) {
         image = File(pickedFile.path);
       } else {

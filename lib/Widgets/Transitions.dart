@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Transitions extends StatefulWidget {
-  bool startLeft;
-  Widget child;
+  final bool startLeft;
+  final Widget child;
 
-  Transitions({this.startLeft=false, @required this.child});
+  Transitions({
+    this.startLeft = false,
+    @required this.child,
+  });
 
   @override
   _TransitionState createState() => _TransitionState();
 }
 
-class _TransitionState extends State<Transitions> with TickerProviderStateMixin{
-
+class _TransitionState extends State<Transitions>
+    with TickerProviderStateMixin {
   AnimationController pageController;
   Animation<Offset> pageAnimation;
+
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     pageController = AnimationController(
       duration: const Duration(milliseconds: 500),
@@ -26,10 +28,12 @@ class _TransitionState extends State<Transitions> with TickerProviderStateMixin{
     pageAnimation = Tween<Offset>(
       begin: Offset(widget.startLeft ? 1 : -1, 0),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: pageController,
-      curve: Curves.easeInCubic,
-    ));
+    ).animate(
+      CurvedAnimation(
+        parent: pageController,
+        curve: Curves.easeInCubic,
+      ),
+    );
   }
 
   @override

@@ -1,24 +1,22 @@
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:MrMart/Widgets/ListAnimation.dart';
-import 'package:MrMart/Widgets/SkeletonBuilder.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/Widgets/ListAnimation.dart';
+import 'package:mr_mart/Widgets/SkeletonBuilder.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:MrMart/main.dart';
 
-Widget ExpertInSkeleton({@required BuildContext context, int count = 5}) {
+Widget expertInSkeleton({@required BuildContext context, int count = 5}) {
   return ListView.builder(
     itemCount: count,
     shrinkWrap: true,
     physics: NeverScrollableScrollPhysics(),
     padding: EdgeInsets.zero,
     itemBuilder: (context, index) {
-      return ListAnimation(
+      return listAnimation(
           index: index,
-          child: SkeletonBuilder(
+          child: skeletonBuilder(
               child: Container(
-            margin: EdgeInsets.only(bottom: Dimension.Size_10),
+            margin: EdgeInsets.only(bottom: Dimension.size10),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -27,10 +25,10 @@ Widget ExpertInSkeleton({@required BuildContext context, int count = 5}) {
                 Container(
                   width: Get.width * 0.2,
                   height: Get.width * 0.2,
-                  margin: EdgeInsets.only(right: Dimension.Size_10),
+                  margin: EdgeInsets.only(right: Dimension.size10),
                   decoration: BoxDecoration(
-                      color: Themes.White,
-                      borderRadius: BorderRadius.circular(Dimension.Size_5)),
+                      color: Themes.white,
+                      borderRadius: BorderRadius.circular(Dimension.size5)),
                 ),
                 Expanded(
                   child: Column(
@@ -38,30 +36,30 @@ Widget ExpertInSkeleton({@required BuildContext context, int count = 5}) {
                     children: [
                       Container(
                         width: Get.width * 0.4,
-                        height: Dimension.Size_16,
+                        height: Dimension.size16,
                         decoration: BoxDecoration(
-                            color: Themes.White,
+                            color: Themes.white,
                             borderRadius:
-                                BorderRadius.circular(Dimension.Size_8)),
+                                BorderRadius.circular(Dimension.size8)),
                       ),
                       Container(
                         width: Get.width * 0.5,
-                        height: Dimension.Size_10,
-                        margin: EdgeInsets.only(top: Dimension.Size_10),
+                        height: Dimension.size10,
+                        margin: EdgeInsets.only(top: Dimension.size10),
                         decoration: BoxDecoration(
-                            color: Themes.White,
+                            color: Themes.white,
                             borderRadius:
-                                BorderRadius.circular(Dimension.Size_5)),
+                                BorderRadius.circular(Dimension.size5)),
                       ),
                     ],
                   ),
                 ),
                 Container(
-                  width: Dimension.Size_30,
-                  height: Dimension.Size_30,
-                  margin: EdgeInsets.only(top: Dimension.Size_5),
+                  width: Dimension.size30,
+                  height: Dimension.size30,
+                  margin: EdgeInsets.only(top: Dimension.size5),
                   decoration: BoxDecoration(
-                      border: Border.all(width: Dimension.Size_2),
+                      border: Border.all(width: Dimension.size2),
                       shape: BoxShape.circle),
                   child: Icon(Icons.keyboard_arrow_down),
                 )

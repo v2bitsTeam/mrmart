@@ -1,15 +1,15 @@
-import 'package:MrMart/AppHelper/Helper.dart';
-import 'package:MrMart/Controllers/cart_controller.dart';
-import 'package:MrMart/Controllers/products_controller.dart';
-import 'package:MrMart/Controllers/user_controller.dart';
-import 'package:MrMart/Models/products.dart';
-import 'package:MrMart/Route/Route.dart';
-import 'package:MrMart/Widgets/GridAnimation.dart';
-import 'package:MrMart/Widgets/ShowMessage.dart';
-import 'package:MrMart/app_components/AppConstant.dart';
-import 'package:MrMart/app_components/Dimension.dart';
-import 'package:MrMart/app_components/ThemesColor.dart';
-import 'package:MrMart/app_components/constants.dart';
+import 'package:mr_mart/AppHelper/Helper.dart';
+import 'package:mr_mart/Controllers/cart_controller.dart';
+import 'package:mr_mart/Controllers/products_controller.dart';
+import 'package:mr_mart/Controllers/user_controller.dart';
+import 'package:mr_mart/Models/products.dart';
+import 'package:mr_mart/Route/Route.dart';
+import 'package:mr_mart/Widgets/GridAnimation.dart';
+import 'package:mr_mart/Widgets/ShowMessage.dart';
+import 'package:mr_mart/app_components/AppConstant.dart';
+import 'package:mr_mart/app_components/Dimension.dart';
+import 'package:mr_mart/app_components/ThemesColor.dart';
+import 'package:mr_mart/app_components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,22 +42,25 @@ class _TrendingItemsState extends State<TrendingItems> {
               physics: NeverScrollableScrollPhysics(),
               itemCount: products.length,
               padding: EdgeInsets.only(
-                  left: Dimension.Size_10, right: Dimension.Size_10),
+                left: Dimension.size10,
+                right: Dimension.size10,
+              ),
               crossAxisCount: 2,
-              mainAxisSpacing: Dimension.Size_8,
-              crossAxisSpacing: Dimension.Size_8,
+              mainAxisSpacing: Dimension.size8,
+              crossAxisSpacing: Dimension.size8,
               itemBuilder: (context, index) {
                 checkIfItemIsInCart(products[index].pid);
-                return GridAnimation(
-                    column: 3,
-                    index: index,
-                    child: InkWell(
-                      onTap: () {
-                        Get.toNamed(ITEM_DETAILS_SCREEN,
-                            arguments: products[index]);
-                      },
-                      child: (trendingItem(products[index])),
-                    ));
+                return gridAnimation(
+                  column: 3,
+                  index: index,
+                  child: InkWell(
+                    onTap: () {
+                      Get.toNamed(ITEM_DETAILS_SCREEN,
+                          arguments: products[index]);
+                    },
+                    child: (trendingItem(products[index])),
+                  ),
+                );
               },
               staggeredTileBuilder: (index) => StaggeredTile.fit(1),
             )
@@ -70,10 +73,12 @@ class _TrendingItemsState extends State<TrendingItems> {
                 children: [
                   Image.asset("assets/images/voucher/bg_no_voucher.png"),
                   SizedBox(height: 20.0),
-                  Text("Sorry, No Products found.",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ))
+                  Text(
+                    "Sorry, No Products found.",
+                    style: TextStyle(
+                      fontSize: 16.0,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -83,13 +88,13 @@ class _TrendingItemsState extends State<TrendingItems> {
   Widget trendingItem(Product product) {
     return Container(
       decoration: BoxDecoration(
-        color: Themes.White,
-        borderRadius: BorderRadius.circular(Dimension.Size_5),
+        color: Themes.white,
+        borderRadius: BorderRadius.circular(Dimension.size5),
         boxShadow: Themes.defaultShadow,
       ),
       height: Get.height * 0.30,
       width: Get.width * 0.44,
-      margin: EdgeInsets.only(top: Dimension.Size_5),
+      margin: EdgeInsets.only(top: Dimension.size5),
       child: Stack(
         children: [
           Column(
@@ -98,7 +103,7 @@ class _TrendingItemsState extends State<TrendingItems> {
               Center(
                 child: product.image != "" || product.image != null
                     ? Image.network(
-                        AppConstant.MediaUrl + product.image,
+                        AppConstant.mediaUrl + product.image,
                         width: 150,
                         height: Get.height * 0.20,
                         fit: BoxFit.contain,
@@ -107,7 +112,7 @@ class _TrendingItemsState extends State<TrendingItems> {
               ),
               Divider(
                 height: 2,
-                color: Themes.Grey.withOpacity(0.1),
+                color: Themes.grey.withOpacity(0.1),
                 thickness: 2,
               ),
               Padding(
@@ -126,9 +131,10 @@ class _TrendingItemsState extends State<TrendingItems> {
                             product.name,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                color: kTextColor,
-                                fontWeight: FontWeight.normal,
-                                fontSize: Dimension.Text_Size_Small),
+                              color: kTextColor,
+                              fontWeight: FontWeight.normal,
+                              fontSize: Dimension.textSizeSmall,
+                            ),
                           ),
                         ),
                       ],
@@ -142,16 +148,18 @@ class _TrendingItemsState extends State<TrendingItems> {
                                 text:
                                     '${AppConstant.currencySymbol}${Helper.calculateDiscountedPrice(double.parse(product.price), int.parse(product.discount))}  ',
                                 style: TextStyle(
-                                    color: kTextColor,
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: Dimension.Text_Size_Small),
+                                  color: kTextColor,
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Dimension.textSizeSmall,
+                                ),
                                 children: [
                               TextSpan(
                                   style: TextStyle(
-                                      color: kSubTextColor,
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: Dimension.Text_Size_Small_Extra,
-                                      decoration: TextDecoration.lineThrough),
+                                    color: kSubTextColor,
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: Dimension.textSizeSmallExtra,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
                                   text: int.parse(product.discount) > 0
                                       ? '${AppConstant.currencySymbol}${product.price}'
                                       : '')
@@ -165,7 +173,7 @@ class _TrendingItemsState extends State<TrendingItems> {
                                         message: 'Product already in cart.'),
                                     child: SvgPicture.asset(
                                       'assets/icons/cart-fill-color.svg',
-                                      height: Dimension.Size_16,
+                                      height: Dimension.size16,
                                       color: Colors.black26,
                                     ),
                                   ),
@@ -174,7 +182,7 @@ class _TrendingItemsState extends State<TrendingItems> {
                                   onTap: () => addToCart(product.pid),
                                   child: SvgPicture.asset(
                                     'assets/icons/cart-fill-color.svg',
-                                    height: Dimension.Size_16,
+                                    height: Dimension.size16,
                                   ),
                                 ),
                         )
